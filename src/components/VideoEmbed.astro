@@ -1,0 +1,26 @@
+---
+interface Props {
+  platform: 'youtube' | 'bilibili';
+  id: string;
+  title?: string;
+}
+
+const { platform, id, title = 'Video Tutorial' } = Astro.props;
+
+let embedUrl = '';
+if (platform === 'youtube') {
+  embedUrl = `https://www.youtube-nocookie.com/embed/${id}`;
+} else if (platform === 'bilibili') {
+  embedUrl = `https://player.bilibili.com/player.html?bvid=${id}&page=1&as_wide=1&high_quality=1&danmaku=0`;
+}
+---
+
+<div class="video-responsive">
+  <iframe
+    src={embedUrl}
+    title={title}
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+    loading="lazy"
+  ></iframe>
+</div>

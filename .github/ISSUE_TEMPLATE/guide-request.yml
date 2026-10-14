@@ -1,0 +1,23 @@
+name: 📝 New Guide / Documentation Request
+description: Request a new guide or report missing documentation
+labels: ["documentation", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve OpenStick.org! Let us know what guide or documentation you would like to see.
+  - type: input
+    id: title
+    attributes:
+      label: Guide Topic
+      description: What topic or hardware board should this guide cover?
+      placeholder: e.g. "Flashing Arch Linux on UZ801"
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Context & Goals
+      description: Explain why this guide is needed and any resources/links you have.
+    validations:
+      required: true

@@ -1,0 +1,62 @@
+---
+title: Welcome to OpenStick.org
+description: Community documentation, modding guides, hardware teardowns, and projects for Qualcomm MSM8916 4G LTE USB modems & wingles.
+template: splash
+hero:
+  tagline: Turn mass-produced $5–$10 4G LTE USB dongles into powerful, quad-core Linux single-board computers running Debian, postmarketOS, or OpenWrt.
+  image:
+    file: ../../assets/logo.svg
+  actions:
+    - text: Quick Start
+      link: /getting-started/quickstart/
+      icon: right-arrow
+      variant: primary
+    - text: The Origin Story
+      link: /about/origin-story/
+      icon: open-book
+      variant: secondary
+    - text: GitHub Repository
+      link: https://github.com/Basistiy/OpenStick.org
+      icon: external
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Why OpenStick & MSM8916?
+
+<CardGrid stagger>
+  <Card title="Cortex-A53 Quad-Core Power" icon="rocket">
+    Powered by the **Qualcomm Snapdragon 410 (MSM8916)** with 4x ARM Cortex-A53 64-bit cores @ 1.2 GHz, 512 MB – 1 GB LPDDR3 RAM, and 4 GB – 8 GB onboard high-speed eMMC storage.
+  </Card>
+
+  <Card title="The $7 Pi Zero 2 W Alternative" icon="star">
+    When electronics shortages hit makers during the **2025–2026 AI boom**, standard single-board computers were scalped or backordered. MSM8916 wingles became the premier accessible Linux SBC.
+  </Card>
+
+  <Card title="Integrated 4G LTE & Wi-Fi" icon="signal">
+    Unlike bare SBCs that require expensive cellular HATs, OpenStick dongles feature an onboard 4G LTE Cat 4 baseband modem, 2.4 GHz 802.11b/g/n Wi-Fi, and Bluetooth 4.0.
+  </Card>
+
+  <Card title="Mainline Linux & OpenWrt" icon="laptop">
+    Run full Debian GNU/Linux, postmarketOS (mainline kernel), or lightweight OpenWrt to create pocket travel routers, VPN endpoints, SMS gateways, and local servers.
+  </Card>
+
+  <Card title="Self-Contained Thumb Drive" icon="seti:powershell">
+    No fragile microSD cards, no bare circuit boards, and no extra cables required. Plug straight into any 5V USB-A power supply or computer port.
+  </Card>
+
+  <Card title="100% Community Driven" icon="pencil">
+    Every single article on this website has an **"Edit this page"** button. Add your own hardware teardowns, test points, or custom builds directly via GitHub!
+  </Card>
+</CardGrid>
+
+---
+
+## Explore the Community Hub
+
+- **[The Origin Story & AI Boom Shortage](/about/origin-story/)**: How OpenStick evolved and why it saved makers during the AI chip crunch.
+- **[MSM8916 vs Raspberry Pi Zero 2 W](/about/pi-zero-2w-comparison/)**: Side-by-side technical specs, power consumption, and price-to-performance breakdown.
+- **[Device Identification](/getting-started/device-identification/)**: How to distinguish UFI001B, UFI003, Uz801, and Zhihe boards, plus eMMC vs NAND flash.
+- **[Emergency Backup Checklist](/getting-started/backup-safety/)**: Protect your device's unique IMEI and modem calibration partitions before you flash.
+- **[Community Projects Showcase](/projects/showcase/)**: Real-world setups including Telegram SMS gateways, Pi-hole DNS filters, and portable Docker servers.
+- **[Curated Video Library](/videos/library/)**: Step-by-step soldering, teardown, and flashing video walkthroughs.

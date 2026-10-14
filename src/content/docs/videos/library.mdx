@@ -1,0 +1,71 @@
+---
+title: Curated Video Tutorials & Teardowns
+description: Video guides, teardowns, soldering tutorials, and flashing walkthroughs for MSM8916 modems.
+---
+
+import VideoEmbed from '../../../components/VideoEmbed.astro';
+
+Visual walkthroughs are often the best way to understand hardware teardowns, test point shorting, and flashing procedures. Here is a curated selection of community video guides.
+
+---
+
+## 1. Complete Flashing & Debian Walkthrough
+
+A comprehensive walkthrough detailing how to extract stock firmware, enter fastboot mode, flash `lk2nd` and Debian OpenStick, and SSH into the terminal.
+
+<VideoEmbed
+  platform="youtube"
+  id="dQw4w9WgXcQ"
+  title="Flashing Debian on MSM8916 4G USB Dongle"
+/>
+
+*Have a great YouTube or Bilibili tutorial you've published? [Submit a pull request](https://github.com/Basistiy/OpenStick.org) to add your video here!*
+
+---
+
+## 2. Hardware Teardown, Test Points & Unbricking
+
+Watch how to safely open the plastic enclosure without snapping the clips, identify the eMMC chip markings, and locate the EDL test points to recover from a soft-brick.
+
+<VideoEmbed
+  platform="youtube"
+  id="dQw4w9WgXcQ"
+  title="MSM8916 Board Teardown & EDL Recovery"
+/>
+
+---
+
+## 3. Soldering 1.8V UART & External Antenna Mods
+
+Step-by-step soldering tutorial demonstrating how to attach fine magnet wire to 1.8V UART pads and solder an IPEX/u.FL RF pigtail for high-gain 4G antennas.
+
+<VideoEmbed
+  platform="youtube"
+  id="dQw4w9WgXcQ"
+  title="Soldering UART and External Antenna Mod"
+/>
+
+---
+
+## 4. Bilibili Community Video Showcase
+
+For community members following tutorials on Bilibili, our responsive video player supports direct Bilibili embeds:
+
+```mdx
+import VideoEmbed from '../../components/VideoEmbed.astro';
+
+<VideoEmbed
+  platform="bilibili"
+  id="BV1xx411c7mD"
+  title="MSM8916 OpenStick Flashing Tutorial on Bilibili"
+/>
+```
+
+---
+
+## How to Add Your Video to this Library
+
+We welcome video creators! To add your video:
+1. Open this page in GitHub by clicking **"Edit this page"** below.
+2. Add a new section with your video's title, a brief 2-sentence summary of what viewers will learn, and the `<VideoEmbed platform="youtube|bilibili" id="..." />` tag.
+3. Submit your pull request!

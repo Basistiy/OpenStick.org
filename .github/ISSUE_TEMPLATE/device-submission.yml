@@ -1,0 +1,36 @@
+name: 🔌 New Board / Revision Submission
+description: Submit hardware photos, test points, or specs for a newly discovered MSM8916 board
+labels: ["hardware", "device-matrix"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Found a new board variant or revision? Help us add it to the Board Gallery!
+  - type: input
+    id: board_name
+    attributes:
+      label: Board Silkscreen / Marking
+      description: What is printed on the PCB?
+      placeholder: e.g. "UFI003_MB_V03"
+    validations:
+      required: true
+  - type: dropdown
+    id: flash_type
+    attributes:
+      label: Flash Type
+      options:
+        - eMMC (BGA square chip)
+        - NAND (Pins on side / SOP-8)
+        - Unknown
+    validations:
+      required: true
+  - type: textarea
+    id: specs
+    attributes:
+      label: Specifications & Chips
+      description: SoC marking, RAM size, Wi-Fi chip model, etc.
+  - type: textarea
+    id: test_points
+    attributes:
+      label: Test Points / Recovery Notes
+      description: Where are the EDL or UART test points located?

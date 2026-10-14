@@ -1,0 +1,44 @@
+:root {
+  --sl-color-accent-low: #082f49;
+  --sl-color-accent: #0284c7;
+  --sl-color-accent-high: #bae6fd;
+}
+
+:root[data-theme='light'] {
+  --sl-color-accent-low: #e0f2fe;
+  --sl-color-accent: #0284c7;
+  --sl-color-accent-high: #0369a1;
+}
+
+/* Custom badges and responsive video container */
+.video-responsive {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  background-color: #0f172a;
+  border: 1px solid var(--sl-color-gray-5);
+}
+
+.video-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Hardware comparison callout tables */
+.comparison-table th {
+  background-color: var(--sl-color-gray-6);
+}
+
+.spec-highlight {
+  font-weight: 600;
+  color: var(--sl-color-accent-high);
+}

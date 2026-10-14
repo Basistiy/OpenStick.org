@@ -1,0 +1,53 @@
+---
+interface Props {
+  name: string;
+  codename: string;
+  ram: string;
+  storage: string;
+  wifi: string;
+  flashType: 'eMMC' | 'NAND';
+  testPoint: string;
+  status: 'Recommended' | 'Supported' | 'Experimental' | 'Avoid';
+}
+
+const { name, codename, ram, storage, wifi, flashType, testPoint, status } = Astro.props;
+
+const statusColors: Record<string, string> = {
+  Recommended: '#16a34a',
+  Supported: '#0284c7',
+  Experimental: '#ca8a04',
+  Avoid: '#dc2626',
+};
+---
+
+<div style="border: 1px solid var(--sl-color-gray-5); border-radius: 8px; padding: 1.25rem; margin: 1.5rem 0; background-color: var(--sl-color-gray-6);">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+    <h3 style="margin: 0; font-size: 1.2rem;">{name} <code>({codename})</code></h3>
+    <span style={`background-color: ${statusColors[status] || '#64748b'}; color: white; padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;`}>
+      {status}
+    </span>
+  </div>
+  <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+    <tbody>
+      <tr>
+        <td style="padding: 4px 8px; font-weight: 600; width: 35%;">Flash Type</td>
+        <td style="padding: 4px 8px;">{flashType} {flashType === 'eMMC' ? '✅' : '⚠️ (NAND has limited mainline support)'}</td>
+      </tr>
+      <tr>
+        <td style="padding: 4px 8px; font-weight: 600;">RAM & Storage</td>
+        <td style="padding: 4px 8px;">{ram} RAM / {storage} Storage</td>
+      </tr>
+      <tr>
+        <td style="padding: 4px 8px; font-weight: 600;">Wi-Fi Chipset</td>
+        <td style="padding: 4px 8px;">{wifi}</td>
+      </tr>
+      <tr>
+        <td style="padding: 4px 8px; font-weight: 600;">EDL Test Point</td>
+        <td style="padding: 4px 8px;">{testPoint}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="margin-top: 0.75rem;">
+    <slot />
+  </div>
+</div>

@@ -1,0 +1,40 @@
+{
+  "name": "openstick.org",
+  "version": "1.0.0",
+  "description": "OpenStick community website with MSM8916 modem hacking, flashing guides, projects, and videos",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Basistiy/OpenStick.org.git"
+  },
+  "keywords": [
+    "msm8916",
+    "openstick",
+    "snapdragon-410",
+    "linux",
+    "debian",
+    "postmarketos",
+    "openwrt",
+    "4g-lte",
+    "modem",
+    "hacks"
+  ],
+  "author": "OpenStick Community",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Basistiy/OpenStick.org/issues"
+  },
+  "homepage": "https://openstick.org",
+  "dependencies": {
+    "@astrojs/starlight": "^0.42.6",
+    "astro": "^7.3.8",
+    "sharp": "^0.35.5"
+  }
+}
