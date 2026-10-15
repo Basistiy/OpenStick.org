@@ -12,8 +12,7 @@ To ensure OpenStick.org remains clean, consistent, and easy to read, follow thes
 Place your `.md` or `.mdx` file in the appropriate directory inside `src/content/docs/`:
 - `about/` — History, architecture, comparisons
 - `getting-started/` — Beginner tutorials, safety, prerequisites
-- `flashing/` — Operating system installation guides
-- `hardware/` — Board breakdowns, pinouts, schematics
+- `boards/` — Dedicated board sections (buying, pinouts, flashing, known problems)
 - `projects/` — Practical use cases and setups
 - `videos/` — Video libraries and media
 

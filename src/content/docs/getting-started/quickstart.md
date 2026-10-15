@@ -43,11 +43,14 @@ Install the necessary developer tools on your host computer:
 - Qualcomm 9008 USB drivers (Windows) or standard `udev` rules (Linux/macOS)
 - 👉 See [Essential Tools Setup](/getting-started/tools-setup/).
 
-### Step 4: Flash Your Operating System of Choice
-Choose the operating system suited for your project:
-- **[Debian (OpenStick Base)](/flashing/debian/)**: Best for general Linux workloads, Python scripts, Docker containers, and servers.
-- **[postmarketOS](/flashing/postmarketos/)**: Upstream alpine-based mainline Linux distribution with regular security updates.
-- **[OpenWrt](/flashing/openwrt/)**: Ideal for turning your dongle into a full-featured travel router, Wi-Fi hotspot, or VPN client.
+### Step 4: Follow the Guide for Your Board
+Consult the dedicated guide for your specific hardware board to find exact test points, pinouts, and flashing steps:
+- **[UZ801 Flashing Guide](/boards/uz801/flashing/)**: For Yiming / Zhihe UZ801 dongles.
+- **[HMUF02 Flashing Guide](/boards/hmuf02/flashing/)**: For HMUF02 white-label sticks.
+- **[HM-MIFIB Flashing Guide](/boards/hm-mifib/flashing/)**: For portable MiFi routers with color LCD screen & battery.
+- **[UFI001B / UFI001C Flashing Guide](/boards/ufi001/flashing/)**: For reference OpenStick wingles.
+- **[UFI003 Flashing Guide](/boards/ufi003/flashing/)**: For the 1GB RAM / 8GB eMMC flagship.
+- **[SP970 Flashing Guide](/boards/sp970/flashing/)**: For SP970 V3 / V10 dongles.
 
 ---
 

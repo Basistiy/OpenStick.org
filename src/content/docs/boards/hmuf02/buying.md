@@ -1,0 +1,78 @@
+---
+title: HMUF02 - Buying Guide & Identification
+description: Comprehensive buying guide for the HMUF02 MSM8916 4G USB wingle, how to avoid non-Qualcomm chip swaps, and hardware specs.
+---
+
+The **HMUF02** is one of the most widely distributed budget 4G LTE USB dongles sold globally under countless generic white-label brandings (frequently advertising default Wi-Fi SSIDs like `4G-UFI-XXXX` or `LTE-WIFI-XXXX`).
+
+---
+
+## Hardware Specifications
+
+| Component | Specification |
+| :--- | :--- |
+| **SoC** | Qualcomm Snapdragon 410 (MSM8916) 4x Cortex-A53 @ 1.2 GHz 64-bit |
+| **RAM** | 512 MB LPDDR3 |
+| **Storage** | 4 GB eMMC 5.0 (BGA packaging) |
+| **Wireless** | Qualcomm WCN3620 (802.11b/g/n 2.4 GHz + Bluetooth 4.0) |
+| **Cellular Bands** | LTE FDD B1/B3/B5/B7/B8/B20, TDD B38/B39/B40/B41, 3G WCDMA |
+| **SIM Slot** | Push-slide Micro-SIM (3FF) holder on front PCB |
+| **Power Input** | USB-A 5V, ~250mA idle, up to 1.0A peak cellular load |
+
+---
+
+## Case Designs & Identification
+
+The HMUF02 typically uses a sleek, flat white plastic enclosure with slightly beveled edges and a removable USB cap:
+
+```
+       ┌──────────────────────────────────────────────────┐
+       │ [===]    [ 4G ]   [ WiFi ]   [ SMS ]   (o) Reset │
+[USB]  │                                     HMUF02 Wingle│
+       │                                                  │
+       └──────────────────────────────────────────────────┘
+```
+
+- **Indicator Icons**: Three small translucent icons on the top shell representing **4G / Internet**, **Wi-Fi**, and **SMS**.
+- **Reset Pinhole**: Many HMUF02 shells feature a tiny pinhole on the upper face or side labeled `Reset`.
+
+---
+
+## Silkscreen Markings to Look For
+
+Inside the shell, inspect the PCB surface:
+- **`HMUF02-V05`** (most common, full OpenStick support)
+- **`HMUF02-MB-V01`** / **`V02`**
+
+Verify that the central processor shows the Qualcomm Snapdragon logo and part number `MSM8916`.
+
+:::warning[Critical Buying Alert: ASR & ZXIC Chip Substitutions]
+Because the HMUF02 plastic shell is mass-produced by several contract manufacturers, recent budget listings on AliExpress (especially under \$6 USD) have begun silently substituting the Qualcomm MSM8916 chip with cheaper **ASR1802** or **ZX297520** chips. Always verify with the seller before purchasing!
+:::
+
+---
+
+## Pre-Purchase Seller Questionnaire
+
+When messaging AliExpress or Taobao merchants, copy and paste the following question:
+
+> *"Hi seller, does this 4G USB modem use the Qualcomm Snapdragon 410 (MSM8916) chipset with eMMC flash, or does it use ASR/ZXIC? What is printed on the motherboard silkscreen?"*
+
+---
+
+## Software Verification (Stock Android ADB)
+
+If you already have the stick in hand:
+
+```bash
+# Verify ADB is enabled
+adb devices
+
+# Check CPU platform
+adb shell getprop ro.board.platform
+# Expected output: msm8916
+
+# Check storage block devices
+adb shell ls -la /dev/block/bootdevice/by-name
+# If partitions boot, system, modem, userdata exist -> Confirmed eMMC!
+```

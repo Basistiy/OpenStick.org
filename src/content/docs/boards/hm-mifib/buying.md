@@ -1,0 +1,72 @@
+---
+title: HM-MIFIB (Display & Battery) - Buying Guide
+description: Buying guide and hardware identification for the HM-MIFIB portable 4G router with integrated color LCD screen and removable battery.
+---
+
+The **HM-MIFIB** (often marketed as the **MF968**, **MIFI-B**, or generic *Color Screen 4G Pocket Router*) is a unique standout in the OpenStick ecosystem. Unlike standard USB dongles that require continuous USB power and run headless, the HM-MIFIB is a completely self-contained **portable Linux handheld** featuring an integrated color LCD display and an onboard rechargeable lithium-ion battery.
+
+---
+
+## Hardware Specifications
+
+| Component | Specification |
+| :--- | :--- |
+| **SoC** | Qualcomm Snapdragon 410 (MSM8916) Quad-Core Cortex-A53 @ 1.2 GHz (ARM64) |
+| **RAM** | 512 MB LPDDR3 |
+| **Storage** | 4 GB eMMC 5.0 (BGA chip) |
+| **Display** | 1.44-inch 128x128 (or 128x160) Color TFT LCD (ST7735S / ILI9163 controller) |
+| **Battery** | Removable 3.7V / 3.8V Li-ion battery (typically 2100 mAh to 3000 mAh) |
+| **PMIC & Charger** | Qualcomm PM8916 (`qpnp-charger` + `qpnp-bms` battery fuel gauge) |
+| **Wireless** | Qualcomm WCN3620 (802.11b/g/n 2.4 GHz Wi-Fi + Bluetooth 4.0) |
+| **Modem** | Qualcomm MDM9625 Cat 4 LTE + 3G WCDMA |
+| **Buttons** | Physical Power button + WPS / Function navigation button |
+| **Ports** | Micro-USB or USB-C (power input & ADB/RNDIS gadget), Standard Micro-SIM slot |
+
+---
+
+## Exterior Appearance & Casing
+
+```
+       ┌────────────────────────────────────────────────────────┐
+       │   [ 4G LTE Mobile Wi-Fi ]                              │
+       │                                                        │
+       │            ┌───────────────────────────┐               │
+       │            │  📶 4G   [===] Batt 92%   │               │
+       │            │  SSID: OpenStick_Pocket   │               │
+       │            │  IP: 192.168.68.1         │               │
+       │            │  CPU: 12% | RAM: 180MB    │               │
+       │            └───────────────────────────┘               │
+       │                   1.44" Color TFT                      │
+       │                                                        │
+       │       [ (o) Power ]             [ [::] WPS ]           │
+       └────────────────────────────────────────────────────────┘
+```
+
+The device resembles a miniature smartphone or pocket pager. It features a removable back cover that exposes the battery bay, underneath which sits the Micro-SIM slot and board labeling.
+
+---
+
+## Silkscreen Markings to Verify
+
+When removing the battery and inspecting the motherboard:
+- **`HM-MIFIB-V12`** (most documented version)
+- **`HM_MIFIB_V10`**
+- **`MF968_MB_V02`**
+
+Verify that the central processor is marked with the Qualcomm Snapdragon logo and **`MSM8916`**.
+
+---
+
+## What Makes This Board Special?
+
+1. **Standalone Battery Operation**: Runs completely untethered for **4 to 8 hours** on battery power, making it an ideal portable penetration testing dropbox, portable Wi-Fi analyzer, or pocket server.
+2. **Visual Status Display**: With `lk2nd` and the Linux framebuffer driver (`fbcon`), the small screen can render the boot splash, interactive system statistics (CPU load, RAM usage, cellular signal strength, battery level), or even a miniature text terminal!
+3. **Hardware Buttons**: The power and WPS buttons can be mapped to custom Linux scripts (e.g. toggle VPN, trigger backups, switch Wi-Fi modes).
+
+---
+
+## Buying Tips on AliExpress & eBay
+
+- **Search Keywords**: `MSM8916 4G mifi color screen`, `MF968 4G router`, `HM-MIFIB LCD router`, `Snapdragon 410 pocket wifi`.
+- **Verify Processor**: Ask the seller: *"Is the internal chipset Qualcomm MSM8916 with color LCD display, or is it an ASR/Marvell chip?"*
+- **Typical Price**: **$12 to $18 USD** (includes battery and charging cable).

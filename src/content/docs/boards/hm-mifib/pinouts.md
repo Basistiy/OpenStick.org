@@ -1,0 +1,106 @@
+---
+title: HM-MIFIB (Display & Battery) - Pinouts & Hardware
+description: Hardware pinouts, LCD screen SPI connections, battery contacts, EDL recovery pads, and 1.8V UART for HM-MIFIB.
+---
+
+Because the **HM-MIFIB** incorporates an integrated display, battery management circuitry, and physical buttons, its hardware architecture is more sophisticated than standard USB dongles.
+
+---
+
+## Battery Compartment & Test Point Layout
+
+Removing the plastic back cover and battery reveals the inner chassis:
+
+```
+   ┌─────────────────────────────────────────────────────────┐
+   │                                                         │
+   │       ┌─────────────────────────────────────────┐       │
+   │       │                                         │       │
+   │       │          Battery Bay (3.7V)             │       │
+   │       │                                         │       │
+   │       │   [+]   [T]   [-]                       │       │
+   │       │  VBAT  NTC   GND                        │       │
+   │       │                                         │       │
+   │       │               (o) (o) <── EDL Test Pads │       │
+   │       │                                         │       │
+   │       │    ┌──────────────────────────────┐     │       │
+   │       │    │ Micro-SIM Slot               │     │       │
+   │       │    └──────────────────────────────┘     │       │
+   │       └─────────────────────────────────────────┘       │
+   │                                                         │
+   │   [TX] [RX] [GND] (1.8V UART under sticker)             │
+   └─────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 1. Battery Pinout & Power Management
+
+The battery connector features 3 gold leaf-spring contacts:
+
+| Pin | Label | Description |
+| :--- | :--- | :--- |
+| **1** | **VBAT** | Positive battery terminal (+3.7V nominal, 4.2V fully charged). |
+| **2** | **NTC / ID** | Negative Temperature Coefficient 10kΩ thermistor to GND for temperature monitoring. |
+| **3** | **GND** | Battery ground return. |
+
+### PM8916 Power Management:
+- Charging is managed directly by the Qualcomm PM8916 PMIC via the kernel driver `qpnp-charger`.
+- Battery capacity, voltage, and discharge rates are tracked by the `qpnp-bms` (Battery Management Subsystem) gauge.
+
+---
+
+## 2. Color TFT LCD Display Connections
+
+The onboard 1.44-inch color LCD display is driven by an **ST7735S** or **ILI9163** controller connected over the Snapdragon 410's high-speed SPI bus (BLSP):
+
+| Display Line | Connected SoC Pin | Description |
+| :--- | :--- | :--- |
+| **MOSI (SDA)** | BLSP1_SPI_MOSI (GPIO 0) | Serial data from SoC to display |
+| **SCK (SCL)** | BLSP1_SPI_CLK (GPIO 1) | Serial clock |
+| **CS** | BLSP1_SPI_CS_N (GPIO 2) | Chip select (Active Low) |
+| **D/C (A0)** | GPIO 115 | Data / Command register select |
+| **RESET** | GPIO 114 | Hardware display reset line |
+| **BACKLIGHT** | PMIC LDO / GPIO 113 | Display LED backlight brightness (PWM) |
+
+---
+
+## 3. Entering Qualcomm EDL Mode (9008)
+
+To recover a soft-bricked device:
+
+1. **Remove the battery completely** from the device.
+2. Connect a USB cable from your host PC to the device's USB port (do not insert the battery yet).
+3. Locate the two small round gold test pads labeled `EDL` (or unpopulated pads near the SIM slot).
+4. Short the two pads together with metal tweezers.
+5. While keeping the pads shorted, insert the battery or apply 5V USB power.
+6. Hold for **2 seconds**, then remove the short.
+7. Confirm EDL mode on your PC:
+   ```bash
+   lsusb | grep 05c6:9008
+   # Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+   ```
+
+---
+
+## 4. Hardware UART Serial Console (1.8V)
+
+Under the white regulatory sticker inside the battery bay, there are 3 miniature gold test pads for the serial console:
+
+:::danger[1.8V Logic Warning]
+Do not connect 3.3V or 5V serial signals to the HM-MIFIB. Use only a **1.8V** level converter.
+:::
+
+- **TX (1.8V)**: Connects to adapter **RX**.
+- **RX (1.8V)**: Connects to adapter **TX**.
+- **GND**: Common Ground.
+- **Baud Rate**: `115200` (8N1).
+
+---
+
+## 5. Physical Button Mappings
+
+| Button | Hardware GPIO | Interrupt / Logic | Purpose |
+| :--- | :--- | :--- | :--- |
+| **Power Key** | PMIC `PWRKEY` | Active Low (Hold 3s) | Powers device on/off; short press toggles LCD backlight |
+| **WPS / Nav Key** | GPIO 107 | Active Low (Pull-up) | Custom user actions (toggle Wi-Fi, run scripts) |

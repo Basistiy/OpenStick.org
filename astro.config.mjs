@@ -40,21 +40,66 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Flashing & OS',
+          label: 'UZ801',
           items: [
-            { label: 'Debian (OpenStick Base)', slug: 'flashing/debian' },
-            { label: 'postmarketOS (Mainline Linux)', slug: 'flashing/postmarketos' },
-            { label: 'OpenWrt Travel Router', slug: 'flashing/openwrt' },
-            { label: '4G LTE & ModemManager', slug: 'flashing/modem-configuration' },
+            { label: 'Buying Guide & Identification', slug: 'boards/uz801/buying' },
+            { label: 'Pinouts & Test Points', slug: 'boards/uz801/pinouts' },
+            { label: 'Flashing & OS Guide', slug: 'boards/uz801/flashing' },
+            { label: 'Known Problems & Quirks', slug: 'boards/uz801/known-problems' },
           ],
         },
         {
-          label: 'Hardware & Modding',
+          label: 'HMUF02',
           items: [
-            { label: 'Board Gallery & Revisions', slug: 'hardware/boards' },
-            { label: 'Test Points & EDL Recovery', slug: 'hardware/test-points' },
-            { label: 'UART Serial Console', slug: 'hardware/uart-console' },
-            { label: 'Antennas & Hardware Mods', slug: 'hardware/antenna-and-mods' },
+            { label: 'Buying Guide & Identification', slug: 'boards/hmuf02/buying' },
+            { label: 'Pinouts & Test Points', slug: 'boards/hmuf02/pinouts' },
+            { label: 'Flashing & OS Guide', slug: 'boards/hmuf02/flashing' },
+            { label: 'Known Problems & Quirks', slug: 'boards/hmuf02/known-problems' },
+          ],
+        },
+        {
+          label: 'HM-MIFIB (Display & Battery)',
+          items: [
+            { label: 'Buying Guide & Identification', slug: 'boards/hm-mifib/buying' },
+            { label: 'Pinouts, Screen & Battery', slug: 'boards/hm-mifib/pinouts' },
+            { label: 'Flashing & OS Guide', slug: 'boards/hm-mifib/flashing' },
+            { label: 'Known Problems & Quirks', slug: 'boards/hm-mifib/known-problems' },
+          ],
+        },
+        {
+          label: 'UFI001B / UFI001C',
+          items: [
+            { label: 'Buying Guide & Identification', slug: 'boards/ufi001/buying' },
+            { label: 'Pinouts & Test Points', slug: 'boards/ufi001/pinouts' },
+            { label: 'Flashing & OS Guide', slug: 'boards/ufi001/flashing' },
+            { label: 'Known Problems & Quirks', slug: 'boards/ufi001/known-problems' },
+          ],
+        },
+        {
+          label: 'UFI003 (1GB RAM Flagship)',
+          items: [
+            { label: 'Buying Guide & Identification', slug: 'boards/ufi003/buying' },
+            { label: 'Pinouts & Test Points', slug: 'boards/ufi003/pinouts' },
+            { label: 'Flashing & OS Guide', slug: 'boards/ufi003/flashing' },
+            { label: 'Known Problems & Quirks', slug: 'boards/ufi003/known-problems' },
+          ],
+        },
+        {
+          label: 'SP970',
+          items: [
+            { label: 'Buying Guide & Identification', slug: 'boards/sp970/buying' },
+            { label: 'Pinouts & Test Points', slug: 'boards/sp970/pinouts' },
+            { label: 'Flashing & OS Guide', slug: 'boards/sp970/flashing' },
+            { label: 'Known Problems & Quirks', slug: 'boards/sp970/known-problems' },
+          ],
+        },
+        {
+          label: 'UF896 & NAND Clones',
+          items: [
+            { label: 'Buying Guide & Identification', slug: 'boards/zhihe-nand/buying' },
+            { label: 'Pinouts & Test Points', slug: 'boards/zhihe-nand/pinouts' },
+            { label: 'Flashing & OS Guide', slug: 'boards/zhihe-nand/flashing' },
+            { label: 'Known Problems & Quirks', slug: 'boards/zhihe-nand/known-problems' },
           ],
         },
         {
