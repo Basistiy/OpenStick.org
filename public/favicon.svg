@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <!-- Outer USB Stick Body -->
+  <rect x="12" y="14" width="24" height="30" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="2.5"/>
+  <!-- USB Connector -->
+  <path d="M17 14V5C17 4.44772 17.4477 4 18 4H30C30.5523 4 31 4.44772 31 5V14" fill="#334155" stroke="#94a3b8" stroke-width="2"/>
+  <rect x="20" y="7" width="2" height="3" rx="0.5" fill="#f8fafc"/>
+  <rect x="26" y="7" width="2" height="3" rx="0.5" fill="#f8fafc"/>
+  <!-- Status LEDs & Signal Lines -->
+  <circle cx="18" cy="22" r="2" fill="#22c55e"/>
+  <circle cx="24" cy="22" r="2" fill="#0284c7"/>
+  <circle cx="30" cy="22" r="2" fill="#eab308"/>
+  <!-- Central Chip Symbol (MSM8916) -->
+  <rect x="18" y="28" width="12" height="10" rx="1.5" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+  <path d="M21 28V26M27 28V26M21 38V40M27 38V40" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
