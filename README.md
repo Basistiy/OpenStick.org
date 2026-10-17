@@ -55,23 +55,5 @@ Static output is compiled to the `dist/` directory with full offline Pagefind se
 
 ---
 
-## 🌐 Custom Domain & DNS Configuration
-
-The site is hosted on **GitHub Pages** using the custom domain `openstick.org`:
-- `public/CNAME` contains `openstick.org`.
-- **DNS Apex (`@`)**:
-  - `A` record -> `185.199.108.153`
-  - `A` record -> `185.199.109.153`
-  - `A` record -> `185.199.110.153`
-  - `A` record -> `185.199.111.153`
-- **DNS Subdomain (`www`)**:
-  - `CNAME` record -> `basistiy.github.io`
-- In GitHub repository settings under **Pages**:
-  - Source: **GitHub Actions**
-  - Custom domain: `openstick.org`
-  - Enforce HTTPS: **Enabled**
-
----
-
 ## 📄 License
 This project is open-source under the [MIT License](LICENSE).
