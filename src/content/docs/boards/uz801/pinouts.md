@@ -1,5 +1,5 @@
 ---
-title: UZ801 - Pinouts & Test Points
+title: UZ801 Pinouts, Test Points & EDL 9008 Recovery Pads
 description: Hardware pinouts, EDL emergency download mode test points, 1.8V UART serial console, and GPIO layout for the UZ801.
 ---
 

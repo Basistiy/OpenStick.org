@@ -1,5 +1,5 @@
 ---
-title: HMUF02 - Known Problems & Quirks
+title: "HMUF02 Troubleshooting: LED Drivers, Reset Switch & Thermals"
 description: Troubleshooting guide for HMUF02 wingles, covering LED driver inversions, counterfeit chipsets, reset switch bugs, and thermal limits.
 ---
 

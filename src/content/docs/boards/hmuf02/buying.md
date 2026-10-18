@@ -1,5 +1,5 @@
 ---
-title: HMUF02 - Buying Guide & Identification
+title: "HMUF02 4G Wingle: Buying Guide & Hardware Identification"
 description: Comprehensive buying guide for the HMUF02 MSM8916 4G USB wingle, how to avoid non-Qualcomm chip swaps, and hardware specs.
 ---
 

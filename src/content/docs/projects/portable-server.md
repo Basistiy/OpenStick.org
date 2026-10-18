@@ -1,6 +1,6 @@
 ---
-title: Portable Server (Docker, Pi-hole & Tailscale)
-description: Transform your MSM8916 modem into a portable pocket server running Docker containers, network-wide ad blocking with Pi-hole, and mesh VPN with Tailscale.
+title: "Pocket Linux Server: Docker, Pi-hole & Tailscale on MSM8916"
+description: Turn your MSM8916 4G USB modem into an ultra-low-power pocket server running Docker containers, Pi-hole DNS ad-blocking, and Tailscale mesh VPN.
 ---
 
 With 4x ARM Cortex-A53 cores and up to 1GB RAM, an OpenStick modem running Debian or postmarketOS can effortlessly host lightweight microservices, ad-blockers, and VPN clients.

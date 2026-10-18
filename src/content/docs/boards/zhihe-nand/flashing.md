@@ -1,5 +1,5 @@
 ---
-title: UF896 & Zhihe (NAND Clones) - Flashing Guide
+title: "UF896 & Zhihe NAND Flashing Guide: OpenWrt Limits & Recovery"
 description: Firmware flashing procedures, OpenWrt NAND limitations, and unbricking/restoring stock firmware on Zhihe and UF896 NAND boards.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: UZ801 - Buying Guide & Identification
+title: "UZ801 4G USB Modem: Buying Guide, Specs & Identifying Genuine Boards"
 description: How to identify genuine UZ801 MSM8916 4G USB dongles, verify eMMC storage, and avoid non-Qualcomm clones when purchasing.
 ---
 

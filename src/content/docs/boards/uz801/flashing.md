@@ -1,5 +1,5 @@
 ---
-title: UZ801 - Flashing & OS Guide
+title: "UZ801 Flashing Guide: Install Debian, OpenWrt & postmarketOS"
 description: Step-by-step flashing instructions for the UZ801 board with lk2nd, Debian OpenStick base, postmarketOS, and OpenWrt.
 ---
 

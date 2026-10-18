@@ -1,5 +1,5 @@
 ---
-title: HM-MIFIB (Display & Battery) - Pinouts & Hardware
+title: "HM-MIFIB Pinouts: LCD Screen SPI, Battery Contacts & EDL Pads"
 description: Hardware pinouts, LCD screen SPI connections, battery contacts, EDL recovery pads, and 1.8V UART for HM-MIFIB.
 ---
 

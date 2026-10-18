@@ -1,5 +1,5 @@
 ---
-title: UF896 & Zhihe (NAND Clones) - Buying Guide & Warnings
+title: "UF896 & Zhihe NAND Clones: Buying Warnings & Identification"
 description: How to spot and avoid Zhihe and UF896 cost-reduced boards with SPI-NAND flash, fake chipsets, and non-eMMC storage.
 ---
 

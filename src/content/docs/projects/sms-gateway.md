@@ -1,6 +1,6 @@
 ---
-title: 4G SMS to Telegram Gateway Bot
-description: Build a self-contained SMS forwarder that receives two-factor authentication (2FA) codes and forwards them to Telegram in real-time.
+title: 4G SMS to Telegram Gateway Bot on OpenStick (MSM8916 Linux)
+description: How to build a private, self-contained 4G SMS forwarder bot for Telegram and Discord using Qualcomm MSM8916 modems running Debian Linux.
 ---
 
 One of the most practical and popular uses for an MSM8916 modem is creating a **private SMS gateway**. 

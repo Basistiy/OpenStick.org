@@ -1,5 +1,5 @@
 ---
-title: SP970 - Buying Guide & Identification
+title: "SP970 4G USB Modem: Buying Guide & Revisions (V3 / V10)"
 description: Buying guide and hardware identification for the SP970 MSM8916 4G USB wingle family, including V3 and V10 revisions.
 ---
 

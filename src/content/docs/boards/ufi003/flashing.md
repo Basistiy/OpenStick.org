@@ -1,5 +1,5 @@
 ---
-title: UFI003 (1GB RAM) - Flashing & OS Guide
+title: "UFI003 Flashing Guide: Debian, postmarketOS & Docker Setup"
 description: Step-by-step flashing guide for the 1GB RAM UFI003 flagship, including lk2nd setup, Debian, postmarketOS, and Docker installation.
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Device Identification & Buying Guide
-description: How to identify your MSM8916 board revision, spot eMMC vs NAND flash, and find the best modems for hacking.
+title: "MSM8916 Device Identification: eMMC vs NAND & Board Revisions"
+description: How to identify your Qualcomm MSM8916 4G modem board revision, spot eMMC vs NAND flash, verify genuine chips, and choose the best hardware.
 ---
 
 Due to how generic Chinese 4G modems are manufactured, devices sold under identical exterior plastic cases often contain completely different motherboards and chipsets.

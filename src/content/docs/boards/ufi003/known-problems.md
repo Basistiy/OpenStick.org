@@ -1,5 +1,5 @@
 ---
-title: UFI003 - Known Problems & Quirks
+title: "UFI003 Troubleshooting: Fake Listings, Docker Thermals & Power"
 description: Troubleshooting guide for the UFI003 1GB RAM flagship, covering fake listings, thermal throttling under Docker, cgroups limits, and power requirements.
 ---
 

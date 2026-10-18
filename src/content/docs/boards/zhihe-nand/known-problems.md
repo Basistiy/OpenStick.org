@@ -1,5 +1,5 @@
 ---
-title: UF896 & Zhihe (NAND Clones) - Known Problems & Quirks
+title: "UF896 & Zhihe NAND Troubleshooting: Bad Blocks & Flash Corruption"
 description: Troubleshooting guide for Zhihe and UF896 NAND clones, covering bad block errors, flash corruption, and counterfeit chipsets.
 ---
 

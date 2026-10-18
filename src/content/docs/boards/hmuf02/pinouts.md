@@ -1,5 +1,5 @@
 ---
-title: HMUF02 - Pinouts & Test Points
+title: HMUF02 Pinouts, EDL 9008 Test Points & 1.8V UART
 description: Hardware pinouts, EDL 9008 test pads, 1.8V UART serial console, and button/LED GPIO mappings for the HMUF02 wingle.
 ---
 

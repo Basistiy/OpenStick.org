@@ -1,6 +1,6 @@
 ---
-title: Essential Tools & Driver Setup
-description: Setting up your host workstation with ADB, Fastboot, EDL programmer, and Qualcomm 9008 drivers on Linux, macOS, and Windows.
+title: "MSM8916 Tools Setup: EDL 9008 Drivers, ADB & Fastboot"
+description: "Complete host workstation guide for Qualcomm MSM8916 tools: EDL Emergency Download 9008 drivers, ADB, Fastboot, and partition flashers on Linux, macOS, and Windows."
 ---
 
 Before communicating with an MSM8916 modem, you must prepare your host development machine with the appropriate flashing tools and USB drivers.

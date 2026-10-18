@@ -1,6 +1,6 @@
 ---
-title: Community Projects Showcase
-description: Inspiring real-world projects, builds, and applications powered by hacked MSM8916 modems.
+title: "OpenStick Projects Showcase: What You Can Build with MSM8916 Modems"
+description: Inspiring real-world projects, builds, and applications powered by hacked Qualcomm MSM8916 modems running Linux.
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';

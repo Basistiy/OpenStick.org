@@ -1,6 +1,6 @@
 ---
-title: MSM8916 vs Raspberry Pi Zero 2 W
-description: An in-depth technical and architectural comparison between Qualcomm MSM8916 4G USB modems and the Raspberry Pi Zero 2 W.
+title: "Qualcomm MSM8916 vs Raspberry Pi Zero 2 W: Hardware & Linux Comparison"
+description: "In-depth technical comparison between Qualcomm MSM8916 4G USB modems (OpenStick) and the Raspberry Pi Zero 2 W: CPU, RAM, eMMC storage, built-in LTE, power, and price."
 ---
 
 ## Overview

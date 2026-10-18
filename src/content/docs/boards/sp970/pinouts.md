@@ -1,5 +1,5 @@
 ---
-title: SP970 - Pinouts & Test Points
+title: SP970 Pinouts, Test Points & EDL 9008 Recovery Pads
 description: Hardware pinouts, EDL 9008 test pads, 1.8V UART serial console, and GPIO layout for SP970 boards.
 ---
 

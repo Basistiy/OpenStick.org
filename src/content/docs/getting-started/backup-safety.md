@@ -1,6 +1,6 @@
 ---
-title: Safety & Partition Backups
-description: Critical guide to dumping and protecting your modem's unique calibration partitions (EFS, QCN, and IMEI) before flashing.
+title: "Partition Backups & Safety: Protecting QCN, EFS & IMEI"
+description: Critical guide to dumping and restoring modem calibration partitions (modemst1, modemst2, fsg, QCN, and IMEI) before flashing Linux on Qualcomm modems.
 ---
 
 :::danger[Crucial Warning: Back Up Before Flashing!]

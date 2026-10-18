@@ -1,5 +1,5 @@
 ---
-title: UFI001B / UFI001C - Buying Guide & Identification
+title: "UFI001B / UFI001C: Buying Guide & Hardware Identification"
 description: Buying guide for the classic UFI001B and UFI001C boards, the original reference hardware of the OpenStick project.
 ---
 

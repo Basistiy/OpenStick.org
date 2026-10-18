@@ -1,5 +1,5 @@
 ---
-title: SP970 - Known Problems & Quirks
+title: "SP970 Troubleshooting: Antenna Impedance, SIM Cages & LEDs"
 description: Troubleshooting guide for SP970 dongles, covering Wi-Fi antenna trace impedance, loose SIM cages, and LED trigger configurations.
 ---
 

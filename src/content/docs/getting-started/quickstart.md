@@ -1,6 +1,6 @@
 ---
-title: Quick Start Guide
-description: Get up and running with your MSM8916 4G USB dongle in 4 easy steps.
+title: "Quick Start: Flashing Linux on MSM8916 4G USB Modems"
+description: Step-by-step beginner guide to flashing lk2nd and Linux (Debian, postmarketOS, OpenWrt) onto Qualcomm MSM8916 4G USB dongles.
 ---
 
 Welcome to the OpenStick community! This guide takes you through the fundamental workflow of taking a stock Qualcomm MSM8916 4G LTE USB modem and transforming it into a hackable Linux device.

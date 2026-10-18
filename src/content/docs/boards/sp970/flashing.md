@@ -1,5 +1,5 @@
 ---
-title: SP970 - Flashing & OS Guide
+title: "SP970 Flashing Guide: Install Debian, OpenWrt & postmarketOS"
 description: Step-by-step flashing guide for the SP970 4G USB dongle with lk2nd, Debian OpenStick base, postmarketOS, and OpenWrt.
 ---
 

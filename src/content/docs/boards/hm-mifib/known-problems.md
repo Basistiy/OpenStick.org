@@ -1,5 +1,5 @@
 ---
-title: HM-MIFIB (Display & Battery) - Known Problems & Quirks
+title: "HM-MIFIB Troubleshooting: Battery Boot Loops & LCD Polarities"
 description: Troubleshooting guide for HM-MIFIB, covering battery boot loops, USB current brownouts, LCD backlight polarity, and auto-power-on tricks.
 ---
 

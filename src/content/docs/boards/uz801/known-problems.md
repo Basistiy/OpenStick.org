@@ -1,5 +1,5 @@
 ---
-title: UZ801 - Known Problems & Quirks
+title: "UZ801 Troubleshooting & Common Issues: Wi-Fi, Thermals & LEDs"
 description: Common issues, troubleshooting tips, thermal fixes, LED bugs, and solutions for the UZ801 4G USB dongle.
 ---
 

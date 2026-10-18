@@ -1,5 +1,5 @@
 ---
-title: HMUF02 - Flashing & OS Guide
+title: "HMUF02 Flashing Guide: Install Debian & Linux via EDL"
 description: Step-by-step flashing guide for the HMUF02 4G wingle, including lk2nd setup, Debian OpenStick base, postmarketOS, and modem setup.
 ---
 

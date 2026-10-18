@@ -1,5 +1,5 @@
 ---
-title: UFI003 - Pinouts & Test Points
+title: UFI003 Pinouts, Hardware Recovery Button & 1.8V UART
 description: Hardware pinouts, onboard EDL push button, 1.8V UART serial console, and GPIO map for the UFI003 1GB RAM flagship.
 ---
 

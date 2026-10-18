@@ -1,5 +1,5 @@
 ---
-title: UFI003 (1GB RAM Flagship) - Buying Guide
+title: "UFI003 1GB RAM Flagship: Buying Guide & Genuine Hardware Specs"
 description: Buying guide for the premium UFI003 board featuring 1GB RAM, 8GB eMMC storage, and onboard hardware recovery button.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: HM-MIFIB (Display & Battery) - Flashing Guide
+title: "HM-MIFIB Flashing Guide: Linux, LCD Drivers & Battery Setup"
 description: How to flash lk2nd, Debian, and Linux on the HM-MIFIB portable router, including LCD screen driver and battery monitoring setup.
 ---
 

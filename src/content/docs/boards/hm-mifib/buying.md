@@ -1,5 +1,5 @@
 ---
-title: HM-MIFIB (Display & Battery) - Buying Guide
+title: "HM-MIFIB (Display & Battery): Buying Guide & Hardware Specs"
 description: Buying guide and hardware identification for the HM-MIFIB portable 4G router with integrated color LCD screen and removable battery.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: UFI001B / UFI001C - Pinouts & Test Points
+title: UFI001 Pinouts, EDL Recovery Pads & 1.8V UART Console
 description: Hardware pinouts, EDL emergency download pads, 1.8V UART console, and GPIO layout for UFI001B and UFI001C boards.
 ---
 

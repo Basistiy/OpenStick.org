@@ -1,5 +1,5 @@
 ---
-title: UFI001B / UFI001C - Known Problems & Quirks
+title: "UFI001 Troubleshooting: Wi-Fi Limits, Thermals & LED Bugs"
 description: Troubleshooting common issues on UFI001B and UFI001C dongles, including Wi-Fi regulatory limits, LED differences, and thermal throttling.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: UFI001B / UFI001C - Flashing & OS Guide
+title: "UFI001 Flashing Guide: Install Debian, OpenWrt & postmarketOS"
 description: Step-by-step flashing guide for UFI001B and UFI001C boards with lk2nd, Debian OpenStick base, postmarketOS, and OpenWrt.
 ---
 

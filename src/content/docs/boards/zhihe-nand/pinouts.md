@@ -1,5 +1,5 @@
 ---
-title: UF896 & Zhihe (NAND Clones) - Pinouts & Test Points
+title: "UF896 & Zhihe NAND Pinouts: Clock Shorting Method & UART"
 description: Pinouts, NAND clock pin shorting method for EDL recovery, and 1.8V UART serial console for Zhihe and UF896 boards.
 ---
 

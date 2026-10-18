@@ -1,6 +1,6 @@
 ---
-title: USB Gadget Multi-Function Networking
-description: Configure Linux USB Gadget mode to provide virtual Ethernet, serial console, and mass storage over a single USB cable.
+title: "USB Gadget Mode: Virtual Ethernet, Serial & Storage on OpenStick"
+description: Configure Linux USB Gadget ConfigFS to provide virtual Ethernet (RNDIS/CDC-ECM), serial debugging console, and mass storage over a single USB cable.
 ---
 
 One of the most powerful features of Linux on the MSM8916 is the **Linux USB Gadget Subsystem (ConfigFS)**. 
