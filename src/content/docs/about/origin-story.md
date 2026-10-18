@@ -21,16 +21,20 @@ Instead of a minimal microcontroller, these \$7 dongles were complete, highly ca
 
 ## The Birth of the OpenStick Project
 
-The breakthrough began when pioneer hacker **handsomehacker** and contributors in the embedded Linux community started probing the debug pins and bootloaders of these mass-market dongles.
+The breakthrough began when pioneer hacker [Handsome Hacker (HandsomeYingyan)](https://github.com/HandsomeYingyan) and contributors in the embedded Linux community started probing the debug pins and bootloaders of these mass-market dongles.
 
 Historically, modems ran a locked-down, proprietary Android 4.4/5.1 OEM image with obscure Web UIs and vendor backdoors. By triggering Qualcomm's built-in **Emergency Download Mode (EDL 9008)**—either through software commands or by shorting hardware test points—the community successfully dumped the partition tables.
 
-The Linux-MSM8916 mainline development team had already been working on upstream Linux kernel support for the Snapdragon 410. The OpenStick community united these efforts:
+The Linux-MSM8916 mainline development team had already been working on upstream Linux kernel support for the Snapdragon 410. The community united these efforts around the [original OpenStick project](https://github.com/OpenStick):
 1. Developing tools (`edl.py`, custom LK2ND bootloader chains) to replace Android with pure mainline Linux.
 2. Packaging a tailored **Debian GNU/Linux** distribution optimized for the USB dongle's peripherals.
 3. Enabling **USB Gadget Mode**, allowing the dongle to present itself to a host computer simultaneously as an Ethernet card (RNDIS/CDC-ECM), a Serial console (CDC-ACM), and mass storage.
 
 Suddenly, an e-waste candidate became an ultra-low-power, pocketable Linux server.
+
+:::tip[Upstream Repositories & Heritage]
+Explore the upstream source repositories and initial toolchains on GitHub at the [original OpenStick organization](https://github.com/OpenStick), alongside pioneer developer [HandsomeYingyan's GitHub profile](https://github.com/HandsomeYingyan).
+:::
 
 ---
 
