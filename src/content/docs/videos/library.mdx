@@ -4,6 +4,7 @@ description: Curated community video guides, hardware teardowns, EDL test point 
 ---
 
 import VideoEmbed from '../../../components/VideoEmbed.astro';
+import ShortsGrid from '../../../components/ShortsGrid.astro';
 
 Visual walkthroughs are often the best way to understand hardware teardowns, test point shorting, boost converter soldering, and flashing procedures. Here is a curated selection of community video guides.
 
@@ -15,86 +16,70 @@ The teardown, EDL unbricking, and hardware modding walkthroughs below are produc
 
 ## 1. Hardware Teardowns & Board Identification
 
-### $15 Raspberry Pi Zero 2 W Alternative! Snapdragon 410 Modem Teardown
+Compare popular boards, locate exposed test points, and inspect the internal motherboards:
 
-With Raspberry Pi Zero 2 W prices tripling during stock shortages, are cheap $15 4G USB stick modems the best alternative single-board computer? 
+<ShortsGrid columns={2}>
+  <div class="shorts-card">
+    <h4>$15 Pi Zero 2 W Alternative! Snapdragon 410 Teardown</h4>
+    <p>Teardown of $15 USB stick modems with quad-core MSM8916 (512MB RAM, 4GB eMMC). Comparing genuine UZ801 boards against unshielded variants with direct EDL test point access.</p>
+    <VideoEmbed
+      platform="youtube"
+      id="1pdEvBougv0"
+      aspect="9:16"
+      title="$15 Raspberry Pi Zero 2 W Alternative! Snapdragon 410 Modem Teardown"
+    />
+  </div>
 
-In this teardown, see what's inside three $15 USB modems powered by the quad-core Qualcomm Snapdragon 410 (MSM8916 with 512MB RAM and 4GB eMMC flash):
-- Comparing the popular **UZ801 board** (extensive open-source documentation and community support) with an alternative unshielded board.
-- Locating direct test-point access to **EDL mode (Qualcomm Emergency Download Mode 9008)**.
-- Evaluating power efficiency and cost vs a Raspberry Pi Zero 2 W paired with an expensive 4G cellular HAT.
-
-<VideoEmbed
-  platform="youtube"
-  id="1pdEvBougv0"
-  title="$15 Raspberry Pi Zero 2 W Alternative! Snapdragon 410 Modem Teardown"
-/>
-
----
-
-### Pi Zero Alternative: 3 Cheap €20 Modems Teardown (Screen vs Screenless)
-
-A teardown of three €20 4G battery modems powered by Qualcomm Snapdragon 410 (MSM8916) chips:
-- Opening up identical outer shells to inspect the internal motherboards.
-- Comparing the color LCD screen model and the budget screenless model.
-- **Key Discovery**: Inspecting the PCB reveals that the screenless variant shares the **exact same board revision (`HM-MIFIB-V1.8`)** as the screen model — the LCD pads are simply unpopulated!
-- Makes the screenless version an unbeatable bargain for headless Linux servers or custom hardware builds where you want to solder an e-paper display.
-
-<VideoEmbed
-  platform="youtube"
-  id="oAhQq-NxyeQ"
-  title="Pi Zero Alternative: 3 Cheap €20 Modems Teardown"
-/>
+  <div class="shorts-card">
+    <h4>3 Cheap €20 Modems Teardown (Screen vs Screenless)</h4>
+    <p>Comparing screen vs screenless €20 battery modems. Reveals that the screenless version shares the identical <code>HM-MIFIB-V1.8</code> board with unpopulated LCD solder pads.</p>
+    <VideoEmbed
+      platform="youtube"
+      id="oAhQq-NxyeQ"
+      aspect="9:16"
+      title="Pi Zero Alternative: 3 Cheap €20 Modems Teardown"
+    />
+  </div>
+</ShortsGrid>
 
 ---
 
 ## 2. Qualcomm EDL Mode, Safety & Unbricking Guides
 
-### Never Brick Your $15 Pi Zero Alternative — EDL Mode Hack
+The golden rule of OpenStick: **always dump calibration partitions before modifying software!**
 
-The number one rule of OpenStick: **always back up your stock firmware and radio partitions before touching fastboot or Linux!**
+<ShortsGrid columns={2}>
+  <div class="shorts-card">
+    <h4>Never Brick Your Modem — EDL Mode Hack</h4>
+    <p>Holding the reset pin or bridging test pads boots into Qualcomm 9008 EDL mode. Dump every critical radio partition (<code>modemst1</code>, <code>modemst2</code>, <code>fsg</code>) on Mac or Linux with <code>edl.py</code>.</p>
+    <VideoEmbed
+      platform="youtube"
+      id="RMQ15K-EXus"
+      aspect="9:16"
+      title="Never Brick Your $15 Pi Zero Alternative — EDL Mode Hack"
+    />
+  </div>
 
-- By holding the reset pin or bridging the test points while plugging into USB, the board boots straight into Qualcomm Emergency Download (EDL / 9008) mode.
-- Using the open-source `edl` tool on macOS or Linux, you can dump every original partition to your drive.
-- Even if you completely brick the bootloader later, EDL mode lets you restore it back to factory fresh in seconds.
+  <div class="shorts-card">
+    <h4>Unbrick a $20 Modem with Tweezers & Firehose</h4>
+    <p>How to revive a completely bricked Qualcomm modem: power cycling, bridging the FB boot test pads with tweezers to force 9008 mode, pushing firehose programmer, and restoring partitions.</p>
+    <VideoEmbed
+      platform="youtube"
+      id="nFRiFPMzs4E"
+      aspect="9:16"
+      title="Pi Zero Alternative: Unbrick a $20 Snapdragon 410 (EDL Mode)"
+    />
+  </div>
+</ShortsGrid>
 
-<VideoEmbed
-  platform="youtube"
-  id="RMQ15K-EXus"
-  title="Never Brick Your $15 Pi Zero Alternative — EDL Mode Hack"
-/>
+### Cyberdeck Overview & Full Partition Backup
 
----
-
-### Unbrick a $20 Snapdragon 410 Modem with Tweezers & Firehose
-
-What happens if you soft-brick your modem while flashing Linux? Here is how to force Qualcomm EDL mode and revive your device to run DOOM:
-
-1. Remove the battery to completely power cycle the SoC.
-2. Connect external 3.7V power (or an 18650 cell) to the battery terminal pads.
-3. Plug in the USB data cable to your PC.
-4. Locate the EDL boot pins on the PCB (the `FB` test point and adjacent pin).
-5. Bridge the test pins using metal tweezers while powering on.
-6. The modem enters Qualcomm Emergency Download (EDL) Mode (`HS-USB QDLoader 9008`).
-7. Push the firehose programmer via `qdl` / `edl.py` and restore your boot partitions!
-
-<VideoEmbed
-  platform="youtube"
-  id="nFRiFPMzs4E"
-  title="Pi Zero Alternative: Unbrick a $20 Snapdragon 410 (EDL Mode)"
-/>
-
----
-
-### Best €20 Raspberry Pi Zero Alternative for Cyberdecks & EDL Partition Backup
-
-A guide to using the €20 4G LTE battery modem (Qualcomm Snapdragon 410 / MSM8916) as a compact single-board computer for custom Linux cyberdecks and retro-gaming handhelds:
-- Quad-core ARM Cortex-A53 CPU + Li-ion battery + built-in color display (ST7735 SPI LCD) + 4G LTE.
-- Critical EDL backup command walkthrough: `edl rl full_backup`.
+A comprehensive guide to using the €20 4G LTE battery modem (Qualcomm Snapdragon 410 / MSM8916) as a compact single-board computer for custom Linux cyberdecks and retro-gaming handhelds, including instructions for running `edl rl full_backup`:
 
 <VideoEmbed
   platform="youtube"
   id="rl4EOZZVmyQ"
+  aspect="16:9"
   title="Best €20 Raspberry Pi Zero Alternative for Cyberdecks (Snapdragon 410)"
 />
 
@@ -102,11 +87,11 @@ A guide to using the €20 4G LTE battery modem (Qualcomm Snapdragon 410 / MSM89
 
 ## 3. Hardware Modifications & Cyberdeck Builds
 
-### Linux on €20 4G Modem with Screen: Adding USB Host Mode & 5V Booster
+### Linux on €20 4G Modem: Adding USB Host Mode & 5V Booster
 
 Upgrading a cheap €20 4G LTE USB modem powered by Qualcomm Snapdragon 410 (MSM8916) into a fully portable, battery-powered Linux computer using OpenStick:
 
-- **The Problem**: While the MSM8916 chipset supports USB host mode, the stock board lacks a 5V power line on the USB port (VBUS).
+- **The Problem**: While the MSM8916 chipset supports USB host mode, the stock board lacks a 5V power line on the USB port (VBUS) when running on battery.
 - **The Mod**: Adding an **MH-CD42 step-up boost converter** to supply 5V to the USB VBUS rail directly from the 3.7V battery.
 - **Power Switch**: Installing a power toggle switch on the 5V booster output to prevent current collision between the charger and the booster.
 - **Result**: Boots full desktop Linux (Debian ARM64) on battery power, supports external displays, and allows connecting USB keyboards, gaming peripherals to play DOOM, and even a DJI Mic receiver to interact with AI agents.
@@ -114,71 +99,61 @@ Upgrading a cheap €20 4G LTE USB modem powered by Qualcomm Snapdragon 410 (MSM
 <VideoEmbed
   platform="youtube"
   id="xVLgoudn61k"
+  aspect="16:9"
   title="Linux on €20 4G Modem with screen: Adding USB Host Mode (Raspberry Pi Alternative)"
 />
 
----
+<ShortsGrid columns={2}>
+  <div class="shorts-card">
+    <h4>Turned a €20 Modem into a Linux Cyberdeck (DOOM)</h4>
+    <p>Playing classic DOOM on Debian ARM64 on the integrated 1.44" SPI color LCD, controlled via mechanical keyboard over USB OTG.</p>
+    <VideoEmbed
+      platform="youtube"
+      id="xCZQXloxOuI"
+      aspect="9:16"
+      title="Turned a €20 Modem into a Mini Linux Cyberdeck (DOOM)"
+    />
+  </div>
 
-### Turned a €20 Modem into a Mini Linux Cyberdeck Running DOOM
-
-Turning a €20 4G LTE USB modem into a standalone Linux cyberdeck running classic DOOM:
-- **SoC**: Qualcomm MSM8916 (Snapdragon 410, Quad-core Cortex-A53 @ 1.2GHz)
-- **RAM / Storage**: 512MB RAM / 4GB eMMC
-- **OS**: Debian Linux (via OpenStick Project)
-- **Display**: Built-in SPI color LCD
-- **Peripherals**: 60% mechanical keyboard connected via USB OTG
-- **Game**: Classic DOOM (Chocolate Doom / PrBoom) completing E1M1
-
-<VideoEmbed
-  platform="youtube"
-  id="xCZQXloxOuI"
-  title="Turned a €20 Modem into a Mini Linux Cyberdeck (DOOM)"
-/>
-
----
-
-### €20 Pi Zero Alternative with Linux, Screen & Battery (OpenStick MF800)
-
-Flashing mainline Linux kernel 6.6.0 on a €20 pocket 4G router with a built-in battery and a 1.4" color display:
-- **Hardware Specs**: Qualcomm Snapdragon 410 4x Cortex-A53 @ 1.2GHz, 512MB LPDDR3, 4GB eMMC, 4G LTE + Wi-Fi, 1.4" color LCD, built-in Li-ion battery.
-- Side-by-side comparison with the Raspberry Pi Zero 2 W.
-
-<VideoEmbed
-  platform="youtube"
-  id="Ykf72eLos-Q"
-  title="€20 Pi Zero Alternative with Linux, Screen & Battery (OpenStick MF800)"
-/>
+  <div class="shorts-card">
+    <h4>€20 Pocket Router with Linux 6.6, Screen & Battery</h4>
+    <p>Running mainline Linux 6.6.0 on the OpenStick MF800 pocket 4G router with color display and Li-ion battery. Hardware comparison with Pi Zero 2 W.</p>
+    <VideoEmbed
+      platform="youtube"
+      id="Ykf72eLos-Q"
+      aspect="9:16"
+      title="€20 Pi Zero Alternative with Linux, Screen & Battery (OpenStick MF800)"
+    />
+  </div>
+</ShortsGrid>
 
 ---
 
 ## 4. Open-Source Voice AI & Smart Devices
 
-### Meta Muse Charm vs. €20 Glosos: Open-Source Cellular Voice AI
+<ShortsGrid columns={2}>
+  <div class="shorts-card">
+    <h4>Meta Muse Charm vs. €20 Glosos Voice AI</h4>
+    <p>Building an open-source alternative to Meta's prototype "Muse Charm" AI handheld for €20 using OpenStick and 4G WebRTC streaming to a local Mac AI pipeline.</p>
+    <VideoEmbed
+      platform="youtube"
+      id="cgzFC9ZEoWw"
+      aspect="9:16"
+      title="Meta Muse Charm vs. My €20 Glosos: Open-Source Cellular Voice AI"
+    />
+  </div>
 
-At Meta Connect, Mark Zuckerberg unveiled the prototype "Muse Charm" AI device — a cellular handheld that connects to virtual machines on Meta's cloud servers. 
-
-Instead of waiting or paying monthly hardware subscription fees, this project demonstrates building a 100% open-source alternative for €20:
-- **Hardware**: €20 Qualcomm Snapdragon 410 modem running mainline Linux via OpenStick.
-- **Network**: Low-latency audio streaming over 4G LTE via WebRTC.
-- **Local Brain**: Connects directly to a Mac running local speech-to-text (STT), local large language models (LLM), and local text-to-speech (TTS) with zero corporate tracking and zero vendor lock-in.
-
-<VideoEmbed
-  platform="youtube"
-  id="cgzFC9ZEoWw"
-  title="Meta Muse Charm vs. My €20 Glosos: Open-Source Cellular Voice AI"
-/>
-
----
-
-### Why Pay Scalper Prices? $15 USB Stick Runs Full Mainline Linux
-
-A quick overview demonstrating why makers are switching from overpriced single-board computers to surplus $15 4G LTE modems: 64-bit quad-core ARM processor, built-in Wi-Fi, 4G LTE SIM slot, and 4GB onboard flash memory.
-
-<VideoEmbed
-  platform="youtube"
-  id="Q1bM3yWB-Pc"
-  title="Why pay scalper prices for a Pi Zero 2W when a $15 USB stick runs full Linux?"
-/>
+  <div class="shorts-card">
+    <h4>Why Pay Scalper Prices? $15 USB Stick Runs Linux</h4>
+    <p>Why pay 3x scalper prices for a Pi Zero 2W when a $15 4G LTE USB stick runs full mainline Linux with quad-core 64-bit ARM and onboard flash.</p>
+    <VideoEmbed
+      platform="youtube"
+      id="Q1bM3yWB-Pc"
+      aspect="9:16"
+      title="Why pay scalper prices for a Pi Zero 2W when a $15 USB stick runs full Linux?"
+    />
+  </div>
+</ShortsGrid>
 
 ---
 
@@ -202,5 +177,5 @@ import VideoEmbed from '../../../components/VideoEmbed.astro';
 
 We welcome community video creators! To add your video:
 1. Open this page in GitHub by clicking **"Edit this page"** below.
-2. Add a new section with your video's title, a brief summary of what viewers will learn, and the `<VideoEmbed platform="youtube|bilibili" id="..." />` tag.
+2. Add a new section with your video's title, a brief summary of what viewers will learn, and the `<VideoEmbed platform="youtube|bilibili" id="..." aspect="16:9|9:16" />` tag.
 3. Submit your pull request!
