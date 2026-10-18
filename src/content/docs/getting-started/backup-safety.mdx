@@ -3,6 +3,8 @@ title: "Partition Backups & Safety: Protecting QCN, EFS & IMEI"
 description: Critical guide to dumping and restoring modem calibration partitions (modemst1, modemst2, fsg, QCN, and IMEI) before flashing Linux on Qualcomm modems.
 ---
 
+import VideoEmbed from '../../../components/VideoEmbed.astro';
+
 :::danger[Crucial Warning: Back Up Before Flashing!]
 Every cellular device has radio-frequency (RF) calibration values and an IMEI uniquely paired to its hardware. On Qualcomm devices, this data is stored in the Non-Volatile (NV) RAM and specific flash partitions:
 - `modemst1`
@@ -18,6 +20,17 @@ If you erase or overwrite these partitions without having a backup, **your modem
 ## Method 1: Full Backup via Qualcomm EDL Mode (Recommended)
 
 Qualcomm Emergency Download (EDL / 9008) mode operates at the primary bootloader level in ROM. It allows you to read the entire eMMC raw storage byte-for-byte, even if the operating system is locked or corrupted.
+
+### Video Walkthrough: Never Brick Your Modem
+
+Watch this video guide by [@glos-os](https://www.youtube.com/@glos-os) demonstrating how to enter EDL mode and back up your partitions before modifying system software:
+
+<VideoEmbed
+  platform="youtube"
+  id="RMQ15K-EXus"
+  title="Never Brick Your $15 Pi Zero Alternative — EDL Mode Hack"
+/>
+
 
 ### 1. Requirements
 - Python 3.8+ installed on your computer.
@@ -101,3 +114,17 @@ If after flashing Linux or OpenWrt your modem shows `No SIM` or refuses to regis
    python3 edl.py reset
    ```
 3. Reboot the device. Cellular functionality and original IMEI will be fully restored!
+
+---
+
+## Emergency Hardware Unbricking (Tweezers & EDL Test Points)
+
+If your device is completely unresponsive and will not boot into Android, fastboot, or respond to USB commands, you can force Qualcomm EDL mode hardware-level recovery using tweezers across the boot test pads.
+
+Watch this step-by-step emergency unbricking guide by [@glos-os](https://www.youtube.com/@glos-os):
+
+<VideoEmbed
+  platform="youtube"
+  id="nFRiFPMzs4E"
+  title="Unbrick a $20 Snapdragon 410 Modem with Tweezers & EDL Mode"
+/>

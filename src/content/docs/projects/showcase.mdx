@@ -1,0 +1,116 @@
+---
+title: "OpenStick Projects Showcase: What You Can Build with MSM8916 Modems"
+description: Inspiring real-world projects, builds, and applications powered by hacked Qualcomm MSM8916 modems running Linux.
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import VideoEmbed from '../../../components/VideoEmbed.astro';
+
+Discover what makers and engineers around the world have built with their \$5–\$20 MSM8916 modems. Have a project you'd like to share? Submit a pull request!
+
+---
+
+<CardGrid>
+  <Card title="🎮 Mini Linux Cyberdeck (DOOM)" icon="puzzle">
+    Turn a €20 MSM8916 battery modem with color LCD into a standalone gaming cyberdeck running Debian ARM64 and classic DOOM.
+    <br/>👉 **[Watch Build Video](#1-mini-linux-cyberdeck-running-doom)**
+  </Card>
+
+  <Card title="⚡ USB Host Mode 5V Booster Mod" icon="pencil">
+    Add an MH-CD42 boost converter to supply 5V to the VBUS rail from the internal battery, powering USB keyboards, audio interfaces, and peripherals.
+    <br/>👉 **[Watch Build Video](#2-battery-powered-usb-host-mode--5v-booster-mod)**
+  </Card>
+
+  <Card title="🎙️ Glosos: €20 Voice AI Handheld" icon="star">
+    A 100% open-source alternative to Meta's Muse Charm. Streams audio over 4G WebRTC to a local Mac for zero-cost private Voice AI.
+    <br/>👉 **[Watch Build Video](#3-glosos-open-source-cellular-voice-ai-handheld)**
+  </Card>
+
+  <Card title="📱 4G Telegram SMS Gateway" icon="email">
+    Forward SMS verification codes and 2FA tokens directly to a private Telegram channel. Supports sending SMS messages via Telegram bot commands.
+    <br/>👉 **[View Tutorial](/projects/sms-gateway/)**
+  </Card>
+
+  <Card title="🛡️ Portable Pi-hole & DNS Sinkhole" icon="seti:lock">
+    An ad-blocking DNS server running on a USB stick. Plug it into your home router or laptop USB port to block trackers network-wide.
+    <br/>👉 **[View Tutorial](/projects/portable-server/)**
+  </Card>
+
+  <Card title="🌐 ZeroTier & Tailscale VPN Gateway" icon="rocket">
+    A self-contained mesh VPN node that stays connected over 4G cellular anywhere in the world. Ideal for accessing remote lab equipment behind CGNAT.
+    <br/>👉 **[View Tutorial](/projects/portable-server/#mesh-vpn-tailscale--zerotier)**
+  </Card>
+
+  <Card title="⚡ USB Multi-Gadget Workstation" icon="laptop">
+    Turn your dongle into a virtual Ethernet adapter, Serial debug console, and Mass Storage flash drive over a single physical USB connection.
+    <br/>👉 **[View Tutorial](/projects/usb-gadget-network/)**
+  </Card>
+
+  <Card title="☀️ Solar-Powered Off-Grid Monitor" icon="sun">
+    Pair an MSM8916 dongle with a small solar panel and 18650 Li-ion cell to stream sensor readings (temperature, air quality) via MQTT over 4G.
+    <br/>👉 *Community contribution welcome!*
+  </Card>
+
+  <Card title="📻 RTL-SDR ADS-B Aircraft Tracker" icon="signal">
+    Use USB Host mode to connect an RTL-SDR tuner, tracking overhead flights with `dump1090` and feeding data over cellular to FlightRadar24.
+    <br/>👉 *Community contribution welcome!*
+  </Card>
+</CardGrid>
+
+---
+
+## Featured Community Builds
+
+### 1. Mini Linux Cyberdeck Running DOOM
+
+Created by [@glos-os](https://www.youtube.com/@glos-os), this build transforms a €20 4G LTE pocket modem (Qualcomm Snapdragon 410) with an integrated color SPI screen into a standalone retro-gaming cyberdeck.
+
+- **OS**: Debian GNU/Linux ARM64 via OpenStick
+- **Display**: Built-in 1.44" color SPI TFT
+- **Control**: Mechanical keyboard connected over USB OTG
+- **Software**: Chocolate Doom / PrBoom running full speed on battery
+
+<VideoEmbed
+  platform="youtube"
+  id="xCZQXloxOuI"
+  title="Turned a €20 Modem into a Mini Linux Cyberdeck (DOOM)"
+/>
+
+---
+
+### 2. Battery-Powered USB Host Mode & 5V Booster Mod
+
+Standard modem motherboards run in USB device (gadget) mode and lack 5V VBUS power rail generation when running off the 3.7V battery.
+
+This hardware modification by [@glos-os](https://www.youtube.com/@glos-os) adds an **MH-CD42 step-up boost converter** and a power switch to supply clean 5V power to the USB port, enabling USB keyboards, mice, flash storage, and microphone receivers.
+
+<VideoEmbed
+  platform="youtube"
+  id="xVLgoudn61k"
+  title="Linux on €20 4G Modem: Adding USB Host Mode & 5V Booster Mod"
+/>
+
+---
+
+### 3. Glosos: Open-Source Cellular Voice AI Handheld
+
+A budget-friendly €20 alternative to Meta's prototype "Muse Charm" AI handheld:
+
+- Uses a Qualcomm Snapdragon 410 4G modem running mainline Linux via OpenStick.
+- Streams voice bi-directionally over 4G LTE using low-latency WebRTC directly to a private Mac.
+- Local speech-to-text (STT), LLM intelligence, and local speech synthesis (TTS) keep all personal data safe at home with zero vendor subscription markup.
+
+<VideoEmbed
+  platform="youtube"
+  id="cgzFC9ZEoWw"
+  title="Meta Muse Charm vs. €20 Glosos: Open-Source Cellular Voice AI"
+/>
+
+---
+
+## Want to Showcase Your Project Here?
+
+Adding your project to OpenStick.org takes less than 5 minutes!
+1. Click **"Edit this page"** at the bottom of the page or create a markdown file in `src/content/docs/projects/`.
+2. Include a summary, hardware requirements, and links to your GitHub repo or YouTube build video.
+3. Submit a Pull Request!

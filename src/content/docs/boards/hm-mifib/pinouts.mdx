@@ -3,7 +3,10 @@ title: "HM-MIFIB Pinouts: LCD Screen SPI, Battery Contacts & EDL Pads"
 description: Hardware pinouts, LCD screen SPI connections, battery contacts, EDL recovery pads, and 1.8V UART for HM-MIFIB.
 ---
 
+import VideoEmbed from '../../../../components/VideoEmbed.astro';
+
 Because the **HM-MIFIB** incorporates an integrated display, battery management circuitry, and physical buttons, its hardware architecture is more sophisticated than standard USB dongles.
+
 
 ---
 
@@ -104,3 +107,23 @@ Do not connect 3.3V or 5V serial signals to the HM-MIFIB. Use only a **1.8V** le
 | :--- | :--- | :--- | :--- |
 | **Power Key** | PMIC `PWRKEY` | Active Low (Hold 3s) | Powers device on/off; short press toggles LCD backlight |
 | **WPS / Nav Key** | GPIO 107 | Active Low (Pull-up) | Custom user actions (toggle Wi-Fi, run scripts) |
+
+---
+
+## 6. Hardware Mod: 5V USB Host Mode (VBUS Booster Mod)
+
+While the Qualcomm Snapdragon 410 chipset supports USB OTG/Host mode in software, the HM-MIFIB board does not supply +5V power to the USB VBUS pin when running on battery. 
+
+To power external USB peripherals (keyboards, flash drives, wireless microphone dongles):
+1. Connect an **MH-CD42 step-up boost converter** to step up the 3.7V battery voltage to 5.0V.
+2. Route the 5V booster output to the USB connector's VBUS pin.
+3. Install an inline toggle power switch on the 5V boost line to avoid current collision when plugging in a USB wall charger.
+
+Watch the full hardware soldering and assembly walkthrough by [@glos-os](https://www.youtube.com/@glos-os):
+
+<VideoEmbed
+  platform="youtube"
+  id="xVLgoudn61k"
+  title="Linux on €20 4G Modem: Adding USB Host Mode & 5V Booster Mod"
+/>
+

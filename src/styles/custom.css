@@ -15,11 +15,18 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  aspect-ratio: 16 / 9;
   border-radius: 8px;
   margin: 1.5rem 0;
   background-color: #0f172a;
   border: 1px solid var(--sl-color-gray-5);
+}
+
+.video-responsive.video-vertical {
+  max-width: 380px;
+  aspect-ratio: 9 / 16;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .video-responsive iframe {

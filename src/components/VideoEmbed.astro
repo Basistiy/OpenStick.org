@@ -1,11 +1,12 @@
 ---
 interface Props {
-  platform: 'youtube' | 'bilibili';
+  platform?: 'youtube' | 'bilibili';
   id: string;
   title?: string;
+  aspect?: '16:9' | '9:16';
 }
 
-const { platform, id, title = 'Video Tutorial' } = Astro.props;
+const { platform = 'youtube', id, title = 'Video Tutorial', aspect = '16:9' } = Astro.props;
 
 let embedUrl = '';
 if (platform === 'youtube') {
@@ -15,7 +16,7 @@ if (platform === 'youtube') {
 }
 ---
 
-<div class="video-responsive">
+<div class={`video-responsive ${aspect === '9:16' ? 'video-vertical' : ''}`}>
   <iframe
     src={embedUrl}
     title={title}
@@ -24,3 +25,4 @@ if (platform === 'youtube') {
     loading="lazy"
   ></iframe>
 </div>
+
