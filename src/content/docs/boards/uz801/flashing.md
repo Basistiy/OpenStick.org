@@ -18,7 +18,20 @@ This guide walks you through installing custom Linux operating systems onto your
 
 ## Step 1: Reboot into Fastboot Mode
 
-Connect your UZ801 stick to your computer:
+### Enable ADB on Stock Firmware
+
+On factory Android firmware, USB debugging (ADB) is usually disabled by default. Before you can send ADB commands:
+
+1. Connect your computer or phone to the modem's Wi-Fi network.
+2. In your web browser, navigate to:
+   ```
+   http://192.168.100.1/usbdebug.htm
+   ```
+3. Enable USB debugging (ADB) on that page.
+
+### Connect & Reboot into Bootloader
+
+Connect your UZ801 stick to your computer via USB:
 
 ```bash
 # Verify ADB connection
@@ -28,7 +41,7 @@ adb devices
 adb reboot bootloader
 ```
 
-If your stock firmware does not respond to ADB, trigger EDL mode using the tweezers method (see [UZ801 Pinouts](/boards/uz801/pinouts/)) and flash `emmc_appsboot.mbn` with `edl.py`.
+If your stock firmware does not respond to ADB even after enabling it via the web page, trigger EDL mode using the tweezers method (see [UZ801 Pinouts](/boards/uz801/pinouts/)) and flash `emmc_appsboot.mbn` with `edl.py`.
 
 Confirm fastboot detects the board:
 ```bash

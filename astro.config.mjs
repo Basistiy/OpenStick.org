@@ -39,6 +39,14 @@ export default defineConfig({
             href: '/apple-touch-icon.png',
           },
         },
+        {
+          tag: 'script',
+          attrs: {
+            src: 'https://cloud.umami.is/script.js',
+            'data-website-id': '055a6e6e-f2a0-4ecf-b043-e65cecefe34f',
+            defer: true,
+          },
+        },
       ],
       social: [
         {

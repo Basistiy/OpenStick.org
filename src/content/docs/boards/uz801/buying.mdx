@@ -81,6 +81,10 @@ Ensure your board has **eMMC** flash memory:
 
 If the device powers up with its factory Android firmware, verify its hardware via USB:
 
+:::tip[Enabling ADB on Stock Firmware]
+On factory UZ801 firmware, ADB is disabled by default. To enable it, connect your computer or phone to the modem's Wi-Fi network and open `http://192.168.100.1/usbdebug.htm` in your browser to enable USB debugging.
+:::
+
 ```bash
 # Check if ADB detects the device
 adb devices

@@ -86,3 +86,20 @@ SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="*", KERNEL=="wla
 Unlike smartphones or tablets, the UZ801 has no physical volume buttons. If a faulty kernel or broken init system prevents booting to Linux:
 - `adb reboot bootloader` cannot be used.
 - **Solution**: You must pop open the plastic casing and short the **`EDL`** test pad to **`GND`** with tweezers during USB insertion (see [UZ801 Pinouts](/boards/uz801/pinouts/)).
+
+---
+
+## 6. ADB Disabled on Factory Firmware
+
+### The Issue:
+When plugging a brand-new UZ801 into your computer, `adb devices` returns an empty list, and the stick only enumerates as a virtual CD-ROM or USB modem.
+
+### Fix / Workaround:
+USB debugging is disabled by default in factory firmware. You do not need to short test points to access ADB:
+1. Connect your computer or phone to the modem's Wi-Fi network.
+2. In your web browser, navigate to:
+   ```
+   http://192.168.100.1/usbdebug.htm
+   ```
+3. Enable USB debugging (ADB).
+4. Run `adb devices` over USB to verify that the device is now detected.
