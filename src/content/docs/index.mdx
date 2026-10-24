@@ -7,13 +7,13 @@ hero:
   image:
     file: ../../assets/logo.svg
   actions:
+    - text: OpenStick Installer
+      link: https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip
+      icon: download
+      variant: primary
     - text: Quick Start
       link: /getting-started/quickstart/
       icon: right-arrow
-      variant: primary
-    - text: The Origin Story
-      link: /about/origin-story/
-      icon: open-book
       variant: secondary
     - text: GitHub Repository
       link: https://github.com/Basistiy/OpenStick.org
@@ -25,7 +25,13 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 ## Why OpenStick & MSM8916?
 
 <CardGrid stagger>
-  <Card title="Cortex-A53 Quad-Core Power" icon="rocket">
+  <Card title="1-Click Automated Installer" icon="rocket">
+    Flash your stick without terminal hassle! Double-click launchers for Windows (`run.bat`), macOS (`run.command`), and Linux (`run.sh`) automate partition backup, IMEI preservation, and Debian flashing.
+    <br />
+    👉 **[Download openstick-installer.zip](https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip)**
+  </Card>
+
+  <Card title="Cortex-A53 Quad-Core Power" icon="laptop">
     Powered by the **Qualcomm Snapdragon 410 (MSM8916)** with 4x ARM Cortex-A53 64-bit cores @ 1.2 GHz, 512 MB – 1 GB LPDDR3 RAM, and 4 GB – 8 GB onboard high-speed eMMC storage.
   </Card>
 
@@ -54,6 +60,7 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 
 ## Explore the Community Hub
 
+- **[1-Click Installer (openstick-installer)](/boards/uz801/flashing/#method-1-automated-1-click-openstick-installer-recommended)**: Zero-terminal tool for Windows, macOS, and Linux to backup stock partitions and flash Debian. ([Download .zip](https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip))
 - **[The Origin Story & AI Boom Shortage](/about/origin-story/)**: How OpenStick evolved and why it saved makers during the AI chip crunch.
 - **[MSM8916 vs Raspberry Pi Zero 2 W](/about/pi-zero-2w-comparison/)**: Side-by-side technical specs, power consumption, and price-to-performance breakdown.
 - **[Supported Board Guides](/boards/uz801/buying/)**: Dedicated guides for **[UZ801](/boards/uz801/buying/)**, **[HMUF02](/boards/hmuf02/buying/)**, **[HM-MIFIB (Display & Battery)](/boards/hm-mifib/buying/)**, **[UFI001B/C](/boards/ufi001/buying/)**, and **[UFI003 (1GB RAM)](/boards/ufi003/buying/)**.

@@ -9,6 +9,11 @@ Welcome to the OpenStick community! This guide takes you through the fundamental
 Every physical modem has unique radio calibration partitions (`fsg`, `modemst1`, `modemst2`) that store your factory IMEI and cellular frequency calibrations. If you wipe these partitions without a backup, your modem will permanently lose cellular connectivity. **Never skip the backup step!**
 :::
 
+:::tip[Automated 1-Click Installation]
+Flashing a **UZ801** stick? You can skip manual commands entirely by using the automated **[OpenStick Installer](/boards/uz801/flashing/#method-1-automated-1-click-openstick-installer-recommended)**. It automatically backs up your eMMC partitions, isolates your IMEI calibration, and flashes Debian using simple double-click scripts.  
+👉 [**Download openstick-installer.zip**](https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip)
+:::
+
 ---
 
 ## The 4-Step Road to Linux

@@ -7,7 +7,64 @@ This guide walks you through installing custom Linux operating systems onto your
 
 ---
 
-## Prerequisites
+## Choose Your Flashing Method
+
+* **[Method 1: Automated 1-Click OpenStick Installer (Recommended)](#method-1-automated-1-click-openstick-installer-recommended)**: Zero terminal setup. Automates EDL transition, 1:1 eMMC backup, cellular calibration preservation, and Debian flashing via double-click scripts.
+* **[Method 2: Manual Fastboot & lk2nd Flashing](#method-2-manual-fastboot--lk2nd-flashing)**: Step-by-step command-line procedure for custom images, postmarketOS, and OpenWrt.
+
+---
+
+## Method 1: Automated 1-Click OpenStick Installer (Recommended)
+
+The **[OpenStick Installer](https://github.com/Basistiy/openstick-installer)** is a cross-platform, minimal-action flashing tool designed to turn Qualcomm Snapdragon 410 (MSM8916) UZ801 dongles into Debian Linux devices with full brick protection.
+
+:::tip[Direct Download]
+Download the standalone installer archive (no Git installation required):  
+👉 [**Download openstick-installer.zip**](https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip) *(~43 KB)*  
+GitHub Repository: [Basistiy/openstick-installer](https://github.com/Basistiy/openstick-installer)
+:::
+
+### Key Features
+- **Double-Click Launchers**: Native scripts for **Windows** (`run.bat`), **macOS** (`run.command`), and **Linux** (`run.sh`). Automatically configures Python virtual environments and dependencies on first launch.
+- **Automated EDL Transition**: Reboots your stick into Qualcomm 9008 EDL mode via ADB, Fastboot, or SSH without opening casings or shorting test pins whenever possible.
+- **Full eMMC Clone**: Dumps a complete 1:1 raw eMMC backup (`backups/uz801_<timestamp>_<imei>/full_emmc.bin`) for 100% brick-proof local recovery.
+- **Calibration Isolation & In-Place Injection**: Automatically isolates your stick's unique IMEI and modem radio calibration partitions (`modemst1`, `modemst2`, `fsg`, `fsc`, `persist`, `sec`) and injects them directly into the clean Debian image in under 0.1s.
+- **Single-Step Flashing**: Writes the personalized system via Qualcomm Firehose (`edl wf`) and automatically resets the stick into Debian.
+- **Auto Network Discovery**: Scans USB Ethernet to confirm Debian has booted and displays your SSH login details.
+
+### Step-by-Step Instructions
+
+1. **Download & Extract**:
+   Download [**`openstick-installer.zip`**](https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip) and extract it on your computer.
+
+2. **Connect the Stick**:
+   Plug your UZ801 modem into any USB port on your computer.
+
+3. **Launch the Installer**:
+   - **Windows**: Double-click `run.bat`
+   - **macOS**: Double-click `run.command`
+   - **Linux**: Double-click `run.sh` (or run `./run.sh` in terminal)
+
+4. **Follow the Interactive Prompts**:
+   - **Target Board**: Press `1` for **UZ801**.
+   - **Backup Partitions**: Press `Y` (Strongly Recommended). The installer dumps the full eMMC image and extracts your stick's cellular calibration files.
+   - **Choose Action**: Press `1` for **Install Linux (Debian)**.
+   - The installer will automatically download the universal image from GitHub Releases, inject your unique calibrations, flash the eMMC via Qualcomm EDL mode, and reboot the stick.
+
+5. **First SSH Login**:
+   Once booted, the stick connects as a USB Ethernet gadget:
+   ```bash
+   ssh user@192.168.5.1
+   ```
+   - **User**: `user`
+   - **Password**: `1`
+   - **Root Password**: `1` (switch with `sudo su`)
+
+---
+
+## Method 2: Manual Fastboot & lk2nd Flashing
+
+### Prerequisites
 
 1. A verified **UZ801 (MSM8916 with eMMC)** stick.
 2. Host machine with `adb` and `fastboot` installed (`sudo apt install android-tools-adb android-tools-fastboot` or Android SDK Platform Tools).
