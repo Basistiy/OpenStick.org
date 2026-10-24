@@ -77,6 +77,13 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Buying Guide',
+          items: [
+            { label: 'Where to Buy & Verified Links', slug: 'buying-guide' },
+            { label: 'How to Submit a Link', slug: 'buying-guide/submit' },
+          ],
+        },
+        {
           label: 'UZ801',
           items: [
             { label: 'Buying Guide & Identification', slug: 'boards/uz801/buying' },

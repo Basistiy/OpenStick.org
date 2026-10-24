@@ -1,0 +1,87 @@
+name: 🛒 Submit a Verified Purchase Link
+description: Share an AliExpress, Taobao, eBay, or other web shop link where you bought a working MSM8916 device
+labels: ["buying-guide", "community-links"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Thanks for helping the community! 🤝
+        Found a store that reliably ships genuine Qualcomm Snapdragon 410 (MSM8916) modems with eMMC?
+        Submit your link below and we'll add it to the [OpenStick Buying Guide](https://openstick.org/buying-guide/).
+  - type: dropdown
+    id: device_model
+    attributes:
+      label: Device Model
+      description: Which device did you buy?
+      options:
+        - UZ801 (Yiming / Zhihe)
+        - HMUF02 (Slim 3-LED Wingle)
+        - UFI003 (1GB RAM Flagship)
+        - HM-MIFIB (Display & Battery)
+        - UFI001B / UFI001C
+        - SP970 (V3 / V10)
+        - Other / Unlisted Board
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Shop / Platform
+      description: Where did you buy it?
+      options:
+        - AliExpress
+        - Taobao / 1688
+        - eBay
+        - Amazon
+        - Shopee / Lazada
+        - Other Web Shop
+    validations:
+      required: true
+  - type: input
+    id: store_name
+    attributes:
+      label: Store / Seller Name
+      description: The name of the seller or shop on the platform
+      placeholder: e.g. "Shenzhen Smart Tech Store"
+    validations:
+      required: true
+  - type: input
+    id: product_url
+    attributes:
+      label: Product URL
+      description: Clean link to the product (please remove personal tracking parameters)
+      placeholder: "https://www.aliexpress.com/item/..."
+    validations:
+      required: true
+  - type: input
+    id: board_silkscreen
+    attributes:
+      label: Board Silkscreen / PCB Revision
+      description: What is printed on the circuit board? (pop off the plastic shell to check)
+      placeholder: e.g. "UZ801_V3.0" or "HMUF02-V05"
+    validations:
+      required: true
+  - type: dropdown
+    id: flash_type
+    attributes:
+      label: Flash Memory Type
+      description: Did it come with eMMC or NAND?
+      options:
+        - eMMC (BGA square chip - works with Debian/OpenStick)
+        - NAND (Pins on side - limited support)
+    validations:
+      required: true
+  - type: textarea
+    id: verification_proof
+    attributes:
+      label: Verification Proof & ADB Output
+      description: Output of `adb shell getprop ro.board.platform` (must be msm8916), `cat /proc/meminfo`, or attach photos of PCB
+      placeholder: "adb shell getprop ro.board.platform -> msm8916\nStorage: 4GB eMMC (Samsung KLM4G1FETE)"
+    validations:
+      required: true
+  - type: textarea
+    id: buyer_notes
+    attributes:
+      label: Buyer Notes, Tips & Selected Options
+      description: Which color/SKU did you select? Did you chat with the seller beforehand? Any quirks?
+      placeholder: e.g. "Selected 'White with SIM slot' option. Seller confirmed MSM8916 in chat before shipping. Fastboot and EDL worked immediately."

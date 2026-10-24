@@ -3,6 +3,8 @@ title: "HMUF02 4G Wingle: Buying Guide & Hardware Identification"
 description: Comprehensive buying guide for the HMUF02 MSM8916 4G USB wingle, how to avoid non-Qualcomm chip swaps, and hardware specs.
 ---
 
+import { Badge, LinkButton } from '@astrojs/starlight/components';
+
 The **HMUF02** is one of the most widely distributed budget 4G LTE USB dongles sold globally under countless generic white-label brandings (frequently advertising default Wi-Fi SSIDs like `4G-UFI-XXXX` or `LTE-WIFI-XXXX`).
 
 ---
@@ -52,14 +54,6 @@ Because the HMUF02 plastic shell is mass-produced by several contract manufactur
 
 ---
 
-## Pre-Purchase Seller Questionnaire
-
-When messaging AliExpress or Taobao merchants, copy and paste the following question:
-
-> *"Hi seller, does this 4G USB modem use the Qualcomm Snapdragon 410 (MSM8916) chipset with eMMC flash, or does it use ASR/ZXIC? What is printed on the motherboard silkscreen?"*
-
----
-
 ## Software Verification (Stock Android ADB)
 
 If you already have the stick in hand:
@@ -76,3 +70,20 @@ adb shell getprop ro.board.platform
 adb shell ls -la /dev/block/bootdevice/by-name
 # If partitions boot, system, modem, userdata exist -> Confirmed eMMC!
 ```
+
+---
+
+## Community-Verified HMUF02 Store Links
+
+:::note[Community Links Needed]
+We do not currently have verified working purchase links for the HMUF02. Because recent mass-market listings frequently substitute non-Qualcomm ASR1802 or ZX297520 chipsets, verified community submissions are especially needed!
+:::
+
+<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem;">
+  <LinkButton href="/buying-guide/" variant="primary" icon="right-arrow">
+    Full Hardware Buying Guide
+  </LinkButton>
+  <LinkButton href="/buying-guide/submit/" variant="secondary" icon="pencil">
+    Submit Your Purchase Link
+  </LinkButton>
+</div>

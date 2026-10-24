@@ -1,0 +1,124 @@
+---
+import { redirectLinks, type RedirectLink } from '../../data/redirects';
+
+export function getStaticPaths() {
+  return Object.values(redirectLinks).map((item) => ({
+    params: { slug: item.slug },
+    props: { item },
+  }));
+}
+
+interface Props {
+  item: RedirectLink;
+}
+
+const { item } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redirecting to {item.platform}...</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="refresh" content={`1;url=${item.target}`} />
+    <link rel="canonical" href={item.target} />
+    <script
+      src="https://cloud.umami.is/script.js"
+      data-website-id="055a6e6e-f2a0-4ecf-b043-e65cecefe34f"
+      data-auto-track="true"
+      defer
+    ></script>
+    <script define:vars={{ target: item.target, slug: item.slug, platform: item.platform, device: item.device }}>
+      function doRedirect() {
+        window.location.replace(target);
+      }
+
+      // Allow 250ms for Umami tracking beacon to fire before redirecting
+      window.addEventListener('DOMContentLoaded', () => {
+        try {
+          if (window.umami) {
+            window.umami.track('buy-link-click', { slug, platform, device });
+          }
+        } catch (e) {}
+        setTimeout(doRedirect, 250);
+      });
+    </script>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #0b0f19;
+        color: #f1f5f9;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 1.5rem;
+        box-sizing: border-box;
+        text-align: center;
+      }
+      .card {
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 16px;
+        padding: 2.5rem 2rem;
+        max-width: 460px;
+        width: 100%;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+      }
+      .spinner {
+        width: 36px;
+        height: 36px;
+        border: 3px solid #334155;
+        border-top-color: #0284c7;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin: 0 auto 1.5rem;
+      }
+      h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1.35rem;
+        font-weight: 600;
+      }
+      p {
+        margin: 0;
+        color: #94a3b8;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      .link-wrapper {
+        margin-top: 1.75rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid #334155;
+        font-size: 0.85rem;
+        color: #64748b;
+      }
+      a {
+        color: #38bdf8;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="spinner"></div>
+      <h2>Redirecting to {item.platform}...</h2>
+      <p>
+        Taking you to the verified listing for <strong>{item.device}</strong> ({item.silkscreen}).
+      </p>
+      <div class="link-wrapper">
+        If you are not redirected automatically within a few seconds,<br />
+        <a href={item.target} rel="nofollow noopener noreferrer">click here to proceed to {item.platform}</a>.
+      </div>
+    </div>
+  </body>
+</html>

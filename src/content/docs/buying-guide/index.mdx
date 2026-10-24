@@ -1,0 +1,129 @@
+---
+title: "MSM8916 Modem Buying Guide: Where to Buy & Verified Store Links"
+description: Community-verified web shop links (AliExpress, Allegro, and other web shops) for genuine Qualcomm MSM8916 4G LTE USB dongles, including UZ801 and HM-MIFIB.
+---
+
+import { Card, CardGrid, Badge, LinkButton } from '@astrojs/starlight/components';
+
+Finding genuine **Qualcomm Snapdragon 410 (MSM8916)** 4G USB modems online can be tricky. Because many generic manufacturers reuse the same plastic outer enclosures, sellers on AliExpress, Taobao, and eBay frequently substitute non-Qualcomm chips (**ASR1802**, **ZX297520**) or incompatible **SPI-NAND flash** without updating the listing title.
+
+This community buying guide maintains **tested, verified store links** where OpenStick community members have successfully purchased genuine Qualcomm MSM8916 hardware with eMMC storage.
+
+<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1.5rem 0;">
+  <LinkButton href="/buying-guide/submit/" variant="primary" icon="pencil">
+    Publish Your Store Link
+  </LinkButton>
+  <LinkButton href="https://github.com/Basistiy/OpenStick.org/issues/new?template=buy-link-submission.yml" variant="secondary" icon="external">
+    Submit via GitHub Issue (No Git Needed)
+  </LinkButton>
+  <LinkButton href="/getting-started/device-identification/" variant="minimal" icon="magnifier">
+    Device Identification Guide
+  </LinkButton>
+</div>
+
+---
+
+## ⚠️ Key Rules Before Buying
+
+<CardGrid>
+  <Card title="1. Confirm with the Seller" icon="chat">
+    Ask the seller directly if the device uses Qualcomm Snapdragon 410 (MSM8916) with eMMC flash storage before ordering. Written confirmation in chat makes dispute refunds straightforward if a non-Qualcomm board is delivered.
+  </Card>
+
+  <Card title="2. Confirm eMMC (Not NAND)" icon="warning">
+    Ensure the board has **eMMC 4GB / 8GB** storage (smooth square BGA chip). Standard OpenStick Debian and mainline Linux kernel images **do not** boot on raw SPI-NAND flash.
+  </Card>
+
+  <Card title="3. Beware of Suspiciously Cheap Clones" icon="error">
+    Listings priced unusually low are almost universally cost-reduced ASR1802 or ZX297520 clones that cannot run Linux.
+  </Card>
+
+  <Card title="4. Test Before Confirming Receipt" icon="approve-check">
+    When your package arrives, pop open the shell to inspect the silkscreen and run `adb shell getprop ro.board.platform` before clicking "Confirm Order Received".
+  </Card>
+</CardGrid>
+
+---
+
+## Community-Verified Store Links
+
+### UZ801 4G LTE USB Modem
+
+The **UZ801** (Yiming / Zhihe) is the community's **#1 recommended dongle**. It features clearly marked test pads, standard 4GB eMMC storage, a well-supported WCN3620 Wi-Fi chipset, and direct compatibility with the automated [OpenStick Installer](/boards/uz801/flashing/#method-1-automated-1-click-openstick-installer-recommended).
+
+- **Silkscreens Confirmed**: `UZ801_V3.31`, `UZ801_V3.0`
+- **Hardware Reference**: [UZ801 Full Board Guide & Pinouts](/boards/uz801/buying/)
+
+| Platform | Listing Link | Confirmed Silkscreen | Status |
+| :--- | :--- | :--- | :--- |
+| **AliExpress** | [4G LTE USB Modem Dongle (Store 1)](/go/uz801-aliexpress-1) | `UZ801_V3.31` | <Badge text="Confirmed" variant="success" /> |
+| **AliExpress** | [4G LTE USB Wireless Modem (Store 2)](/go/uz801-aliexpress-2) | `UZ801_V3.31` | <Badge text="Confirmed" variant="success" /> |
+| **AliExpress** | [4G Wi-Fi Router USB Dongle (Store 3)](/go/uz801-aliexpress-3) | `UZ801_V3.31` | <Badge text="Confirmed" variant="success" /> |
+| **Allegro** | [Modem 4G LTE USB Wi-Fi SIM](/go/uz801-allegro) | `UZ801_V3.0` | <Badge text="Confirmed" variant="success" /> |
+
+---
+
+### HM-MIFIB Portable MiFi (LCD Screen + 2100mAh Battery)
+
+The **HM-MIFIB** is a standalone pocket router featuring a 1.44-inch color SPI status display, a removable 2100mAh Li-ion battery, a Micro-USB charging port, and power button, all driven by the MSM8916.
+
+- **Silkscreen Confirmed**: `HM-MIFIB_V18`
+- **Hardware Reference**: [HM-MIFIB Full Guide](/boards/hm-mifib/buying/)
+
+| Platform | Listing Link | Confirmed Silkscreen | Status |
+| :--- | :--- | :--- | :--- |
+| **Allegro** | [Przenośny Router Wi-Fi 4G LTE SIM](/go/hm-mifib-allegro) | `HM-MIFIB_V18` | <Badge text="Confirmed" variant="success" /> |
+
+---
+
+### Other Boards (HMUF02, UFI003, SP970)
+
+:::note[Community Links Needed]
+We currently do not have verified purchase links for **HMUF02**, **UFI003 (1GB RAM)**, or **SP970**.
+
+Because generic sellers frequently substitute non-Qualcomm chipsets (ASR1802, ZX297520) or fake 1GB claims, community-tested links are needed!
+:::
+
+👉 **[Submit a Verified Store Link](/buying-guide/submit/)** if you recently bought a genuine working modem.
+
+---
+
+## 📢 How to Publish Your Store Link
+
+Bought a modem from a store not listed here? Help fellow makers find genuine hardware! We provide two simple ways to publish your link:
+
+<CardGrid>
+  <Card title="Method A: One-Click GitHub Issue (Easiest)" icon="pencil">
+    No knowledge of Git, branches, or pull requests required! Simply fill in our guided form with your link and a photo or ADB verification:
+    <br/><br/>
+    👉 **[Submit a Verified Store Link via GitHub Issue](https://github.com/Basistiy/OpenStick.org/issues/new?template=buy-link-submission.yml)**
+    <br/><br/>
+    Our maintainers will review the submission and add it to the tables above!
+  </Card>
+
+  <Card title="Method B: Edit This Page Directly (Fastest)" icon="github">
+    Know how to make a pull request?
+    <br/><br/>
+    1. Scroll to the bottom and click **"Edit this page"** (or use the link below).
+    2. Add a new row to the table in `src/content/docs/buying-guide/index.mdx`.
+    3. Click **"Propose changes"** and open a PR!
+    <br/><br/>
+    👉 **[Read the Full Link Submission Guidelines](/buying-guide/submit/)**
+  </Card>
+</CardGrid>
+
+---
+
+## Community Guidelines for Submitting Links
+
+To maintain high data quality and protect community members from scams, all submitted store links must meet these criteria:
+
+1. **Clean Product URLs**: Strip all personal tracking and referral parameters (remove `?spm=...`, `&scm=...`, `&_gl=...`, etc.). Use clean canonical URLs (e.g. `https://www.aliexpress.com/item/1005012883269576.html`).
+2. **Motherboard & Silkscreen Verified**: You must open the plastic enclosure and inspect the PCB silkscreen (e.g. `UZ801_V3.31`, `UZ801_V3.0`, `HM-MIFIB_V18`).
+3. **SoC & Memory Confirmed**: Provide software verification output from stock Android ADB:
+   ```bash
+   adb shell getprop ro.board.platform
+   # Output must be: msm8916
+   ```
+4. **No Affiliate Loops or URL Shorteners**: Links through link-shorteners or suspicious redirect services will be resolved to their canonical product URL.
+5. **Report Chip Swaps**: If a seller previously listed on this page starts shipping non-Qualcomm chips, please [open an issue](https://github.com/Basistiy/OpenStick.org/issues/new) immediately so we can update the status badge to 🔴 **Chip-Swap Warning**.

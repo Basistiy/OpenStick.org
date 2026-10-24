@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /go/
 Allow: /
 
 Sitemap: https://openstick.org/sitemap-index.xml

@@ -4,6 +4,7 @@ description: How to identify genuine UZ801 MSM8916 4G USB dongles, verify eMMC s
 ---
 
 import VideoEmbed from '../../../../components/VideoEmbed.astro';
+import { Badge, LinkButton } from '@astrojs/starlight/components';
 
 The **UZ801** (manufactured by Yiming / Zhihe) is one of the most widely adopted and best-documented 4G LTE USB dongles in the OpenStick community. It is renowned for having clearly exposed test pads and reliable eMMC flash memory.
 
@@ -105,3 +106,25 @@ adb shell ls -l /dev/block/bootdevice/by-name
 1. **Search Keywords**: `UZ801 4G USB`, `MSM8916 4G LTE stick`, `Snapdragon 410 USB modem car router`.
 2. **Contact Seller**: Send a message asking: *"Does this board have Qualcomm MSM8916 with eMMC flash and silkscreen UZ801?"*
 3. **Price Range**: Genuine units typically cost between **$8 to $14 USD**. Anything under $5 USD is almost always an ASR or ZXIC cost-reduced clone.
+
+---
+
+## Community-Verified UZ801 Store Links
+
+The following listings have been tested and verified by community members as shipping genuine `UZ801` MSM8916 boards:
+
+| Platform | Listing Link | Confirmed Silkscreen | Status |
+| :--- | :--- | :--- | :--- |
+| **AliExpress** | [4G LTE USB Modem Dongle (Store 1)](/go/uz801-aliexpress-1) | `UZ801_V3.31` | <Badge text="Confirmed" variant="success" /> |
+| **AliExpress** | [4G LTE USB Wireless Modem (Store 2)](/go/uz801-aliexpress-2) | `UZ801_V3.31` | <Badge text="Confirmed" variant="success" /> |
+| **AliExpress** | [4G Wi-Fi Router USB Dongle (Store 3)](/go/uz801-aliexpress-3) | `UZ801_V3.31` | <Badge text="Confirmed" variant="success" /> |
+| **Allegro** | [Modem 4G LTE USB Wi-Fi SIM](/go/uz801-allegro) | `UZ801_V3.0` | <Badge text="Confirmed" variant="success" /> |
+
+<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem;">
+  <LinkButton href="/buying-guide/" variant="primary" icon="right-arrow">
+    Full Hardware Buying Guide
+  </LinkButton>
+  <LinkButton href="/buying-guide/submit/" variant="secondary" icon="pencil">
+    Submit Your Purchase Link
+  </LinkButton>
+</div>

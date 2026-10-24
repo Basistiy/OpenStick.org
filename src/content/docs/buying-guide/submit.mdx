@@ -1,0 +1,116 @@
+---
+title: "How to Submit & Publish a Verified Store Link"
+description: Step-by-step guide on publishing AliExpress, Taobao, eBay, and web shop purchase links for MSM8916 modems to OpenStick.org.
+---
+
+import { Steps, Tabs, TabItem, LinkButton, Card, CardGrid } from '@astrojs/starlight/components';
+
+Thank you for contributing to the OpenStick community! By sharing verified store listings, you help fellow makers avoid non-Qualcomm chip swaps (such as ASR1802 or ZX297520) and incompatible SPI-NAND flash hardware.
+
+---
+
+## Choose Your Submission Method
+
+<CardGrid>
+  <Card title="Option 1: Submit via GitHub Form (No Git Required)" icon="pencil">
+    Fill out our structured issue form with your link, board revision, and photos or ADB logs.
+    <br/><br/>
+    <LinkButton href="https://github.com/Basistiy/OpenStick.org/issues/new?template=buy-link-submission.yml" variant="primary" icon="external">
+      Open Link Submission Form
+    </LinkButton>
+  </Card>
+
+  <Card title="Option 2: Edit Directly on GitHub (Instant PR)" icon="github">
+    Directly edit the markdown file in your browser and submit a Pull Request in 2 minutes.
+    <br/><br/>
+    <LinkButton href="https://github.com/Basistiy/OpenStick.org/edit/main/src/content/docs/buying-guide/index.mdx" variant="secondary" icon="pencil">
+      Edit buying-guide/index.mdx
+    </LinkButton>
+  </Card>
+</CardGrid>
+
+---
+
+## Verification Checklist
+
+Before submitting a purchase link, ensure you have verified the following details on your received modem:
+
+<Steps>
+1. **Clean Product URL**:
+   Remove all tracking parameters from the web shop link.
+   - ❌ Bad: `https://www.aliexpress.com/item/1005001234567890.html?spm=a2g0o.productlist.0.0.1234&pdp_npi=4...`
+   - ✅ Good: `https://www.aliexpress.com/item/1005001234567890.html`
+
+2. **Inspect the Physical PCB Silkscreen**:
+   Pop open the plastic snap-on case with a plastic pry tool or guitar pick. Note the printed text:
+   - Examples: `UZ801_V3.0`, `HMUF02-V05`, `UFI003_MB_V02`, `UFI001B_MB_V02`
+
+3. **Verify Chipset via ADB (Stock Android Firmware)**:
+   Connect to the modem via USB or Wi-Fi (enable USB debug via `http://192.168.100.1/usbdebug.htm` or `http://192.168.43.1/usbdebug.htm` if required):
+   ```bash
+   adb devices
+   adb shell getprop ro.board.platform
+   ```
+   - Must output: `msm8916`
+   - If output is `asr1802`, `zx297520`, or `sp9820e`, **do not submit as a working link!** (Instead, submit a scam/chip-swap warning).
+
+4. **Verify Storage (eMMC vs NAND)**:
+   ```bash
+   adb shell ls -l /dev/block/bootdevice/by-name
+   ```
+   If standard partitions (`boot`, `system`, `modem`, `userdata`, `fsg`) exist as block devices, the unit is confirmed **eMMC**.
+
+5. **Verify RAM (Especially for UFI003 1GB claims)**:
+   ```bash
+   adb shell cat /proc/meminfo | grep MemTotal
+   ```
+   - Standard boards: `~480000 kB` (512 MB)
+   - Genuine UFI003: `~980000 kB` (1 GB)
+</Steps>
+
+---
+
+## Markdown Table Row Template (For Pull Requests)
+
+If you are submitting via a Pull Request to `src/content/docs/buying-guide/index.mdx`, use the following markdown template row for your board's table:
+
+```markdown
+| **Platform** | [Listing Title](https://clean-international-url) | `SILKSCREEN_VERSION` | <Badge text="Confirmed" variant="success" /> |
+```
+
+### Example Row for UZ801:
+
+```markdown
+| **AliExpress** | [4G LTE USB Modem Dongle](https://www.aliexpress.com/item/1005012883269576.html) | `UZ801_V3.31` | <Badge text="Confirmed" variant="success" /> |
+```
+
+### Example Row for HM-MIFIB:
+
+```markdown
+| **Allegro** | [Przenośny Router Wi-Fi 4G LTE SIM](https://allegro.pl/oferta/przenosny-mobilny-router-wifi-4g-lte-wifi-sim-play-plus-t-mobile-orange-18917774623) | `HM-MIFIB_V18` | <Badge text="Confirmed" variant="success" /> |
+```
+
+---
+
+## Status Badges Reference
+
+When adding or updating listings, use one of the following badges:
+
+| Status | Badge Code | When to Use |
+| :--- | :--- | :--- |
+| **Confirmed Working** | `<Badge text="Confirmed" variant="success" />` | Hardware tested and verified with MSM8916 + eMMC within the last 6 months. |
+| **Caution / Mixed** | `<Badge text="Caution" variant="caution" />` | Seller sometimes ships alternate revisions; buyers must message seller beforehand. |
+| **Chip-Swap Warning** | `<Badge text="Chip Swap" variant="danger" />` | Seller previously sold MSM8916 but has silently switched inventory to ASR or ZXIC. |
+| **Out of Stock** | `<Badge text="Sold Out" variant="note" />` | The listing has expired, is no longer active, or the store closed. |
+
+---
+
+## Submitting Updates for Individual Board Pages
+
+In addition to the central Buying Guide, individual board guides also feature verified purchase links:
+- [UZ801 Buying Guide](/boards/uz801/buying/)
+- [HMUF02 Buying Guide](/boards/hmuf02/buying/)
+- [UFI003 Flagship Buying Guide](/boards/ufi003/buying/)
+- [HM-MIFIB Buying Guide](/boards/hm-mifib/buying/)
+
+Feel free to update the tables on both the central buying guide and the dedicated board page!

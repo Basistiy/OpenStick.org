@@ -14,6 +14,10 @@ Flashing a **UZ801** stick? You can skip manual commands entirely by using the a
 👉 [**Download openstick-installer.zip**](https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip)
 :::
 
+:::tip[Need to Buy a Device First?]
+Don't have a 4G USB modem yet? Check the **[Community Hardware Buying Guide & Verified Store Links](/buying-guide/)** for tested AliExpress, Taobao, and eBay listings for popular dongles like **UZ801** and **HMUF02** to avoid counterfeit or non-Qualcomm chip swaps.
+:::
+
 ---
 
 ## The 4-Step Road to Linux

@@ -91,7 +91,9 @@ If `getprop ro.board.platform` returns `sp9820e`, `asr1802`, or `zx297520`, your
 ## 4. Buying Tips for New Devices
 
 When purchasing on AliExpress or Taobao:
-1. Search for keywords: `MSM8916 4G USB`, `Snapdragon 410 USB modem`, `UFI001B`.
+1. Search for keywords: `MSM8916 4G USB`, `Snapdragon 410 USB modem`, `UZ801`, `HMUF02`, `UFI003`.
 2. Check customer reviews for motherboard photos showing the Qualcomm chip.
 3. Message the seller directly asking: *"Is the main chip Qualcomm MSM8916 with eMMC storage?"*
 4. Avoid listings advertising "ZXIC 7520" or "ASR 1802" (these use different architectures).
+
+👉 **[Browse Community-Verified Store Links & Buying Guide](/buying-guide/)** for tested listings, prices, buyer verification tips, and guidelines on publishing your own purchase links.
