@@ -57,3 +57,10 @@ npm run build
 - **Flashing Quirks**: Known workarounds for carrier-locked or stubborn wingles.
 - **Projects & Scripts**: Python or shell scripts for novel use cases (LoRa gateway, sensor streaming, VPN travel routers).
 - **Video Embeds**: Links and descriptions for high-quality video tutorials on YouTube or Bilibili.
+
+---
+
+## Join the Community Chat
+
+Have questions, want to discuss a new board discovery, or want feedback before submitting documentation?
+Join the official OpenStick Telegram group: **[t.me/openstick_org](https://t.me/openstick_org)**.

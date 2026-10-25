@@ -52,7 +52,12 @@ export default defineConfig({
         {
           icon: 'github',
           label: 'GitHub',
-          href: 'https://github.com/Basistiy/OpenStick.org',
+          href: 'https://github.com/Basistiy/openstick-installer',
+        },
+        {
+          icon: 'telegram',
+          label: 'Telegram',
+          href: 'https://t.me/openstick_org',
         },
       ],
       editLink: {

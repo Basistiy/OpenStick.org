@@ -11,10 +11,14 @@ hero:
       link: https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip
       icon: download
       variant: primary
+    - text: Join Telegram Chat
+      link: https://t.me/openstick_org
+      icon: telegram
+      variant: secondary
     - text: Where to Buy
       link: /buying-guide/
       icon: external
-      variant: secondary
+      variant: minimal
     - text: Quick Start
       link: /getting-started/quickstart/
       icon: right-arrow
@@ -55,6 +59,10 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
     No fragile microSD cards, no bare circuit boards, and no extra cables required. Plug straight into any 5V USB-A power supply or computer port.
   </Card>
 
+  <Card title="Live Telegram Community" icon="telegram">
+    Connect with other makers at **[t.me/openstick_org](https://t.me/openstick_org)**. Share PCB macro photos for board identification, get real-time flashing/EDL recovery help, and showcase your builds!
+  </Card>
+
   <Card title="100% Community Driven" icon="pencil">
     Every single article on this website has an **"Edit this page"** button. Add your own hardware teardowns, test points, or custom builds directly via GitHub!
   </Card>
@@ -64,6 +72,7 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 
 ## Explore the Community Hub
 
+- **[Live Telegram Group (t.me/openstick_org)](https://t.me/openstick_org)**: Join the chat for real-time board identification help, seller questions, flashing troubleshooting, and project showcases.
 - **[Hardware Buying Guide & Verified Store Links](/buying-guide/)**: Community-tested AliExpress, Taobao, and eBay store links for UZ801, HMUF02, and UFI003 to ensure you get genuine MSM8916 eMMC hardware without fake chip swaps.
 - **[1-Click Installer (openstick-installer)](/boards/uz801/flashing/#method-1-automated-1-click-openstick-installer-recommended)**: Zero-terminal tool for Windows, macOS, and Linux to backup stock partitions and flash Debian. ([Download .zip](https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip))
 - **[The Origin Story & AI Boom Shortage](/about/origin-story/)**: How OpenStick evolved and why it saved makers during the AI chip crunch.

@@ -65,6 +65,10 @@ Before attempting to flash, you must identify:
 - **Specs**: Varies widely. Earlier versions used MSM8916 with eMMC; newer cost-reduced versions switched to ASR or ZXIC chipsets!
 - **Warning**: Always verify that the central processor has the Qualcomm logo and `MSM8916` printed on the chip.
 
+:::tip[Unsure About Your Board Revision?]
+If you opened your dongle and can't find a matching silkscreen or want to double check before flashing, snap a clear photo of the board and share it in our Telegram community: **[t.me/openstick_org](https://t.me/openstick_org)**. Members can help you spot test points and verify genuine Qualcomm eMMC hardware.
+:::
+
 ---
 
 ## 3. Software Identification via ADB

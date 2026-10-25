@@ -70,3 +70,10 @@ Once booted into Linux, your dongle connects to your computer over USB with full
 2. Run standard `apt update && apt install` packages.
 3. Configure cellular internet with `mmcli` / NetworkManager.
 4. Host web apps, run automation bots, or build home automation nodes.
+
+---
+
+## Need Help or Stuck?
+
+Encountering an unexpected error, bootloop, or missing driver?
+Join our **[OpenStick Telegram Community (t.me/openstick_org)](https://t.me/openstick_org)** to troubleshoot in real time with fellow developers and modders.
