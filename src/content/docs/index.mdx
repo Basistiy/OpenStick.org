@@ -1,13 +1,13 @@
 ---
-title: OpenStick — Qualcomm MSM8916 4G USB Modem Linux Guide
-description: The complete community guide to hacking Qualcomm MSM8916 4G LTE USB modems and wingles into ARM64 Linux computers running Debian, postmarketOS, or OpenWrt.
+title: OpenStick (Open Stick) — 1-Click Debian Linux for MSM8916 4G USB Modems
+description: The official OpenStick (Open Stick) community guide & 1-Click Debian Linux installer for Qualcomm MSM8916 4G LTE USB modems (UZ801, UFI003, UFI001B/C, HMUF02-V05, SP970).
 template: splash
 hero:
-  tagline: Turn mass-produced $5–$20 4G LTE modems into powerful, quad-core Linux single-board computers running Debian, postmarketOS, or OpenWrt.
+  tagline: Turn mass-produced $5–$20 4G LTE USB modems (UZ801, UFI003, UFI001B/C, HMUF02-V05) into powerful, quad-core ARM64 Debian Linux computers in 1 click.
   image:
     file: ../../assets/logo.svg
   actions:
-    - text: OpenStick Installer
+    - text: 1-Click OpenStick Installer
       link: https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip
       icon: download
       variant: primary
@@ -23,9 +23,10 @@ hero:
       link: /getting-started/quickstart/
       icon: right-arrow
       variant: minimal
-    - text: GitHub Repository
-      link: https://github.com/Basistiy/OpenStick.org
-      icon: external
+    - text: Firmware & GitHub Hub
+      link: /getting-started/firmware-downloads/
+      icon: github
+      variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
@@ -70,14 +71,30 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 
 ---
 
-## Explore the Community Hub
+## Supported MSM8916 Boards & PCB Silkscreen Matrix
+
+Searching for your exact 4G USB dongle board revision? Jump straight to the buying guide, EDL 9008 test point pinouts, or 1-Click Debian flashing instructions for your hardware:
+
+| Board Family | Confirmed PCB Silkscreens | Specs | Direct Guides |
+| :--- | :--- | :--- | :--- |
+| **[UZ801](/boards/uz801/buying/)** | `UZ801_V3.0`, `UZ801_V3.31`, `UZ801_V2.2`, `UZ801_V2.1` | 512MB RAM / 4GB eMMC | [Buying](/boards/uz801/buying/) · [Pinouts](/boards/uz801/pinouts/) · [Flashing](/boards/uz801/flashing/) · [Fixes](/boards/uz801/known-problems/) |
+| **[UFI003 (1GB Flagship)](/boards/ufi003/buying/)** | `UFI003_MB_V01`, `UFI003_MB_V02` | **1GB RAM / 8GB eMMC** | [Buying](/boards/ufi003/buying/) · [Pinouts](/boards/ufi003/pinouts/) · [Flashing](/boards/ufi003/flashing/) · [Fixes](/boards/ufi003/known-problems/) |
+| **[UFI001B / UFI001C](/boards/ufi001/buying/)** | `UFI001B_MB_V01`, `UFI001B_MB_V02`, `UFI001C` | 512MB RAM / 4GB eMMC | [Buying](/boards/ufi001/buying/) · [Pinouts](/boards/ufi001/pinouts/) · [Flashing](/boards/ufi001/flashing/) · [Fixes](/boards/ufi001/known-problems/) |
+| **[HMUF02 (HMUF02-V05)](/boards/hmuf02/buying/)** | `HMUF02-V05`, `HMUF02-MB-V01`, `HMUF02-MB-V02` | 512MB RAM / 4GB eMMC | [Buying](/boards/hmuf02/buying/) · [Pinouts](/boards/hmuf02/pinouts/) · [Flashing](/boards/hmuf02/flashing/) · [Fixes](/boards/hmuf02/known-problems/) |
+| **[HM-MIFIB (MIFIB)](/boards/hm-mifib/buying/)** | `HM-MIFIB_V18` (Color LCD + 2100mAh Battery) | 512MB RAM / 4GB eMMC | [Buying](/boards/hm-mifib/buying/) · [Pinouts](/boards/hm-mifib/pinouts/) · [Flashing](/boards/hm-mifib/flashing/) · [Fixes](/boards/hm-mifib/known-problems/) |
+| **[SP970](/boards/sp970/buying/)** | `SP970_V3`, `SP970_V10` | 512MB RAM / 4GB eMMC | [Buying](/boards/sp970/buying/) · [Pinouts](/boards/sp970/pinouts/) · [Flashing](/boards/sp970/flashing/) · [Fixes](/boards/sp970/known-problems/) |
+| **[UF896 / Zhihe / Clones](/boards/zhihe-nand/buying/)** | `UF896_MB_V02`, `ZHIHE_MSM8916`, `ASR1802`, `ZX297520` | SPI-NAND / Non-Qualcomm | [Clone Warnings](/boards/zhihe-nand/buying/) · [Pinouts](/boards/zhihe-nand/pinouts/) · [Recovery](/boards/zhihe-nand/flashing/) |
+
+---
+
+## Explore the OpenStick (Open Stick) Community Hub
 
 - **[Live Telegram Group (t.me/openstick_org)](https://t.me/openstick_org)**: Join the chat for real-time board identification help, seller questions, flashing troubleshooting, and project showcases.
-- **[Hardware Buying Guide & Verified Store Links](/buying-guide/)**: Community-tested AliExpress, Taobao, and eBay store links for UZ801, HMUF02, and UFI003 to ensure you get genuine MSM8916 eMMC hardware without fake chip swaps.
-- **[1-Click Installer (openstick-installer)](/boards/uz801/flashing/#method-1-automated-1-click-openstick-installer-recommended)**: Zero-terminal tool for Windows, macOS, and Linux to backup stock partitions and flash Debian. ([Download .zip](https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip))
-- **[The Origin Story & AI Boom Shortage](/about/origin-story/)**: How OpenStick evolved and why it saved makers during the AI chip crunch.
+- **[OpenStick Firmware, 1-Click Installer & GitHub Hub](/getting-started/firmware-downloads/)**: Central download page for `openstick-installer.zip`, Debian images, `lk2nd` bootloaders, and official GitHub repositories.
+- **[Hardware Buying Guide & Verified Store Links](/buying-guide/)**: Community-tested AliExpress, Allegro, and web shop links for UZ801, HM-MIFIB, HMUF02, and UFI003 to ensure you get genuine MSM8916 eMMC hardware without fake chip swaps.
+- **[OpenStick (Debian) vs. OpenWrt vs. postmarketOS](/about/openstick-vs-openwrt-postmarketos/)**: Why makers searching for `uz801 openwrt` or `openstick openwrt` choose OpenStick Debian for 4G routing, Wi-Fi hotspots, and Docker.
+- **[What is OpenStick? Origin Story & AI Boom Shortage](/about/origin-story/)**: How the OpenStick (Open Stick) project evolved and why it saved makers during the AI chip crunch.
 - **[MSM8916 vs Raspberry Pi Zero 2 W](/about/pi-zero-2w-comparison/)**: Side-by-side technical specs, power consumption, and price-to-performance breakdown.
-- **[Supported Board Guides](/boards/uz801/buying/)**: Dedicated guides for **[UZ801](/boards/uz801/buying/)**, **[HMUF02](/boards/hmuf02/buying/)**, **[HM-MIFIB (Display & Battery)](/boards/hm-mifib/buying/)**, **[UFI001B/C](/boards/ufi001/buying/)**, and **[UFI003 (1GB RAM)](/boards/ufi003/buying/)**.
 - **[Emergency Backup Checklist](/getting-started/backup-safety/)**: Protect your device's unique IMEI and modem calibration partitions before you flash.
 - **[Community Projects Showcase](/projects/showcase/)**: Real-world setups including Telegram SMS gateways, Pi-hole DNS filters, and portable Docker servers.
 - **[Curated Video Library](/videos/library/)**: Step-by-step soldering, teardown, and flashing video walkthroughs.

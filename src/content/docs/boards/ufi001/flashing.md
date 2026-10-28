@@ -1,6 +1,6 @@
 ---
-title: "UFI001 Flashing Guide: Install Debian, OpenWrt & postmarketOS"
-description: Step-by-step flashing guide for UFI001B and UFI001C boards with lk2nd, Debian OpenStick base, postmarketOS, and OpenWrt.
+title: "UFI001B & UFI001C Flashing Guide: Install OpenStick Debian Linux"
+description: "Step-by-step flashing guide for UFI001B and UFI001C (UFI001B_MB_V02) 4G USB modems using OpenStick Debian Linux, lk2nd bootloader, and Fastboot."
 ---
 
 Because the **UFI001B / UFI001C** was the first hardware platform targeted by the OpenStick community, all standard OpenStick firmware releases, recovery tools, and scripts have native, first-class compatibility with this board.

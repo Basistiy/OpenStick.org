@@ -1,7 +1,13 @@
 ---
-title: The OpenStick Origin Story & The AI Boom Shortage
-description: How the OpenStick project emerged from reverse engineering cheap 4G modems, and how the 2025–2026 AI boom shortage cemented MSM8916 as the ultimate Raspberry Pi Zero 2 W alternative.
+title: "What is OpenStick? MSM8916 $7 Debian Linux USB Dongle Specs & Story"
+description: "Discover how the OpenStick (Open Stick) project turns $7 Qualcomm Snapdragon 410 (MSM8916) 4G LTE USB modems into quad-core ARM64 Debian Linux computers and Pi Zero 2 W alternatives."
 ---
+
+:::tip[Looking for Firmware Downloads or Flashing Guides?]
+- **Flash in 1 Click**: [**Download the 1-Click OpenStick Debian Installer (`openstick-installer.zip`)**](/getting-started/firmware-downloads/)
+- **Step-by-Step Setup**: [**OpenStick Quick Start Guide**](/getting-started/quickstart/)
+- **Buy Verified Hardware**: [**Community-Verified Store Links (UZ801, HM-MIFIB, UFI003)**](/buying-guide/)
+:::
 
 ## Introduction: The Hidden Supercomputer in a $7 Dongle
 

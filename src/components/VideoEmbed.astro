@@ -3,6 +3,8 @@ interface Props {
   platform?: 'youtube' | 'bilibili';
   id: string;
   title?: string;
+  description?: string;
+  uploadDate?: string;
   aspect?: '16:9' | '9:16';
   maxWidth?: string;
 }
@@ -10,19 +12,43 @@ interface Props {
 const {
   platform = 'youtube',
   id,
-  title = 'Video Tutorial',
+  title = 'OpenStick MSM8916 Video Tutorial',
+  description,
+  uploadDate = '2026-10-01T00:00:00Z',
   aspect = '16:9',
   maxWidth,
 } = Astro.props;
 
 let embedUrl = '';
+let contentUrl = '';
+let thumbnailUrls: string[] = ['https://openstick.org/og-image.png'];
+
 if (platform === 'youtube') {
   embedUrl = `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1`;
+  contentUrl = `https://www.youtube.com/watch?v=${id}`;
+  thumbnailUrls = [
+    `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`,
+    `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
+  ];
 } else if (platform === 'bilibili') {
   embedUrl = `https://player.bilibili.com/player.html?bvid=${id}&page=1&as_wide=1&high_quality=1&danmaku=0`;
+  contentUrl = `https://www.bilibili.com/video/${id}`;
 }
 
 const containerStyle = maxWidth ? `max-width: ${maxWidth};` : '';
+
+const videoSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: title,
+  description:
+    description ||
+    `${title} — Step-by-step OpenStick hardware teardown, pinout, and Debian Linux flashing tutorial for Qualcomm MSM8916 4G USB modems.`,
+  thumbnailUrl: thumbnailUrls,
+  uploadDate: uploadDate,
+  embedUrl: embedUrl,
+  contentUrl: contentUrl,
+};
 ---
 
 <div
@@ -38,4 +64,5 @@ const containerStyle = maxWidth ? `max-width: ${maxWidth};` : '';
       loading="lazy"
     ></iframe>
   </div>
+  <script type="application/ld+json" set:html={JSON.stringify(videoSchema)} />
 </div>

@@ -1,6 +1,6 @@
 ---
-title: "HMUF02 Flashing Guide: Install Debian & Linux via EDL"
-description: Step-by-step flashing guide for the HMUF02 4G wingle, including lk2nd setup, Debian OpenStick base, postmarketOS, and modem setup.
+title: "HMUF02 (HMUF02-V05) Flashing Guide: Install OpenStick Debian Linux"
+description: "Step-by-step flashing guide for HMUF02 and HMUF02-V05 4G USB wingles: backup IMEI/QCN partitions, flash lk2nd, and install OpenStick Debian Linux."
 ---
 
 This guide provides instructions for replacing the factory Android firmware on your HMUF02 wingle with full mainline Linux or Debian.

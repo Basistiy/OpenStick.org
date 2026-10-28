@@ -1,6 +1,6 @@
 ---
-title: UZ801 Pinouts, Test Points & EDL 9008 Recovery Pads
-description: Hardware pinouts, EDL emergency download mode test points, 1.8V UART serial console, and GPIO layout for the UZ801.
+title: "UZ801 Pinouts: EDL 9008 Test Points, 1.8V UART & GPIO Map (V3.0 / V3.31)"
+description: "Hardware pinouts for UZ801 (UZ801_V3.0, V3.31, V2.2) 4G USB modems: Qualcomm 9008 EDL recovery test points, 1.8V UART serial console, and LED GPIO layout."
 ---
 
 The UZ801 is favored by hardware hackers because its test pads are clearly exposed on the bottom side of the PCB, allowing easy recovery without having to solder underneath RF metal shields.

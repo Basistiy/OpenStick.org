@@ -1,17 +1,17 @@
 ---
-title: "Quick Start: Flashing Linux on MSM8916 4G USB Modems"
-description: Step-by-step beginner guide to flashing lk2nd and Linux (Debian, postmarketOS, OpenWrt) onto Qualcomm MSM8916 4G USB dongles.
+title: "OpenStick Quick Start: Flash Debian Linux on 4G USB Modems (1-Click)"
+description: "Step-by-step OpenStick (Open Stick) tutorial: flash Debian Linux onto MSM8916 4G USB dongles (UZ801, UFI001B/C, UFI003, HMUF02-V05) using the automated 1-Click Installer or Fastboot."
 ---
 
-Welcome to the OpenStick community! This guide takes you through the fundamental workflow of taking a stock Qualcomm MSM8916 4G LTE USB modem and transforming it into a hackable Linux device.
+Welcome to the **OpenStick** (also searched as **Open Stick**) community! This quick start guide walks you through transforming a stock Qualcomm Snapdragon 410 (**MSM8916**) 4G LTE USB modem (`UZ801`, `UFI001B`, `UFI001C`, `UFI003`, `HMUF02-V05`, `SP970`, or `HM-MIFIB`) into a full 64-bit **Debian GNU/Linux** computer and 4G router.
 
 :::caution[Golden Rule: Always Backup First!]
 Every physical modem has unique radio calibration partitions (`fsg`, `modemst1`, `modemst2`) that store your factory IMEI and cellular frequency calibrations. If you wipe these partitions without a backup, your modem will permanently lose cellular connectivity. **Never skip the backup step!**
 :::
 
-:::tip[Automated 1-Click Installation]
-Flashing a **UZ801** stick? You can skip manual commands entirely by using the automated **[OpenStick Installer](/boards/uz801/flashing/#method-1-automated-1-click-openstick-installer-recommended)**. It automatically backs up your eMMC partitions, isolates your IMEI calibration, and flashes Debian using simple double-click scripts.  
-👉 [**Download openstick-installer.zip**](https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip)
+:::tip[Automated 1-Click OpenStick Debian Installation]
+Flashing a **UZ801** (`UZ801_V3.0` / `UZ801_V3.31` / `UZ801_V2.2`) stick? Skip manual terminal commands entirely with the **[1-Click OpenStick Installer](/boards/uz801/flashing/#method-1-automated-1-click-openstick-installer-recommended)**. It automatically backs up your full eMMC, isolates your IMEI calibration, and flashes OpenStick Debian using double-click scripts (`run.bat`, `run.command`, `run.sh`).  
+👉 [**Download openstick-installer.zip**](https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip) · [**Visit Firmware & GitHub Hub**](/getting-started/firmware-downloads/)
 :::
 
 :::tip[Need to Buy a Device First?]

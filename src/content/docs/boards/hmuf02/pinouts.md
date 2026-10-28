@@ -1,6 +1,6 @@
 ---
-title: HMUF02 Pinouts, EDL 9008 Test Points & 1.8V UART
-description: Hardware pinouts, EDL 9008 test pads, 1.8V UART serial console, and button/LED GPIO mappings for the HMUF02 wingle.
+title: "HMUF02 (HMUF02-V05) Pinouts: EDL 9008 Test Points & 1.8V UART"
+description: "Hardware pinouts, Qualcomm EDL 9008 recovery test pads, 1.8V UART serial console, and reset button/LED GPIO mappings for HMUF02 and HMUF02-V05 wingles."
 ---
 
 The **HMUF02** integrates its EDL recovery test points adjacent to the SIM tray and provides a physical SMD reset push button on the PCB.

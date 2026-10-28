@@ -1,0 +1,183 @@
+---
+interface Props {
+  board: string;
+  current?: string | null;
+  position?: 'top' | 'bottom';
+}
+
+const { board, current = '', position = 'top' } = Astro.props;
+
+const boardMeta: Record<
+  string,
+  {
+    name: string;
+    silkscreens: string;
+    ramStorage: string;
+    faq: { q: string; a: string }[];
+  }
+> = {
+  uz801: {
+    name: 'UZ801',
+    silkscreens: 'UZ801_V3.0, UZ801_V3.31, UZ801_V2.2, UZ801_V2.1',
+    ramStorage: '512MB RAM / 4GB eMMC',
+    faq: [
+      {
+        q: 'How do I flash OpenStick Debian Linux onto a UZ801 4G USB modem?',
+        a: 'Download the automated 1-Click OpenStick Installer (openstick-installer.zip) for Windows, macOS, or Linux. It backs up your factory eMMC partitions, preserves your IMEI/QCN cellular calibration, and flashes OpenStick Debian automatically.',
+      },
+      {
+        q: 'Which UZ801 PCB silkscreen revisions are supported by OpenStick?',
+        a: 'Genuine Qualcomm MSM8916 boards marked UZ801_V2.1, UZ801_V2.2, UZ801_V3.0, and UZ801_V3.31 with 4GB BGA eMMC storage have full first-class support.',
+      },
+    ],
+  },
+  hmuf02: {
+    name: 'HMUF02 (HMUF02-V05)',
+    silkscreens: 'HMUF02-V05, HMUF02-MB-V01, HMUF02-MB-V02',
+    ramStorage: '512MB RAM / 4GB eMMC',
+    faq: [
+      {
+        q: 'Is the HMUF02-V05 board compatible with OpenStick Debian Linux?',
+        a: 'Yes! Genuine HMUF02-V05 (and HMUF02-MB-V01/V02) boards powered by the Qualcomm MSM8916 (Snapdragon 410) with 4GB eMMC storage are fully supported by OpenStick Debian and lk2nd.',
+      },
+      {
+        q: 'How do I check if my HMUF02 is genuine MSM8916 or an ASR1802 clone?',
+        a: 'Open the shell to verify the HMUF02-V05 silkscreen and Qualcomm MSM8916 chip, or run adb shell getprop ro.board.platform to confirm it outputs msm8916 instead of asr1802 or zx297520.',
+      },
+    ],
+  },
+  'hm-mifib': {
+    name: 'HM-MIFIB (MIFIB)',
+    silkscreens: 'HM-MIFIB_V18',
+    ramStorage: '512MB RAM / 4GB eMMC + LCD & Battery',
+    faq: [
+      {
+        q: 'Does OpenStick Debian support the HM-MIFIB LCD screen and battery?',
+        a: 'Yes. With lk2nd and the HM-MIFIB mainline device tree, Linux initializes both the 1.44-inch SPI color LCD display and the PM8916 battery fuel gauge.',
+      },
+    ],
+  },
+  ufi001: {
+    name: 'UFI001B / UFI001C',
+    silkscreens: 'UFI001B_MB_V01, UFI001B_MB_V02, UFI001C',
+    ramStorage: '512MB RAM / 4GB eMMC',
+    faq: [
+      {
+        q: 'What is the difference between UFI001B and UFI001C in OpenStick?',
+        a: 'Both UFI001B and UFI001C are official reference MSM8916 boards with 512MB RAM and 4GB eMMC. They share the same flashing workflow via lk2nd and OpenStick Debian, with minor LED GPIO polarity differences handled by the device tree.',
+      },
+    ],
+  },
+  ufi003: {
+    name: 'UFI003 (1GB RAM)',
+    silkscreens: 'UFI003_MB_V01, UFI003_MB_V02',
+    ramStorage: '1GB RAM / 8GB eMMC Flagship',
+    faq: [
+      {
+        q: 'Why is the UFI003 the best board for OpenStick and Docker?',
+        a: 'Genuine UFI003 boards feature 1GB LPDDR3 RAM, 8GB eMMC storage, and an onboard hardware EDL recovery push button, giving you ~860MB of free RAM to run Docker containers, Pi-hole, and Debian services.',
+      },
+    ],
+  },
+  sp970: {
+    name: 'SP970 (V3 / V10)',
+    silkscreens: 'SP970_V3, SP970_V10',
+    ramStorage: '512MB RAM / 4GB eMMC',
+    faq: [
+      {
+        q: 'Does the SP970 4G USB modem run OpenStick Debian Linux?',
+        a: 'Yes, genuine Qualcomm MSM8916 SP970 V3 and V10 boards with eMMC flash run OpenStick Debian Linux via the lk2nd bootloader.',
+      },
+    ],
+  },
+  'zhihe-nand': {
+    name: 'UF896 / Zhihe NAND',
+    silkscreens: 'UF896_MB_V02, ZHIHE_MSM8916, UFI-16-V3',
+    ramStorage: '256MB–512MB SPI-NAND (Clone Warning)',
+    faq: [
+      {
+        q: 'Why do UF896, Zhihe NAND, and ASR1802 sticks fail to boot OpenStick Debian?',
+        a: 'UF896 and Zhihe NAND clones replace eMMC storage with tiny SPI-NAND flash (256MB/512MB), while ASR1802 and ZX297520 dongles use non-Qualcomm CPUs. Always buy verified eMMC MSM8916 boards such as UZ801 or UFI003.',
+      },
+    ],
+  },
+};
+
+const info = boardMeta[board] || {
+  name: board.toUpperCase(),
+  silkscreens: board.toUpperCase(),
+  ramStorage: 'MSM8916 4G USB Modem',
+  faq: [],
+};
+
+const tabs = [
+  { slug: 'buying', label: '🛒 Buying & Specs', href: `/boards/${board}/buying/` },
+  { slug: 'pinouts', label: '🔌 Pinouts & EDL 9008', href: `/boards/${board}/pinouts/` },
+  { slug: 'flashing', label: '⚡ Flashing Debian Guide', href: `/boards/${board}/flashing/` },
+  { slug: 'known-problems', label: '🛠️ Troubleshooting', href: `/boards/${board}/known-problems/` },
+];
+
+const faqSchema =
+  position === 'bottom' && info.faq.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: info.faq.map((item) => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.a,
+          },
+        })),
+      }
+    : null;
+---
+
+<nav class="board-cross-nav" aria-label={`${info.name} Board Guides`}>
+  <div class="board-cross-nav-header">
+    <span class="board-cross-nav-title">
+      <strong>{info.name}</strong> Guide Hub
+      <code class="board-silkscreen-badge">{info.silkscreens}</code>
+    </span>
+    <span class="board-cross-nav-spec">{info.ramStorage}</span>
+  </div>
+  <div class="board-cross-nav-links">
+    {
+      tabs.map((tab) => {
+        const isActive = current === tab.slug;
+        return (
+          <a
+            href={tab.href}
+            class={`board-nav-pill ${isActive ? 'active' : ''}`}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            {tab.label}
+          </a>
+        );
+      })
+    }
+  </div>
+</nav>
+
+{
+  position === 'bottom' && info.faq.length > 0 && (
+    <section class="board-faq-box">
+      <h3>Frequently Asked Questions — {info.name}</h3>
+      {info.faq.map((item) => (
+        <details class="board-faq-item">
+          <summary>{item.q}</summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+      <p class="board-faq-links">
+        👉 Ready to flash? Download the{' '}
+        <a href="/getting-started/firmware-downloads/">
+          <strong>1-Click OpenStick Debian Installer</strong>
+        </a>{' '}
+        or browse <a href="/buying-guide/"><strong>Verified Store Links</strong></a>.
+      </p>
+      {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+    </section>
+  )
+}

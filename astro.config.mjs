@@ -63,6 +63,10 @@ export default defineConfig({
       editLink: {
         baseUrl: 'https://github.com/Basistiy/OpenStick.org/edit/main/',
       },
+      components: {
+        Head: './src/components/Head.astro',
+        MarkdownContent: './src/components/MarkdownContent.astro',
+      },
       customCss: ['./src/styles/custom.css'],
       sidebar: [
         {
@@ -70,12 +74,20 @@ export default defineConfig({
           items: [
             { label: 'Origin Story & The AI Boom Shortage', slug: 'about/origin-story' },
             { label: 'MSM8916 vs Raspberry Pi Zero 2 W', slug: 'about/pi-zero-2w-comparison' },
+            {
+              label: 'OpenStick vs OpenWrt vs postmarketOS',
+              slug: 'about/openstick-vs-openwrt-postmarketos',
+            },
           ],
         },
         {
           label: 'Getting Started',
           items: [
             { label: 'Quick Start Guide', slug: 'getting-started/quickstart' },
+            {
+              label: 'Firmware & 1-Click Installer Hub',
+              slug: 'getting-started/firmware-downloads',
+            },
             { label: 'Device Identification', slug: 'getting-started/device-identification' },
             { label: 'Safety & Backups (QCN/EDL)', slug: 'getting-started/backup-safety' },
             { label: 'Essential Tools (EDL/Fastboot)', slug: 'getting-started/tools-setup' },

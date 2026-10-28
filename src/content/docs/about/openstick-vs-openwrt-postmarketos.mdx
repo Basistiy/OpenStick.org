@@ -1,0 +1,105 @@
+---
+title: "OpenStick (Debian) vs OpenWrt vs postmarketOS on MSM8916 4G Modems"
+description: "Comparing OpenStick Debian Linux against OpenWrt and postmarketOS for UZ801, UFI001B/C, UFI003, and HMUF02-V05 4G USB dongles — and why OpenStick is the best choice."
+---
+
+import { Card, CardGrid, LinkButton, Badge } from '@astrojs/starlight/components';
+
+If you recently picked up a **UZ801**, **UFI001B / UFI001C**, **UFI003**, or **HMUF02-V05** 4G LTE USB dongle and searched for **`uz801 openwrt`**, **`openstick openwrt`**, or **`msm8916 postmarketos`**, you might be wondering which operating system you should flash onto your stick.
+
+While three different open-source projects target Qualcomm Snapdragon 410 (**MSM8916**) 4G modems—**OpenStick (Debian GNU/Linux)**, **OpenWrt**, and **postmarketOS**—they differ dramatically in installation safety, software compatibility, and daily usability.
+
+<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1.5rem 0;">
+  <LinkButton
+    href="https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip"
+    variant="primary"
+    icon="download"
+  >
+    Download 1-Click OpenStick Debian Installer (.zip)
+  </LinkButton>
+  <LinkButton href="/getting-started/firmware-downloads/" variant="secondary" icon="github">
+    Firmware & GitHub Hub
+  </LinkButton>
+  <LinkButton href="/buying-guide/" variant="minimal" icon="external">
+    Verified Hardware Buying Guide
+  </LinkButton>
+</div>
+
+---
+
+## Side-by-Side Comparison: OpenStick vs. OpenWrt vs. postmarketOS
+
+| Feature / Capability | **OpenStick (Debian Linux)** <Badge text="Recommended" variant="success" /> | **OpenWrt (MSM8916 Ports)** | **postmarketOS (Alpine)** |
+| :--- | :--- | :--- | :--- |
+| **Base System & C Library** | **Debian GNU/Linux (`glibc` + `systemd`)** | Embedded router BusyBox (`musl`) | Alpine Linux (`musl` + `OpenRC`) |
+| **1-Click Automated Installer** | ✅ **Yes (`openstick-installer` for Win/Mac/Linux)** | ❌ No (Manual `fastboot` / `edl` CLI) | ❌ No (Requires `pmbootstrap` on Linux) |
+| **Automatic IMEI / QCN Backup** | ✅ **Automatic 1:1 eMMC backup & calibration injection** | ❌ Manual backup required (easy to lose 4G IMEI) | ❌ Manual backup required |
+| **4G LTE Cellular & Wi-Fi Hotspot** | ✅ **Built-in (`ModemManager` + `NetworkManager`)** | ⚠️ Often requires manual QMI / NCM packages | ✅ Supported via `ModemManager` |
+| **USB Ethernet Gadget (`RNDIS`)** | ✅ **Plug-and-play USB network card** | ⚠️ Requires custom USB gadget kmods | ✅ Supported |
+| **Standard Linux Packages (`apt`)** | ✅ **60,000+ standard ARM64 Debian `.deb` packages** | ❌ Limited router `opkg` packages | ⚠️ Alpine `apk` (`musl` breaks proprietary binaries) |
+| **Docker & Containers** | ✅ **Native support (especially on 1GB UFI003)** | ❌ Not designed for Docker workloads | ⚠️ Requires extra cgroup/OpenRC tuning |
+| **Best Use Case** | **4G Travel Router + Pocket Debian Server + SMS Bot** | Pure basic routing only | Mobile/phone UI experimentation |
+
+---
+
+## Why Searchers Looking for "UZ801 OpenWrt" Choose OpenStick Instead
+
+Many makers initially search for **`uz801 openwrt`** or **`openstick openwrt`** because they want to replace the insecure factory Android firmware with a clean **4G LTE Wi-Fi travel router** or **USB cellular tether**.
+
+However, **OpenStick (Debian)** gives you **every routing feature you want from OpenWrt—plus a full 64-bit Debian server**:
+
+<CardGrid>
+  <Card title="1. Zero-Risk 1-Click Flashing & IMEI Protection" icon="rocket">
+    Community OpenWrt and postmarketOS images require manual `edl.py` and `fastboot` commands. One wrong partition erase wipes `modemst1`/`modemst2`/`fsg`, permanently killing 4G LTE reception. The **[1-Click OpenStick Installer](/getting-started/firmware-downloads/)** automatically clones your full eMMC and injects your factory IMEI calibration into Debian in under 0.1 seconds.
+  </Card>
+
+  <Card title="2. Instant 4G Wi-Fi Router & USB Gateway" icon="signal">
+    OpenStick Debian comes pre-configured with `ModemManager` (`mmcli`) and `NetworkManager` (`nmcli`). With a single command, your stick routes 4G LTE to both its onboard 2.4 GHz Wi-Fi Access Point and your PC over USB Ethernet—no fighting missing OpenWrt kernel modules (`kmod-usb-net-qmi-wwan`).
+  </Card>
+
+  <Card title="3. Full Debian `apt` Ecosystem (glibc)" icon="laptop">
+    Unlike OpenWrt's stripped-down filesystem or postmarketOS's `musl` C library, OpenStick runs genuine **Debian ARM64 (`aarch64`)**. Every Raspberry Pi, Ubuntu, or Debian tutorial works out of the box—including Python, Node.js, Tailscale, WireGuard, Pi-hole, and Docker.
+  </Card>
+
+  <Card title="4. Stock 'OpenWrt' Seller Listings Are Often Fake" icon="warning">
+    Beware of AliExpress listings advertising "OpenWrt 4G Dongle". Most actually ship locked-down Android 4.4 or non-Qualcomm **ASR1802 / ZX297520** chips with a fake web skin. Always check our **[Verified Buying Guide](/buying-guide/)** for true MSM8916 eMMC hardware.
+  </Card>
+</CardGrid>
+
+---
+
+## How to Turn OpenStick Debian into an OpenWrt-Style 4G Router in 60 Seconds
+
+Once you flash **OpenStick Debian** using the [1-Click Installer](/boards/uz801/flashing/#method-1-automated-1-click-openstick-installer-recommended), you can configure a 4G LTE cellular WAN connection and broadcast a Wi-Fi hotspot using standard `nmcli` commands:
+
+```bash
+# 1. SSH into your OpenStick dongle over USB
+ssh user@192.168.5.1
+
+# 2. Enable the 4G LTE modem and connect to your carrier APN
+sudo mmcli -m 0 --enable
+sudo nmcli connection add type gsm ifname cdc-wdm0 con-name "4G-WAN" apn "internet"
+sudo nmcli connection up "4G-WAN"
+
+# 3. Create a Wi-Fi Access Point (Travel Router Hotspot) with NAT sharing
+sudo nmcli device wifi hotspot ifname wlan0 ssid "OpenStick-4G" password "MySecurePassword123"
+```
+
+NetworkManager automatically handles DHCP (`dnsmasq`), IPv4 packet forwarding, and `nftables`/`iptables` NAT masquerading between the 4G LTE modem (`wwan0`), the Wi-Fi hotspot (`wlan0`), and the USB Ethernet interface!
+
+Want a web dashboard like OpenWrt's LuCI? Because you're running full Debian, you can install **Cockpit** (`sudo apt install cockpit`), **RaspAP**, **Pi-hole**, or **AdGuard Home** directly via `apt`.
+
+---
+
+## Get Started with OpenStick Today
+
+1. **Have a UZ801 or MSM8916 dongle in hand?**
+   👉 **[Download the 1-Click OpenStick Installer & Firmware](/getting-started/firmware-downloads/)** or follow the **[Quick Start Guide](/getting-started/quickstart/)**.
+2. **Flashing a specific board?**
+   - **[UZ801 (`UZ801_V3.0` / `V3.31`) Flashing Guide](/boards/uz801/flashing/)**
+   - **[UFI001B / UFI001C Flashing Guide](/boards/ufi001/flashing/)**
+   - **[UFI003 (1GB RAM / 8GB eMMC) Flashing Guide](/boards/ufi003/flashing/)**
+   - **[HMUF02 (`HMUF02-V05`) Flashing Guide](/boards/hmuf02/flashing/)**
+   - **[SP970 (`V3` / `V10`) Flashing Guide](/boards/sp970/flashing/)**
+3. **Need genuine hardware?**
+   👉 Browse **[Community-Verified Store Links](/buying-guide/)** to avoid ASR1802 / SPI-NAND clones.

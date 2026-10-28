@@ -1,6 +1,6 @@
 ---
-title: UFI001 Pinouts, EDL Recovery Pads & 1.8V UART Console
-description: Hardware pinouts, EDL emergency download pads, 1.8V UART console, and GPIO layout for UFI001B and UFI001C boards.
+title: "UFI001B & UFI001C Pinouts: EDL 9008 Recovery Pads & 1.8V UART"
+description: "Hardware pinouts, Qualcomm 9008 EDL emergency download test pads, 1.8V UART serial console, and LED GPIO layout for UFI001B and UFI001C OpenStick boards."
 ---
 
 The **UFI001B / UFI001C** boards are simple, rugged, and straightforward to service, with EDL test points positioned directly adjacent to the SIM slot.

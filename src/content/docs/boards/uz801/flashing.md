@@ -1,6 +1,6 @@
 ---
-title: "UZ801 Flashing Guide: Install Debian, OpenWrt & postmarketOS"
-description: Step-by-step flashing instructions for the UZ801 board with lk2nd, Debian OpenStick base, postmarketOS, and OpenWrt.
+title: "UZ801 Flashing Guide: 1-Click OpenStick Debian Linux Installer & Fastboot"
+description: "Step-by-step UZ801 (UZ801_V3.0 / V3.31) flashing guide: install OpenStick Debian Linux in 1 click with automatic IMEI backup, or flash manually via lk2nd and Fastboot."
 ---
 
 This guide walks you through installing custom Linux operating systems onto your UZ801 USB stick.

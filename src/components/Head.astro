@@ -1,0 +1,157 @@
+---
+const { head, entry } = Astro.locals.starlightRoute;
+const pathname = Astro.url.pathname;
+const canonicalUrl = new URL(pathname, 'https://openstick.org').toString();
+const title = entry?.data?.title || 'OpenStick Community';
+const description =
+  entry?.data?.description ||
+  'Turn Qualcomm MSM8916 4G LTE USB modems into quad-core ARM64 Debian Linux computers with the 1-Click OpenStick Installer.';
+
+const isHome = pathname === '/' || pathname === '';
+
+// Build BreadcrumbList dynamically from URL segments
+const segments = pathname.split('/').filter(Boolean);
+const breadcrumbNames: Record<string, string> = {
+  about: 'Overview & Story',
+  'origin-story': 'Origin Story & Specs',
+  'pi-zero-2w-comparison': 'MSM8916 vs Raspberry Pi Zero 2 W',
+  'openstick-vs-openwrt-postmarketos': 'OpenStick (Debian) vs OpenWrt vs postmarketOS',
+  'getting-started': 'Getting Started',
+  quickstart: 'Quick Start Guide',
+  'firmware-downloads': 'Firmware & 1-Click Installer Downloads',
+  'device-identification': 'Device Identification',
+  'backup-safety': 'Partition Backups & Safety',
+  'tools-setup': 'Essential Tools Setup',
+  'buying-guide': 'Verified Buying Guide',
+  submit: 'Submit a Store Link',
+  boards: 'Supported Boards',
+  uz801: 'UZ801 (UZ801_V3.0 / V3.31)',
+  hmuf02: 'HMUF02 (HMUF02-V05)',
+  'hm-mifib': 'HM-MIFIB (Display & Battery)',
+  ufi001: 'UFI001B / UFI001C',
+  ufi003: 'UFI003 (1GB RAM Flagship)',
+  sp970: 'SP970 (V3 / V10)',
+  'zhihe-nand': 'UF896 & Zhihe NAND Clones',
+  buying: 'Buying Guide & Specs',
+  pinouts: 'Pinouts & EDL 9008 Pads',
+  flashing: 'Flashing & Debian OS Guide',
+  'known-problems': 'Troubleshooting & Quirks',
+  projects: 'Community Projects',
+  showcase: 'Projects Showcase',
+  'sms-gateway': '4G SMS to Telegram Gateway',
+  'portable-server': 'Portable Docker & Pi-hole Server',
+  'usb-gadget-network': 'USB Gadget Networking',
+  videos: 'Video Library',
+  library: 'Curated Video Tutorials',
+  community: 'Community',
+  contributing: 'How to Contribute',
+  'adding-content': 'Adding Content Guide',
+};
+
+const breadcrumbItems = [
+  {
+    '@type': 'ListItem',
+    position: 1,
+    name: 'OpenStick',
+    item: 'https://openstick.org/',
+  },
+  ...segments.map((seg, idx) => {
+    const itemPath = '/' + segments.slice(0, idx + 1).join('/') + '/';
+    return {
+      '@type': 'ListItem',
+      position: idx + 2,
+      name: breadcrumbNames[seg] || seg.toUpperCase(),
+      item: new URL(itemPath, 'https://openstick.org').toString(),
+    };
+  }),
+];
+
+const jsonLdGraph: Record<string, any>[] = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbItems,
+  },
+];
+
+if (isHome) {
+  jsonLdGraph.push(
+    {
+      '@type': 'WebSite',
+      '@id': 'https://openstick.org/#website',
+      name: 'OpenStick',
+      alternateName: ['Open Stick', 'OpenStick Community', 'OpenStick Linux', 'OpenStick.org'],
+      url: 'https://openstick.org/',
+      description:
+        'Official community hub and 1-Click Debian Linux installer for Qualcomm Snapdragon 410 (MSM8916) 4G LTE USB modems (UZ801, UFI003, UFI001B, UFI001C, HMUF02-V05, SP970).',
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://openstick.org/#organization',
+      name: 'OpenStick Community',
+      url: 'https://openstick.org/',
+      logo: 'https://openstick.org/favicon-96x96.png',
+      sameAs: [
+        'https://github.com/Basistiy/openstick-installer',
+        'https://github.com/Basistiy/OpenStick.org',
+        'https://github.com/OpenStick',
+        'https://t.me/openstick_org',
+      ],
+    },
+    {
+      '@type': 'SoftwareApplication',
+      name: 'OpenStick 1-Click Installer',
+      alternateName: 'openstick-installer',
+      operatingSystem: 'Windows, macOS, Linux, Debian',
+      applicationCategory: 'DeveloperApplication',
+      downloadUrl:
+        'https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip',
+      softwareVersion: 'latest',
+      description:
+        'Automated 1-Click installer that backs up factory eMMC partitions, preserves unique IMEI/QCN cellular calibrations, and flashes Debian Linux onto MSM8916 4G USB modems.',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+    }
+  );
+} else {
+  jsonLdGraph.push({
+    '@type': 'TechArticle',
+    headline: title,
+    description: description,
+    url: canonicalUrl,
+    image: 'https://openstick.org/og-image.png',
+    author: {
+      '@type': 'Organization',
+      name: 'OpenStick Community',
+      url: 'https://openstick.org/',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'OpenStick Community',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://openstick.org/favicon-96x96.png',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonicalUrl,
+    },
+  });
+}
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': jsonLdGraph,
+};
+---
+
+{head.map(({ tag: Tag, attrs, content }) => <Tag {...attrs} set:html={content} />)}
+<meta property="og:image" content="https://openstick.org/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={title} />
+<meta name="twitter:image" content="https://openstick.org/og-image.png" />
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

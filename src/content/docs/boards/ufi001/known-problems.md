@@ -1,6 +1,6 @@
 ---
-title: "UFI001 Troubleshooting: Wi-Fi Limits, Thermals & LED Bugs"
-description: Troubleshooting common issues on UFI001B and UFI001C dongles, including Wi-Fi regulatory limits, LED differences, and thermal throttling.
+title: "UFI001B & UFI001C Troubleshooting: Wi-Fi Limits, Thermals & LEDs"
+description: "Troubleshooting common issues on UFI001B and UFI001C OpenStick 4G dongles, including Wi-Fi regulatory limits, LED GPIO polarity differences, and thermal throttling."
 ---
 
 This page documents the known hardware quirks and software fixes for the **UFI001B** and **UFI001C** boards.

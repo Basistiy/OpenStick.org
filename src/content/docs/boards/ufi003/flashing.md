@@ -1,6 +1,6 @@
 ---
-title: "UFI003 Flashing Guide: Debian, postmarketOS & Docker Setup"
-description: Step-by-step flashing guide for the 1GB RAM UFI003 flagship, including lk2nd setup, Debian, postmarketOS, and Docker installation.
+title: "UFI003 Flashing Guide: OpenStick Debian Linux & Docker Setup (1GB RAM)"
+description: "Step-by-step flashing guide for the 1GB RAM / 8GB eMMC UFI003 (UFI003_MB_V01/V02) flagship board: install OpenStick Debian Linux, lk2nd, and Docker."
 ---
 
 Because the **UFI003** features 1GB of RAM and 8GB of eMMC storage, flashing custom Linux operating systems turns it into a genuinely capable, production-ready micro-server.

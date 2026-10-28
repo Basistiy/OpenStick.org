@@ -1,6 +1,6 @@
 ---
-title: "SP970 Flashing Guide: Install Debian, OpenWrt & postmarketOS"
-description: Step-by-step flashing guide for the SP970 4G USB dongle with lk2nd, Debian OpenStick base, postmarketOS, and OpenWrt.
+title: "SP970 (V3 / V10) Flashing Guide: Install OpenStick Debian Linux"
+description: "Step-by-step flashing guide for the SP970 (SP970_V3 / SP970_V10) MSM8916 4G USB dongle using OpenStick Debian Linux, lk2nd bootloader, and Fastboot."
 ---
 
 This guide provides instructions for flashing custom Linux distributions onto the **SP970** 4G dongle.

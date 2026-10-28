@@ -1,6 +1,6 @@
 ---
-title: "UF896 & Zhihe NAND Clones: Buying Warnings & Identification"
-description: How to spot and avoid Zhihe and UF896 cost-reduced boards with SPI-NAND flash, fake chipsets, and non-eMMC storage.
+title: "UF896, Zhihe NAND & ASR1802 Clones: Buying Warnings & Identification"
+description: "How to spot and avoid UF896 (UF896_MB_V02), Zhihe SPI-NAND boards, and non-Qualcomm ASR1802 / ZX297520 / SP9820E clone 4G dongles that cannot run OpenStick Debian."
 ---
 
 While genuine Qualcomm MSM8916 boards equipped with eMMC are fantastic mini single-board computers, the market is flooded with cost-reduced clones commonly designated as **Zhihe**, **UF896**, or **4G-UFI-16**.
@@ -70,3 +70,18 @@ adb shell ls -l /dev/block/bootdevice/by-name
 
 - **If it outputs standard partition symlinks** (`boot`, `system`, `userdata`, etc.): The device has **eMMC**.
 - **If `/dev/block/bootdevice` does not exist**, and you only see `/proc/mtd`: The device is **NAND flash**!
+
+---
+
+## Non-Qualcomm CPU Clones (`ASR1802`, `ZX297520`, `SP9820E`)
+
+If you searched for **`asr1802`**, **`zx297520`**, or **`sp9820e`** after opening your 4G USB dongle, your stick does **not** have a Qualcomm Snapdragon 410 (`MSM8916`) processor:
+
+| Chip Marking | Manufacturer / Architecture | OpenStick Debian Support | Notes |
+| :--- | :--- | :--- | :--- |
+| **`MSM8916`** | **Qualcomm Snapdragon 410 (4x Cortex-A53 ARM64)** | ✅ **Fully Supported (with eMMC)** | Genuine OpenStick processor (`UZ801`, `UFI003`, `UFI001B/C`, `HMUF02-V05`). |
+| **`ASR1802` / `ASR1803`** | ASR Microelectronics (32-bit ARM Cortex-R4 / Marvell PXA) | ❌ **Incompatible** | Cheap RTOS/custom cellular baseband chip; cannot boot mainline Linux or OpenStick Debian. |
+| **`ZX297520` (V2 / V3)** | Sanechips / ZTE ZXIC | ❌ **Incompatible** | Proprietary ZTE cellular router SoC with tiny NAND flash; cannot run OpenStick. |
+| **`SP9820E`** | Unisoc / Spreadtrum (2x Cortex-A53) | ❌ **Incompatible** | Different bootloader and radio architecture; incompatible with Qualcomm `edl` and `lk2nd`. |
+
+👉 **Need a genuine Qualcomm MSM8916 stick with eMMC?** Check our **[Community-Verified Store Links & Buying Guide](/buying-guide/)** for tested `UZ801` and `HM-MIFIB` listings.

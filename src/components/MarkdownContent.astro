@@ -1,0 +1,15 @@
+---
+import Default from '@astrojs/starlight/components/MarkdownContent.astro';
+import BoardNav from './BoardNav.astro';
+
+const pathname = Astro.url.pathname;
+const boardMatch = pathname.match(/^\/boards\/([^/]+)\/([^/]+)\/?/);
+const boardSlug = boardMatch ? boardMatch[1] : null;
+const pageSlug = boardMatch ? boardMatch[2] : null;
+---
+
+<Default>
+  {boardSlug && <BoardNav board={boardSlug} current={pageSlug} position="top" />}
+  <slot />
+  {boardSlug && <BoardNav board={boardSlug} current={pageSlug} position="bottom" />}
+</Default>

@@ -1,0 +1,89 @@
+---
+title: "OpenStick Firmware, 1-Click Debian Installer & GitHub Downloads"
+description: "Official OpenStick (Open Stick) downloads hub: get the 1-Click Debian Linux Installer (openstick-installer.zip), lk2nd bootloaders, EDL recovery tools, and GitHub repositories."
+---
+
+import { Card, CardGrid, LinkButton, Badge } from '@astrojs/starlight/components';
+
+Welcome to the central **OpenStick (Open Stick) Firmware & GitHub Downloads Hub**. Everything you need to back up your factory 4G modem partitions and flash **64-bit Debian GNU/Linux** onto Qualcomm Snapdragon 410 (**MSM8916**) USB dongles is organized below.
+
+---
+
+## 🚀 1. OpenStick 1-Click Automated Installer (Recommended)
+
+The **[OpenStick Installer (`openstick-installer`)](https://github.com/Basistiy/openstick-installer)** is the fastest and safest way to flash Debian Linux onto your MSM8916 USB modem on **Windows**, **macOS**, and **Linux**.
+
+<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1.25rem 0;">
+  <LinkButton
+    href="https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip"
+    variant="primary"
+    icon="download"
+  >
+    Download openstick-installer.zip (Latest Release)
+  </LinkButton>
+  <LinkButton
+    href="https://github.com/Basistiy/openstick-installer"
+    variant="secondary"
+    icon="github"
+  >
+    Basistiy/openstick-installer on GitHub
+  </LinkButton>
+</div>
+
+### What the 1-Click Installer Does Automatically:
+- **Double-Click Native Launchers**: Includes `run.bat` (Windows), `run.command` (macOS), and `run.sh` (Linux).
+- **Zero-Solder EDL Reboot**: Transitions your dongle into Qualcomm `9008` Emergency Download Mode via ADB, Fastboot, or SSH.
+- **Full 1:1 eMMC Backup**: Dumps your complete raw eMMC (`full_emmc.bin`) locally before modifying a single byte.
+- **Automatic IMEI & Radio Calibration Injection**: Extracts your stick's unique factory cellular partitions (`modemst1`, `modemst2`, `fsg`, `fsc`, `persist`, `sec`) and injects them directly into the clean OpenStick Debian image so 4G LTE works immediately on first boot.
+
+---
+
+## 📦 2. Official OpenStick GitHub Repositories
+
+If you are searching for **`openstick github`** or looking for source code, scripts, and community documentation repositories:
+
+| Repository | Purpose & Contents | Link |
+| :--- | :--- | :--- |
+| **`Basistiy/openstick-installer`** | Automated 1-Click cross-platform installer, full eMMC backup tool, and Debian image flasher for MSM8916 sticks. | [GitHub Repo](https://github.com/Basistiy/openstick-installer) |
+| **`Basistiy/OpenStick.org`** | Source repository for **OpenStick.org** community documentation, pinouts, board revisions, and verified buying guides. | [GitHub Repo](https://github.com/Basistiy/OpenStick.org) |
+| **`OpenStick` (Upstream Heritage)** | Original upstream OpenStick organization by pioneer developer [HandsomeYingyan](https://github.com/HandsomeYingyan) (`lk2nd`, initial Debian base packages). | [GitHub Org](https://github.com/OpenStick) |
+| **`msm8916-mainline/lk2nd`** | Secondary bootloader (`lk2nd`) providing mainline Linux Device Tree (`.dtb`) support for Snapdragon 410 boards. | [GitHub Repo](https://github.com/msm8916-mainline/lk2nd) |
+| **`bkerler/edl`** | Qualcomm Sahara / Firehose (`9008`) emergency download & partition recovery utility (`edl.py`). | [GitHub Repo](https://github.com/bkerler/edl) |
+
+---
+
+## 🧩 3. Board-Specific Flashing & Firmware Guides
+
+Select your exact PCB silkscreen revision below for board-specific flashing instructions, default SSH credentials, and recovery pinouts:
+
+| Board Model | Supported PCB Silkscreens | RAM / eMMC | Flashing Guide & Pinouts |
+| :--- | :--- | :--- | :--- |
+| **UZ801** <Badge text="Most Popular" variant="success" /> | `UZ801_V3.0`, `UZ801_V3.31`, `UZ801_V2.2`, `UZ801_V2.1` | 512MB / 4GB eMMC | [Flashing Guide](/boards/uz801/flashing/) · [Pinouts](/boards/uz801/pinouts/) · [Buying](/boards/uz801/buying/) |
+| **UFI003** <Badge text="1GB Flagship" variant="tip" /> | `UFI003_MB_V01`, `UFI003_MB_V02` | **1GB / 8GB eMMC** | [Flashing Guide](/boards/ufi003/flashing/) · [Pinouts](/boards/ufi003/pinouts/) · [Buying](/boards/ufi003/buying/) |
+| **UFI001B / UFI001C** | `UFI001B_MB_V01`, `UFI001B_MB_V02`, `UFI001C` | 512MB / 4GB eMMC | [Flashing Guide](/boards/ufi001/flashing/) · [Pinouts](/boards/ufi001/pinouts/) · [Buying](/boards/ufi001/buying/) |
+| **HMUF02** | `HMUF02-V05`, `HMUF02-MB-V01`, `HMUF02-MB-V02` | 512MB / 4GB eMMC | [Flashing Guide](/boards/hmuf02/flashing/) · [Pinouts](/boards/hmuf02/pinouts/) · [Buying](/boards/hmuf02/buying/) |
+| **HM-MIFIB (MIFIB)** | `HM-MIFIB_V18` (with LCD & Battery) | 512MB / 4GB eMMC | [Flashing Guide](/boards/hm-mifib/flashing/) · [Pinouts](/boards/hm-mifib/pinouts/) · [Buying](/boards/hm-mifib/buying/) |
+| **SP970** | `SP970_V3`, `SP970_V10` | 512MB / 4GB eMMC | [Flashing Guide](/boards/sp970/flashing/) · [Pinouts](/boards/sp970/pinouts/) · [Buying](/boards/sp970/buying/) |
+| **UF896 / Zhihe NAND** | `UF896_MB_V02`, `ZHIHE_MSM8916`, `UFI-16-V3` | 256–512MB NAND | [Clone Warnings](/boards/zhihe-nand/buying/) · [Recovery](/boards/zhihe-nand/flashing/) |
+
+---
+
+## 🔑 Default OpenStick Debian SSH Credentials
+
+After flashing with the **1-Click OpenStick Installer** (or manual OpenStick Debian rootfs):
+
+| Setting | 1-Click Installer Image | Classic Manual Base Image |
+| :--- | :--- | :--- |
+| **USB Ethernet IP** | `192.168.5.1` | `192.168.68.1` |
+| **SSH Command** | `ssh user@192.168.5.1` | `ssh user@192.168.68.1` |
+| **Default Username** | `user` | `user` |
+| **Default Password** | `1` | `1` |
+| **Root Password (`sudo su`)** | `1` | `1` |
+
+---
+
+## Need Help Identifying Your Board or Restoring a Backup?
+
+- **Unsure which board or chip you have?** Read the **[MSM8916 Device Identification Guide](/getting-started/device-identification/)** to spot genuine Qualcomm eMMC vs. `ASR1802` / `ZX297520` / `SPI-NAND` clones.
+- **Comparing OS options?** Read **[OpenStick (Debian) vs. OpenWrt vs. postmarketOS](/about/openstick-vs-openwrt-postmarketos/)**.
+- **Live Troubleshooting:** Join the community chat on Telegram at **[t.me/openstick_org](https://t.me/openstick_org)**.
