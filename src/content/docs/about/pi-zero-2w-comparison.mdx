@@ -4,6 +4,7 @@ description: "In-depth technical comparison between Qualcomm MSM8916 4G USB mode
 ---
 
 import VideoEmbed from '../../../components/VideoEmbed.astro';
+import ShortsGrid from '../../../components/ShortsGrid.astro';
 
 ## Overview
 
@@ -11,16 +12,34 @@ When planning an ultra-compact, low-power Linux project, the **Raspberry Pi Zero
 
 This guide provides an honest, side-by-side engineering breakdown to help you choose the right platform for your build.
 
-### Video Comparison & Hardware Teardown
+### Video Comparison & Hardware Teardowns
 
-Watch this hands-on teardown and direct hardware comparison by [@glos-os](https://www.youtube.com/@glos-os), comparing $15 Qualcomm MSM8916 modems (UZ801 and unshielded boards) against the Raspberry Pi Zero 2 W:
+Watch these hands-on breakdowns and direct hardware comparisons by [@glos-os](https://www.youtube.com/@glos-os), comparing $10–$15 Qualcomm MSM8916 modems (UZ801 and unshielded boards) against the Raspberry Pi Zero 2 W:
 
-<VideoEmbed
-  platform="youtube"
-  id="1pdEvBougv0"
-  aspect="9:16"
-  title="$15 Raspberry Pi Zero 2 W Alternative! Snapdragon 410 Modem Teardown"
-/>
+<ShortsGrid columns={2}>
+  <div class="shorts-card">
+    <h4>$10 Linux SBC Beats Pi Zero 2 W?! (UZ801)</h4>
+    <p>How a $10 UZ801 modem compares to a Pi Zero 2 W with 4-core ARM64 CPU, 512MB RAM, 4GB eMMC flash, Wi-Fi, and 4G LTE — plus a quick 1-Click Debian flashing guide.</p>
+    <VideoEmbed
+      platform="youtube"
+      id="5AdIjBY0pao"
+      aspect="9:16"
+      title="$10 Linux SBC Beats Raspberry Pi Zero 2 W?! OpenStick UZ801 Guide"
+      uploadDate="2026-10-27T20:12:10Z"
+    />
+  </div>
+
+  <div class="shorts-card">
+    <h4>$15 Pi Zero 2 W Alternative! Hardware Teardown</h4>
+    <p>Teardown and PCB inspection of $15 USB stick modems with quad-core MSM8916 (512MB RAM, 4GB eMMC). Comparing genuine UZ801 boards against unshielded variants.</p>
+    <VideoEmbed
+      platform="youtube"
+      id="1pdEvBougv0"
+      aspect="9:16"
+      title="$15 Raspberry Pi Zero 2 W Alternative! Snapdragon 410 Modem Teardown"
+    />
+  </div>
+</ShortsGrid>
 
 ---
 

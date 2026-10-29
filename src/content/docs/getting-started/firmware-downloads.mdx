@@ -4,6 +4,7 @@ description: "Official OpenStick (Open Stick) downloads hub: get the 1-Click Deb
 ---
 
 import { Card, CardGrid, LinkButton, Badge } from '@astrojs/starlight/components';
+import VideoEmbed from '../../../components/VideoEmbed.astro';
 
 Welcome to the central **OpenStick (Open Stick) Firmware & GitHub Downloads Hub**. Everything you need to back up your factory 4G modem partitions and flash **64-bit Debian GNU/Linux** onto Qualcomm Snapdragon 410 (**MSM8916**) USB dongles is organized below.
 
@@ -29,6 +30,18 @@ The **[OpenStick Installer (`openstick-installer`)](https://github.com/Basistiy/
     Basistiy/openstick-installer on GitHub
   </LinkButton>
 </div>
+
+### Video Walkthrough: 1-Click Installer in Action
+
+Watch this 42-second walkthrough by [@glos-os](https://www.youtube.com/@glos-os) demonstrating the 1-Click Installer workflow on a UZ801 modem:
+
+<VideoEmbed
+  platform="youtube"
+  id="5AdIjBY0pao"
+  aspect="9:16"
+  title="$10 Linux SBC Beats Raspberry Pi Zero 2 W?! OpenStick UZ801 Guide"
+  uploadDate="2026-10-27T20:12:10Z"
+/>
 
 ### What the 1-Click Installer Does Automatically:
 - **Double-Click Native Launchers**: Includes `run.bat` (Windows), `run.command` (macOS), and `run.sh` (Linux).

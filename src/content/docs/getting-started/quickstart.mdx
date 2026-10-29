@@ -3,6 +3,8 @@ title: "OpenStick Quick Start: Flash Debian Linux on 4G USB Modems (1-Click)"
 description: "Step-by-step OpenStick (Open Stick) tutorial: flash Debian Linux onto MSM8916 4G USB dongles (UZ801, UFI001B/C, UFI003, HMUF02-V05) using the automated 1-Click Installer or Fastboot."
 ---
 
+import VideoEmbed from '../../../components/VideoEmbed.astro';
+
 Welcome to the **OpenStick** (also searched as **Open Stick**) community! This quick start guide walks you through transforming a stock Qualcomm Snapdragon 410 (**MSM8916**) 4G LTE USB modem (`UZ801`, `UFI001B`, `UFI001C`, `UFI003`, `HMUF02-V05`, `SP970`, or `HM-MIFIB`) into a full 64-bit **Debian GNU/Linux** computer and 4G router.
 
 :::caution[Golden Rule: Always Backup First!]
@@ -13,6 +15,18 @@ Every physical modem has unique radio calibration partitions (`fsg`, `modemst1`,
 Flashing a **UZ801** (`UZ801_V3.0` / `UZ801_V3.31` / `UZ801_V2.2`) stick? Skip manual terminal commands entirely with the **[1-Click OpenStick Installer](/boards/uz801/flashing/#method-1-automated-1-click-openstick-installer-recommended)**. It automatically backs up your full eMMC, isolates your IMEI calibration, and flashes OpenStick Debian using double-click scripts (`run.bat`, `run.command`, `run.sh`).  
 👉 [**Download openstick-installer.zip**](https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip) · [**Visit Firmware & GitHub Hub**](/getting-started/firmware-downloads/)
 :::
+
+### 42-Second Flashing Walkthrough
+
+Watch [@glos-os](https://www.youtube.com/@glos-os) demonstrate the complete 1-Click OpenStick Installer process on a UZ801 dongle, from enabling ADB debugging to flashing Debian and logging in over SSH:
+
+<VideoEmbed
+  platform="youtube"
+  id="5AdIjBY0pao"
+  aspect="9:16"
+  title="$10 Linux SBC Beats Raspberry Pi Zero 2 W?! OpenStick UZ801 Guide"
+  uploadDate="2026-10-27T20:12:10Z"
+/>
 
 :::tip[Need to Buy a Device First?]
 Don't have a 4G USB modem yet? Check the **[Community Hardware Buying Guide & Verified Store Links](/buying-guide/)** for tested AliExpress, Taobao, and eBay listings for popular dongles like **UZ801** and **HMUF02** to avoid counterfeit or non-Qualcomm chip swaps.

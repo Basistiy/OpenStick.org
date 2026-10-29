@@ -3,6 +3,8 @@ title: "UZ801 Flashing Guide: 1-Click OpenStick Debian Linux Installer & Fastboo
 description: "Step-by-step UZ801 (UZ801_V3.0 / V3.31) flashing guide: install OpenStick Debian Linux in 1 click with automatic IMEI backup, or flash manually via lk2nd and Fastboot."
 ---
 
+import VideoEmbed from '../../../../components/VideoEmbed.astro';
+
 This guide walks you through installing custom Linux operating systems onto your UZ801 USB stick.
 
 ---
@@ -17,6 +19,18 @@ This guide walks you through installing custom Linux operating systems onto your
 ## Method 1: Automated 1-Click OpenStick Installer (Recommended)
 
 The **[OpenStick Installer](https://github.com/Basistiy/openstick-installer)** is a cross-platform, minimal-action flashing tool designed to turn Qualcomm Snapdragon 410 (MSM8916) UZ801 dongles into Debian Linux devices with full brick protection.
+
+### Video Walkthrough: 1-Click Debian Flashing on UZ801
+
+Watch this step-by-step 42-second guide by [@glos-os](https://www.youtube.com/@glos-os) walking through enabling ADB debugging, backing up factory partitions, flashing Debian Linux, and testing LEDs over SSH:
+
+<VideoEmbed
+  platform="youtube"
+  id="5AdIjBY0pao"
+  aspect="9:16"
+  title="$10 Linux SBC Beats Raspberry Pi Zero 2 W?! OpenStick UZ801 Guide"
+  uploadDate="2026-10-27T20:12:10Z"
+/>
 
 :::tip[Direct Download]
 Download the standalone installer archive (no Git installation required):  
@@ -34,24 +48,33 @@ GitHub Repository: [Basistiy/openstick-installer](https://github.com/Basistiy/op
 
 ### Step-by-Step Instructions
 
-1. **Download & Extract**:
+1. **Enable USB Debugging (ADB) on Stock Firmware**:
+   - Connect your PC or phone to the UZ801 Wi-Fi hotspot.
+   - Open your browser and navigate to:
+     ```
+     http://192.168.100.1/usbdebug.html
+     ```
+     *(Some firmware builds use `/usbdebug.htm` instead)*
+   - Click the button to enable USB debugging.
+
+2. **Download & Extract Installer**:
    Download [**`openstick-installer.zip`**](https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip) and extract it on your computer.
 
-2. **Connect the Stick**:
+3. **Connect the Stick**:
    Plug your UZ801 modem into any USB port on your computer.
 
-3. **Launch the Installer**:
+4. **Launch the Installer**:
    - **Windows**: Double-click `run.bat`
    - **macOS**: Double-click `run.command`
    - **Linux**: Double-click `run.sh` (or run `./run.sh` in terminal)
 
-4. **Follow the Interactive Prompts**:
+5. **Follow the Interactive Prompts**:
    - **Target Board**: Press `1` for **UZ801**.
    - **Backup Partitions**: Press `Y` (Strongly Recommended). The installer dumps the full eMMC image and extracts your stick's cellular calibration files.
    - **Choose Action**: Press `1` for **Install Linux (Debian)**.
-   - The installer will automatically download the universal image from GitHub Releases, inject your unique calibrations, flash the eMMC via Qualcomm EDL mode, and reboot the stick.
+   - The installer will automatically download the universal image from GitHub Releases, inject your unique calibrations, flash the eMMC via Qualcomm EDL mode, and reboot the stick (takes around 15 minutes).
 
-5. **First SSH Login**:
+6. **First SSH Login & LED Test**:
    Once booted, the stick connects as a USB Ethernet gadget:
    ```bash
    ssh user@192.168.5.1
@@ -59,6 +82,11 @@ GitHub Repository: [Basistiy/openstick-installer](https://github.com/Basistiy/op
    - **User**: `user`
    - **Password**: `1`
    - **Root Password**: `1` (switch with `sudo su`)
+
+   Verify the hardware by testing the onboard LEDs:
+   ```bash
+   led-test
+   ```
 
 ---
 
