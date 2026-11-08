@@ -18,7 +18,7 @@ The teardown, EDL unbricking, and hardware modding walkthroughs below are produc
 
 Complete step-by-step walkthroughs turning Qualcomm MSM8916 4G USB modems into standalone Debian Linux single-board computers:
 
-<ShortsGrid columns={2}>
+<ShortsGrid columns={3}>
   <div class="shorts-card">
     <h4>$10 Linux SBC Beats Pi Zero 2 W?! UZ801 Guide</h4>
     <p>Complete step-by-step walkthrough turning a $10 UZ801 USB stick into a Debian Linux SBC: unlocking ADB via web browser (<code>/usbdebug.html</code>), backing up partitions, flashing Debian with the 1-Click Installer, and verifying over SSH with <code>led-test</code>.</p>
@@ -28,6 +28,17 @@ Complete step-by-step walkthroughs turning Qualcomm MSM8916 4G USB modems into s
       aspect="9:16"
       title="$10 Linux SBC Beats Raspberry Pi Zero 2 W?! OpenStick UZ801 Guide"
       uploadDate="2026-10-27T20:12:10Z"
+    />
+  </div>
+
+  <div class="shorts-card">
+    <h4>Turn $10 4G Modem into Linux Server (HMUF02 Flashing)</h4>
+    <p>Complete step-by-step flashing guide for the <a href="/boards/hmuf02/flashing/">HMUF02 Wingle</a>: entering Qualcomm EDL mode via the reset pinhole, dumping stock partitions with the 1-Click Installer, flashing Debian, and testing LEDs over SSH.</p>
+    <VideoEmbed
+      platform="youtube"
+      id="AN0YebKQESA"
+      aspect="9:16"
+      title="Turn a $10 4G USB Modem into a Linux Server! (OpenStick HMUF02 Flashing Guide)"
     />
   </div>
 
@@ -82,7 +93,7 @@ The golden rule of OpenStick: **always dump calibration partitions before modify
 <ShortsGrid columns={2}>
   <div class="shorts-card">
     <h4>Never Brick Your Modem — EDL Mode Hack</h4>
-    <p>Holding the reset pin or bridging test pads boots into Qualcomm 9008 EDL mode. Dump every critical radio partition (<code>modemst1</code>, <code>modemst2</code>, <code>fsg</code>) on Mac or Linux with <code>edl.py</code>.</p>
+    <p>Holding the reset pin or bridging test pads boots into Qualcomm 9008 EDL mode (featured on the <a href="/boards/hmuf02/pinouts/">HMUF02 Wingle</a>). Dump every critical radio partition (<code>modemst1</code>, <code>modemst2</code>, <code>fsg</code>) on Mac or Linux with <code>edl.py</code>.</p>
     <VideoEmbed
       platform="youtube"
       id="RMQ15K-EXus"

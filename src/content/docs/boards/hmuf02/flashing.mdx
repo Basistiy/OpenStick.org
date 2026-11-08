@@ -1,0 +1,188 @@
+---
+title: "HMUF02 (HMUF02-V05) Flashing Guide: Install OpenStick Debian Linux"
+description: "Step-by-step flashing guide for HMUF02 and HMUF02-V05 4G USB wingles: backup IMEI/QCN partitions, flash lk2nd, and install OpenStick Debian Linux."
+---
+
+import VideoEmbed from '../../../../components/VideoEmbed.astro';
+
+This guide provides instructions for replacing the factory Android firmware on your HMUF02 wingle with full mainline Linux or Debian.
+
+---
+
+## Choose Your Flashing Method
+
+* **[Method 1: Automated 1-Click OpenStick Installer (Recommended)](#method-1-automated-1-click-openstick-installer-recommended)**: Zero terminal setup. Automates EDL partition backup, calibration isolation, and Debian flashing via double-click scripts.
+* **[Method 2: Manual Fastboot & lk2nd Flashing](#method-2-manual-fastboot--lk2nd-flashing)**: Step-by-step command-line procedure for manual `fastboot` and custom images.
+
+---
+
+## Method 1: Automated 1-Click OpenStick Installer (Recommended)
+
+The **[OpenStick Installer](https://github.com/Basistiy/openstick-installer)** is a cross-platform, minimal-action flashing tool designed to turn Qualcomm Snapdragon 410 (MSM8916) wingles like the HMUF02 into Debian Linux devices with full brick protection.
+
+### Video Walkthrough: Turn a $10 4G Modem into a Linux Server (HMUF02 Flashing Guide)
+
+Watch this step-by-step walkthrough by [@glos-os](https://www.youtube.com/@glos-os) demonstrating how to enter Qualcomm EDL mode using the reset pinhole, back up stock partitions, flash OpenStick Debian Linux, and SSH into your new HMUF02 micro-server:
+
+<VideoEmbed
+  platform="youtube"
+  id="AN0YebKQESA"
+  aspect="9:16"
+  title="Turn a $10 4G USB Modem into a Linux Server! (OpenStick HMUF02 Flashing Guide)"
+/>
+
+:::tip[Direct Download]
+Download the standalone installer archive (no Git installation required):  
+👉 [**Download openstick-installer.zip**](https://github.com/Basistiy/openstick-installer/releases/latest/download/openstick-installer.zip) *(~43 KB)*  
+GitHub Repository: [Basistiy/openstick-installer](https://github.com/Basistiy/openstick-installer)
+:::
+
+### Step-by-Step Instructions
+
+1. **Enter Qualcomm EDL Mode (9008)**:
+   - Disconnect the HMUF02 from USB.
+   - Insert a paperclip into the `Reset` pinhole on the casing (or press the miniature onboard SMD tactile switch).
+   - While holding the button down, plug the HMUF02 into your computer's USB port.
+   - Release after 2–3 seconds. The device will enumerate as `Qualcomm HS-USB QDLoader 9008` (see [HMUF02 Pinouts](/boards/hmuf02/pinouts/)).
+
+2. **Launch the OpenStick Installer**:
+   - Extract `openstick-installer.zip` and run the launcher for your OS:
+     - **Windows**: Double-click `run.bat`
+     - **macOS**: Double-click `run.command`
+     - **Linux**: Run `./run.sh`
+
+3. **Backup & Flash**:
+   - The installer automatically detects the EDL connection.
+   - Back up all partitions (`modemst1`, `modemst2`, `fsg`) to safeguard your IMEI and radio calibration.
+   - Select **Install Linux (Debian)** to flash the system partition and reboot into Debian.
+
+4. **First Boot & SSH Access**:
+   - The HMUF02 will initialize and expose a virtual USB Ethernet adapter (CDC-ECM / RNDIS) at **`192.168.68.1`**.
+   - Connect via SSH:
+     ```bash
+     ssh user@192.168.68.1
+     ```
+   - **Password**: `1` (root password is also `1`).
+   - Test onboard LEDs using `led-test` or the [LED fix service](/boards/hmuf02/known-problems/#2-inverted-power--status-led-gpios).
+
+:::note[Need Help with EDL Test Pads?]
+If your HMUF02 lacks an exterior reset pinhole, you can open the shell and bridge the EDL pads with tweezers or a paperclip. Watch the [Never Brick Your HMUF02 (EDL Mode Hack)](/boards/hmuf02/pinouts/#video-walkthrough-never-brick-your-modem-edl-mode-hack) video walkthrough for a full demonstration.
+:::
+
+---
+
+## Method 2: Manual Fastboot & lk2nd Flashing
+
+### Prerequisites
+
+1. An authentic **HMUF02 stick with Qualcomm MSM8916 and eMMC flash**.
+2. Host computer with `fastboot` and `adb` installed.
+3. Essential backups taken (`modemst1`, `modemst2`, `fsg`) — see [Safety & Backups](/getting-started/backup-safety/).
+4. Download the OpenStick release packages (`base.zip` and `debian.zip`).
+
+### Step 1: Boot into Fastboot Mode
+
+Plug the HMUF02 into your computer:
+
+```bash
+# Verify the computer sees the device over ADB
+adb devices
+
+# Reboot into fastboot mode
+adb reboot bootloader
+```
+
+If the stock firmware does not expose ADB or is locked:
+1. Enter EDL mode via the reset button or test pads (see [HMUF02 Pinouts](/boards/hmuf02/pinouts/)).
+2. Flash the unbrick bootloader using `python3 edl.py w aboot emmc_appsboot.mbn`.
+3. Reboot to fastboot: `python3 edl.py reset`.
+
+Confirm Fastboot detects the device:
+```bash
+fastboot devices
+```
+
+---
+
+## Step 2: Flash the lk2nd Bootloader
+
+`lk2nd` operates as a secondary bootloader that packages a mainline Linux device tree:
+
+```bash
+# Flash lk2nd to the boot partition
+fastboot flash boot lk2nd.img
+
+# Reboot into lk2nd
+fastboot reboot
+```
+
+The HMUF02 will reboot into the `lk2nd` fastboot interface. The blue indicator LED will pulse gently, confirming `lk2nd` is running.
+
+---
+
+## Step 3: Flash the Root Filesystem
+
+Once in the `lk2nd` fastboot mode:
+
+```bash
+# Flash Debian rootfs into the system partition
+fastboot flash rootfs debian-rootfs.img
+
+# Clear userdata to wipe previous stock Android caches
+fastboot erase userdata
+
+# Reboot into Debian!
+fastboot reboot
+```
+
+---
+
+## Step 4: First Boot & SSH Access
+
+1. Wait roughly 30–45 seconds for first-boot system initialization.
+2. The stick will create a virtual USB network card (CDC-ECM / RNDIS) on your PC.
+3. The stick IP address is **`192.168.68.1`**.
+
+Connect via SSH from your computer terminal:
+
+```bash
+ssh user@192.168.68.1
+```
+
+- **Username**: `user`
+- **Password**: `1`
+- **Root access**: `sudo su` (password `1`)
+
+---
+
+## Step 5: Post-Install Configuration
+
+```bash
+# Resize filesystem to utilize entire 4GB eMMC storage
+sudo resize2fs /dev/mmcblk0p20
+
+# Scan for local Wi-Fi networks
+sudo nmcli dev wifi list
+
+# Connect to your Wi-Fi network
+sudo nmcli dev wifi connect "MyHomeNetwork" password "MySecretPassword"
+
+# Update package repositories
+sudo apt update && sudo apt upgrade -y
+```
+
+---
+
+## Step 6: Enabling 4G Cellular Internet
+
+```bash
+# Check ModemManager status
+mmcli -L
+
+# Verify modem details (usually index 0)
+mmcli -m 0
+
+# Configure cellular data profile (replace with your carrier APN)
+sudo nmcli connection add type gsm ifname cdc-wdm0 con-name "LTE-Data" apn "internet"
+sudo nmcli connection up "LTE-Data"
+```

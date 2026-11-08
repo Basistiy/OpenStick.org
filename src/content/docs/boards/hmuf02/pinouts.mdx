@@ -3,6 +3,8 @@ title: "HMUF02 (HMUF02-V05) Pinouts: EDL 9008 Test Points & 1.8V UART"
 description: "Hardware pinouts, Qualcomm EDL 9008 recovery test pads, 1.8V UART serial console, and reset button/LED GPIO mappings for HMUF02 and HMUF02-V05 wingles."
 ---
 
+import VideoEmbed from '../../../../components/VideoEmbed.astro';
+
 The **HMUF02** integrates its EDL recovery test points adjacent to the SIM tray and provides a physical SMD reset push button on the PCB.
 
 ---
@@ -36,6 +38,17 @@ The **HMUF02** integrates its EDL recovery test points adjacent to the SIM tray 
 
 If your bootloader fails or you flash an incompatible kernel image, EDL mode provides full raw eMMC read/write recovery.
 
+### Video Walkthrough: Never Brick Your Modem (EDL Mode Hack)
+
+Watch this video guide by [@glos-os](https://www.youtube.com/@glos-os) demonstrating how to enter Qualcomm 9008 EDL mode on the HMUF02 using the reset pinhole or test pads and dump critical calibration partitions:
+
+<VideoEmbed
+  platform="youtube"
+  id="RMQ15K-EXus"
+  aspect="9:16"
+  title="Never Brick Your $15 Pi Zero Alternative — EDL Mode Hack"
+/>
+
 ### Method A: The Physical Reset Switch (On Select Batches)
 1. Disconnect the HMUF02 from USB.
 2. Insert a paperclip into the `Reset` pinhole on the casing (or press the miniature SMD tactile switch on the board).
@@ -53,6 +66,10 @@ If your bootloader fails or you flash an incompatible kernel image, EDL mode pro
    lsusb | grep 05c6:9008
    # Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
    ```
+
+:::tip[Ready to Flash Debian?]
+Once in Qualcomm 9008 EDL mode, you can run the automated 1-Click Installer to back up calibration partitions and flash Debian Linux. See the [HMUF02 Flashing Guide & Video Walkthrough](/boards/hmuf02/flashing/).
+:::
 
 ---
 
