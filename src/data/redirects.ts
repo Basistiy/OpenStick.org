@@ -32,6 +32,14 @@ export const redirectLinks: Record<string, RedirectLink> = {
     platform: 'AliExpress',
     silkscreen: 'UZ801_V3.31',
   },
+  'uz801-aliexpress-4': {
+    slug: 'uz801-aliexpress-4',
+    target: 'https://www.aliexpress.com/item/1005012620163075.html',
+    title: 'UZ801 4G LTE USB Modem Dongle (Store 4)',
+    device: 'UZ801',
+    platform: 'AliExpress',
+    silkscreen: 'FY_UZ801_3.31',
+  },
   'uz801-allegro': {
     slug: 'uz801-allegro',
     target: 'https://allegro.pl/oferta/modem-4g-lte-usb-wifi-na-karte-sim-domowy-router-odu-mobilny-mocny-szybki-18259575322',
