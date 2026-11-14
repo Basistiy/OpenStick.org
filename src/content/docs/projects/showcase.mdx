@@ -55,6 +55,11 @@ Discover what makers and engineers around the world have built with their \$5–
     Use USB Host mode to connect an RTL-SDR tuner, tracking overhead flights with `dump1090` and feeding data over cellular to FlightRadar24.
     <br/>👉 *Community contribution welcome!*
   </Card>
+
+  <Card title="🌐 OPNsense 4G Cellular Backup WAN" icon="seti:docker">
+    Deploy a $10 UZ801 running Debian as a dedicated, low-cost cellular failover gateway for home lab firewalls like OPNsense.
+    <br/>👉 **[Watch Build Video](#4-opnsense-4g-cellular-backup-wan-gateway)**
+  </Card>
 </CardGrid>
 
 ---
@@ -107,6 +112,26 @@ A budget-friendly €20 alternative to Meta's prototype "Muse Charm" AI handheld
   id="cgzFC9ZEoWw"
   aspect="9:16"
   title="Meta Muse Charm vs. €20 Glosos: Open-Source Cellular Voice AI"
+/>
+
+---
+
+### 4. OPNsense 4G Cellular Backup WAN Gateway
+
+Created by **[Tall Paul Tech](https://www.youtube.com/@TallPaulTech)**, this build turns a $10 UZ801 4G USB stick into a dedicated LTE backup WAN interface for an OPNsense home lab firewall.
+
+- **Hardware**: UZ801 USB dongle (Qualcomm MSM8916 Snapdragon 410, 512MB RAM, 4GB eMMC)
+- **OS**: Debian GNU/Linux via OpenStick
+- **Cellular Management**: ModemManager (`mmcli`) and NetworkManager (`nmcli`) configured for 4G-only mode with automated reconnection
+- **Monitoring**: Onboard temperature tracking and SNMP monitoring for network health
+- **Use Case**: Providing redundant, zero-maintenance cellular internet failover for home and lab networks when primary broadband goes down
+
+<VideoEmbed
+  platform="youtube"
+  id="9M43oITcjUQ"
+  aspect="16:9"
+  title="Portable Linux cheaper than a Raspberry Pi (UZ801 4G Gateway for OPNsense)"
+  uploadDate="2026-11-10T16:47:08Z"
 />
 
 ---
