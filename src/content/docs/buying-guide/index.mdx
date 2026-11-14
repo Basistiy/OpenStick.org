@@ -7,11 +7,14 @@ import { Card, CardGrid, Badge, LinkButton } from '@astrojs/starlight/components
 
 Finding genuine **Qualcomm Snapdragon 410 (MSM8916)** 4G USB modems online can be tricky. Because many generic manufacturers reuse the same plastic outer enclosures, sellers on AliExpress, Taobao, and eBay frequently substitute non-Qualcomm chips (**ASR1802**, **ZX297520**) or incompatible **SPI-NAND flash** without updating the listing title.
 
-This community buying guide maintains **tested, verified store links** where OpenStick community members have successfully purchased genuine Qualcomm MSM8916 hardware with eMMC storage.
+This community buying guide maintains **tested, verified store links** where genuine Qualcomm MSM8916 hardware with eMMC storage has been successfully purchased.
 
 <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1.5rem 0;">
   <LinkButton href="/buying-guide/submit/" variant="primary" icon="pencil">
     Publish Your Store Link
+  </LinkButton>
+  <LinkButton href="#-what-not-to-buy-non-qualcomm-chips-fake-specs--known-traps" variant="secondary" icon="warning">
+    What NOT to Buy Guide
   </LinkButton>
   <LinkButton href="https://github.com/Basistiy/OpenStick.org/issues/new?template=buy-link-submission.yml" variant="secondary" icon="external">
     Submit via GitHub Issue (No Git Needed)
@@ -92,6 +95,123 @@ Because generic sellers frequently substitute non-Qualcomm chipsets (ASR1802, ZX
 
 ---
 
+## 🚫 What NOT to Buy: Non-Qualcomm Chips, Fake Specs & Known Traps
+
+Due to aggressive cost-reduction and generic white-label casing reuse by Shenzhen manufacturers, many cheap 4G USB modems sold today on Amazon, eBay, AliExpress, and local marketplaces **do not contain Qualcomm Snapdragon processors**. 
+
+Buying the wrong stick will result in an unhackable device that cannot run Debian, OpenStick, or mainline Linux.
+
+---
+
+### 1. Incompatible Chipset Blacklist
+
+If a modem contains any of the following processors, **do not buy it** (or return it immediately for a refund):
+
+<CardGrid>
+  <Card title="ASR1802 / ASR Micro (e.g. UF910-V5.3)" icon="close">
+    **Status: ❌ Completely Unsupported**
+    <br/><br/>
+    An ultra-low-cost RTOS baseband chip common in modern white sticks. Even when vendor firmware exposes a stripped-down OpenWrt interface (default root/admin), it typically has only 16MB–32MB RAM, no MMU support for Debian, and zero OpenStick compatibility.
+  </Card>
+
+  <Card title="ZX297520 / ZXIC (Sanechips / ZTE)" icon="close">
+    **Status: ❌ Completely Unsupported**
+    <br/><br/>
+    Proprietary ZTE / Sanechips microcontroller. Sold in plastic enclosures identical to UZ801 and UFI001. Firmware is completely locked, with no open-source kernel trees, bootloaders, or Linux mainline support.
+  </Card>
+
+  <Card title="MediaTek MT6735 / MT6625 (e.g. HOSAYA MF904)" icon="close">
+    **Status: ❌ Incompatible with OpenStick**
+    <br/><br/>
+    Found in several budget pocket routers on Amazon UK. While a 64-bit ARM Cortex-A53 processor, it lacks LK2ND bootloader support, OpenStick kernel builds, and baseband modem tooling.
+  </Card>
+
+  <Card title="Marvell PXA1802 / PXA1908" icon="close">
+    **Status: ❌ Incompatible**
+    <br/><br/>
+    Found in older Huawei dongles (e.g., legacy Huawei E3372 revisions). Incompatible with Qualcomm partition tables and OpenStick Debian installers.
+  </Card>
+</CardGrid>
+
+:::danger[Avoid Raw SPI-NAND Flash Boards]
+Even on genuine Qualcomm MSM8916 boards, avoid versions that substitute **SPI-NAND flash** (small 8-pin SOP-8 chips, 256MB/512MB) for **eMMC** (smooth square BGA chip, 4GB/8GB). Standard OpenStick Debian images, rootfs partitioning, and the 1-Click Installer strictly require eMMC storage (`/dev/mmcblk0`).
+:::
+
+---
+
+### 2. Deceptive Marketing Claims & Myths
+
+Deceptive marketing is rampant on e-commerce platforms. Watch out for these three major traps:
+
+#### ❌ Trap 1: The "5G LTE" or "5G Speed" Claim
+Qualcomm Snapdragon 410 (MSM8916) was engineered in 2014–2015. It physically supports:
+- **Cellular**: 4G LTE Cat 4 only (max 150 Mbps download / 50 Mbps upload).
+- **Wi-Fi**: 2.4 GHz 802.11 b/g/n only.
+
+The MSM8916 supports **neither 5G cellular networks nor 5GHz Wi-Fi bands**. Any listing advertising "5G", "5G High Speed", or "Dual-Band 5GHz" is either false advertising or contains a completely different non-Qualcomm chip.
+
+#### ❌ Trap 2: The "1GB RAM / 8GB ROM" Myth (The UFI003 Unicorn)
+While the community values the theoretical UFI003 1GB specification, **99.9% of sticks sold online today are 512MB RAM and 4GB eMMC**. 
+
+Many sellers artificially modify factory Android properties (`ro.ram.size`, `ro.build.version`) to deceive diagnostic apps and display "1GB" or "2GB" in the browser settings. **Do not pay extra premiums for listings claiming 1GB or 2GB RAM** unless confirmed by the community with genuine Linux `/proc/meminfo` or `free -m` readings.
+
+#### ❌ Trap 3: The "4G-UFI-XXXX" SSID Trick
+Cloners know that enthusiasts search for "UFI" dongles. Modern non-Qualcomm clones (using ASR1802 or ZXIC) are now factory-configured to broadcast Wi-Fi SSIDs like `4G-UFI-88B1` and print "UFI" on the exterior casing. **The SSID name is no guarantee of Qualcomm hardware.**
+
+---
+
+### 3. Blacklisted Listings (Tested & Failed)
+
+The following specific marketplace listings have been tested and confirmed to deliver non-Qualcomm or incompatible hardware:
+
+| Platform | ASIN / Listing | Confirmed Hardware Inside | Notes / Status |
+| :--- | :--- | :--- | :--- |
+| **Amazon UK** | `B0H35FFSPZ` | Non-Qualcomm clone (ASR/ZXIC) | Incompatible clone (Do not buy) |
+| **Amazon UK** | `B0HGXCGQXG` | Non-Qualcomm clone | Incompatible clone (Do not buy) |
+| **Amazon UK** | `B07QHW6Q7J` | Generic ZTE / Huawei clone | Incompatible clone (Do not buy) |
+| **Amazon UK** | `B0CQZZ6PT5` | Non-Qualcomm clone with UFI shell | Incompatible clone (Do not buy) |
+| **Amazon UK** | `B0C8J256X9` | MediaTek MT6735 (HOSAYA MF904) | Incompatible with OpenStick Linux |
+
+---
+
+### 4. How to Inspect & What to Do if You Receive a Fake
+
+When your package arrives, **do not confirm receipt or throw away the box**:
+
+1. **Verify Without Disassembly (Recommended First Step)**:
+   - **ADB Check**: Plug into USB and test via terminal:
+     ```bash
+     adb devices
+     adb shell getprop ro.board.platform
+     ```
+     - **Pass**: Output returns `msm8916`.
+     - **Fail**: Output returns `asr1802`, `zx297520`, `sp9820e`, or error.
+   - **Web Admin Interface**: Clones (ASR, ZXIC) typically feature distinct web dashboards and default gateway IPs that differ from genuine Qualcomm units.
+   - **USB Hardware ID**: Check device manager or `lsusb` (Qualcomm devices use vendor ID `05c6`, while ASR/ZXIC use distinct manufacturer IDs).
+
+2. **Physical Inspection (For Your Own Confirmation)**:
+   - Modern wingles unclip easily with a fingernail or plastic spudger.
+   - Inspect the main processor package:
+     - **Genuine**: Must display the Qualcomm logo and laser-etched text `MSM8916`.
+     - **Fake / Clone**: Displays `ASR`, `ZXIC`, `Spreadtrum (Unisoc)`, or `MTK`.
+   - Inspect the flash memory chip:
+     - **Genuine eMMC**: Smooth, square BGA chip with hidden solder balls beneath.
+     - **Avoid**: Small 8-pin SOP-8 chip or chips with visible solder legs along the edges.
+   - **Important**: Snap the plastic casing cleanly back together once inspected.
+
+3. **Returning the Device (Best Practices)**:
+   - **Use the Standard 14-Day / 30-Day Return Window (Recommended)**:
+     - On Amazon, eBay, Allegro, and AliExpress ("Free Return" / "Choice"), return the device within the standard return period (e.g. 14 days in the EU/UK statutory cooling-off period, 30 days on Amazon).
+     - Select a standard return reason such as **"Performance or quality not adequate"**, **"Does not meet expectations"**, or **"Incompatible with my carrier/network"**.
+     - This gives you an automatic, hassle-free return label and refund without needing to prove technical fraud.
+   - ⚠️ **Do NOT submit photos of an opened modem or disassembled PCB**:
+     - Uploading photos of the internal PCB allows sellers or dispute arbitrators to claim you disassembled, modified, or damaged the unit, potentially voiding the return policy.
+     - Keep the casing intact when shipping it back.
+   - **If Filing an "Item Not as Described" Dispute**:
+     - If the standard return window has passed and you must file a formal counterfeit/mismatch dispute, rely on non-destructive evidence first (screenshots of ADB `getprop ro.board.platform` output, USB VID/PID, or web admin settings contrasting with the seller's Qualcomm claim).
+
+---
+
 ## 📢 How to Publish Your Store Link
 
 Bought a modem from a store not listed here? Help fellow makers find genuine hardware! We provide two simple ways to publish your link:
@@ -120,7 +240,7 @@ Bought a modem from a store not listed here? Help fellow makers find genuine har
 
 ## Community Guidelines for Submitting Links
 
-To maintain high data quality and protect community members from scams, all submitted store links must meet these criteria:
+To maintain high data quality and protect buyers from scams, all submitted store links must meet these criteria:
 
 1. **Clean Product URLs**: Strip all personal tracking and referral parameters (remove `?spm=...`, `&scm=...`, `&_gl=...`, etc.). Use clean canonical URLs (e.g. `https://www.aliexpress.com/item/1005012883269576.html`).
 2. **Motherboard & Silkscreen Verified**: You must open the plastic enclosure and inspect the PCB silkscreen (e.g. `UZ801_V3.31`, `UZ801_V3.0`, `HM-MIFIB_V18`).
