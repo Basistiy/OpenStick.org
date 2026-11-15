@@ -37,7 +37,7 @@ While three different open-source projects target Qualcomm Snapdragon 410 (**MSM
 | **4G LTE Cellular & Wi-Fi Hotspot** | ✅ **Built-in (`ModemManager` + `NetworkManager`)** | ⚠️ Often requires manual QMI / NCM packages | ✅ Supported via `ModemManager` |
 | **USB Ethernet Gadget (`RNDIS`)** | ✅ **Plug-and-play USB network card** | ⚠️ Requires custom USB gadget kmods | ✅ Supported |
 | **Standard Linux Packages (`apt`)** | ✅ **60,000+ standard ARM64 Debian `.deb` packages** | ❌ Limited router `opkg` packages | ⚠️ Alpine `apk` (`musl` breaks proprietary binaries) |
-| **Docker & Containers** | ✅ **Native support (especially on 1GB UFI003)** | ❌ Not designed for Docker workloads | ⚠️ Requires extra cgroup/OpenRC tuning |
+| **Docker & Containers** | ✅ **Supported (lightweight containers with swap)** | ❌ Not designed for Docker workloads | ⚠️ Requires extra cgroup/OpenRC tuning |
 | **Best Use Case** | **4G Travel Router + Pocket Debian Server + SMS Bot** | Pure basic routing only | Mobile/phone UI experimentation |
 
 ---
@@ -98,7 +98,7 @@ Want a web dashboard like OpenWrt's LuCI? Because you're running full Debian, yo
 2. **Flashing a specific board?**
    - **[UZ801 (`UZ801_V3.0` / `V3.31`) Flashing Guide](/boards/uz801/flashing/)**
    - **[UFI001B / UFI001C Flashing Guide](/boards/ufi001/flashing/)**
-   - **[UFI003 (1GB RAM / 8GB eMMC) Flashing Guide](/boards/ufi003/flashing/)**
+   - **[UFI003 Flashing Guide](/boards/ufi003/flashing/)**
    - **[HMUF02 (`HMUF02-V05`) Flashing Guide](/boards/hmuf02/flashing/)**
    - **[SP970 (`V3` / `V10`) Flashing Guide](/boards/sp970/flashing/)**
 3. **Need genuine hardware?**

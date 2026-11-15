@@ -17,7 +17,7 @@ You don't need Git or any local developer tools installed.
 1. **Find the Page**: Browse to the page on [openstick.org](https://openstick.org) that you want to improve.
 2. **Click "Edit this page"**: Scroll to the bottom and click the GitHub edit link.
 3. **Make Your Changes**: Edit the Markdown text directly inside GitHub's web editor.
-4. **Propose Changes**: Enter a short title explaining your fix (e.g., "Add UFI003 1GB RAM note"), and click **"Propose changes"**.
+4. **Propose Changes**: Enter a short title explaining your fix (e.g., "Add UFI003 test points note"), and click **"Propose changes"**.
 5. **Open Pull Request**: Click **"Create pull request"**.
 </Steps>
 

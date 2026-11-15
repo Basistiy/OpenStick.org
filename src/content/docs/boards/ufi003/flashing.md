@@ -1,15 +1,15 @@
 ---
-title: "UFI003 Flashing Guide: OpenStick Debian Linux & Docker Setup (1GB RAM)"
-description: "Step-by-step flashing guide for the 1GB RAM / 8GB eMMC UFI003 (UFI003_MB_V01/V02) flagship board: install OpenStick Debian Linux, lk2nd, and Docker."
+title: "UFI003 Flashing Guide: OpenStick Debian Linux Setup"
+description: "Step-by-step flashing guide for the UFI003 (UFI003_MB_V01/V02) board: install OpenStick Debian Linux and lk2nd bootloader."
 ---
 
-Because the **UFI003** features 1GB of RAM and 8GB of eMMC storage, flashing custom Linux operating systems turns it into a genuinely capable, production-ready micro-server.
+With its onboard physical EDL recovery push button, the **UFI003** is one of the easiest MSM8916 dongles to recover and flash with OpenStick Debian Linux.
 
 ---
 
 ## Prerequisites
 
-1. An authentic **UFI003 (MSM8916 with 1GB RAM and 8GB eMMC)** wingle.
+1. An authentic **UFI003 (MSM8916)** wingle.
 2. PC with `fastboot` and `adb` installed.
 3. Complete backup of modem partitions (`modemst1`, `modemst2`, `fsg`) — see [Safety & Backups](/getting-started/backup-safety/).
 4. Download the OpenStick release packages (`base.zip` and `debian.zip`).
@@ -39,7 +39,7 @@ fastboot devices
 
 ## Step 2: Flash the lk2nd Bootloader
 
-`lk2nd` detects the UFI003 board ID and configures the kernel for 1GB physical RAM address space:
+`lk2nd` detects the UFI003 board ID and properly configures hardware peripherals and clocks:
 
 ```bash
 # Flash lk2nd to boot partition
@@ -86,44 +86,36 @@ ssh user@192.168.68.1
 
 ---
 
-## Step 5: Expanding Storage & Verifying 1GB RAM
+## Step 5: Expanding Storage & Verifying Memory
 
-Verify that your system recognizes the full 1GB of RAM:
+Verify your system memory and storage:
 
 ```bash
 free -h
-# Output should show: ~980MiB Total RAM!
+# Standard factory UFI003 boards show ~480MiB Total RAM
 
-# Expand filesystem to fill the entire 8GB eMMC storage
+# Expand filesystem to fill the eMMC partition
 sudo resize2fs /dev/mmcblk0p20
 
 # Check available disk space
 df -h /
-# You will have approximately ~5.5 GB to 6.0 GB of free space!
 ```
 
 ---
 
-## Step 6: Installing Docker Engine
+## Step 6: Configuring Swap for Background Services
 
-Because the UFI003 has 1GB of RAM, it runs **Docker Engine** natively without running out of memory!
+Because factory UFI003 boards feature 512MB of RAM, configuring swap space or zram is essential before running Docker or background services:
 
 ```bash
-# Install Docker prerequisites
-sudo apt update
-sudo apt install -y ca-certificates curl gnupg lsb-release
+# Create a 1GB swapfile
+sudo fallocate -l 1G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
 
-# Add Docker's official GPG key and repository
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-echo "deb [arch=arm64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-# Install Docker Engine and Compose
-sudo apt update
-sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
-
-# Verify Docker is running
-sudo docker run --rm hello-world
+# Make swap persistent across reboots
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 ```
 
-You can now deploy lightweight Docker containers such as **Pi-hole**, **AdGuard Home**, or a **Node.js/Go backend** directly on your $12 USB stick!
+With swap enabled, the device can reliably run lightweight daemons, Tailscale VPN, Pi-hole, or Python bots without triggering Out-Of-Memory (OOM) kernel panics.

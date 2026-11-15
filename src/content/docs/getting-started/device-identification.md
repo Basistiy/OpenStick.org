@@ -51,9 +51,9 @@ Before attempting to flash, you must identify:
 
 ### UFI003
 - **Silkscreen**: `UFI003_MB_V01` / `V02`
-- **Specs**: MSM8916, 512MB or 1GB RAM, 4GB or 8GB eMMC.
-- **Features**: Often features upgraded 1GB RAM and 8GB eMMC, making it the most coveted board for running Docker and heavy Linux applications.
-- **Status**: **Highly Recommended**.
+- **Specs**: MSM8916, 512MB RAM, 4GB eMMC.
+- **Features**: Integrated physical push button for instant EDL 9008 recovery and an IPEX antenna connector. (Note: Online listings advertising "1GB RAM" are unverified false advertising).
+- **Status**: **Fully Supported**.
 
 ### UZ801
 - **Silkscreen**: `UZ801_V2.1`, `UZ801_V2.2`

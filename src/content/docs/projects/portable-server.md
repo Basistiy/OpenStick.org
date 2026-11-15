@@ -3,7 +3,7 @@ title: "Pocket Linux Server: Docker, Pi-hole & Tailscale on MSM8916"
 description: Turn your MSM8916 4G USB modem into an ultra-low-power pocket server running Docker containers, Pi-hole DNS ad-blocking, and Tailscale mesh VPN.
 ---
 
-With 4x ARM Cortex-A53 cores and up to 1GB RAM, an OpenStick modem running Debian or postmarketOS can effortlessly host lightweight microservices, ad-blockers, and VPN clients.
+With 4x ARM Cortex-A53 cores, an OpenStick modem running Debian or postmarketOS can effortlessly host lightweight microservices, ad-blockers, and VPN clients.
 
 ---
 
@@ -51,7 +51,7 @@ Now, your MSM8916 dongle is accessible from your laptop or phone anywhere in the
 
 ## 3. Running Docker Containers
 
-For modems equipped with **1 GB RAM** (e.g. UFI003 revisions), Docker provides a clean way to deploy microservices.
+While 512MB RAM modems require configured swap space, Docker provides a convenient way to deploy lightweight microservices.
 
 ### Installing Docker
 ```bash
@@ -63,7 +63,7 @@ sudo usermod -aG docker user
 ```
 
 ### Recommended Lightweight Containers
-Because RAM is limited (512MB–1GB), choose lightweight Alpine-based images:
+Because RAM is limited (typically 512MB), choose lightweight Alpine-based images:
 
 ```bash
 # Uptime Kuma (Server monitoring)
@@ -74,7 +74,7 @@ docker run -d --restart=always -p 8080:80 nginx:alpine
 ```
 
 ### Memory Optimization Tip: Enable zram
-To maximize RAM on 512MB/1GB devices, enable compressed RAM swap:
+To maximize RAM on 512MB devices, enable compressed RAM swap:
 ```bash
 sudo apt install -y zram-tools
 sudo tee /etc/default/zramswap << 'EOF'

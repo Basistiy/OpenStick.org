@@ -60,12 +60,12 @@ Before submitting a purchase link, ensure you have verified the following detail
    ```
    If standard partitions (`boot`, `system`, `modem`, `userdata`, `fsg`) exist as block devices, the unit is confirmed **eMMC**.
 
-5. **Verify RAM (Especially for UFI003 1GB claims)**:
+5. **Verify RAM**:
    ```bash
    adb shell cat /proc/meminfo | grep MemTotal
    ```
-   - Standard boards: `~480000 kB` (512 MB)
-   - Genuine UFI003: `~980000 kB` (1 GB)
+   - Standard boards (including retail UFI003): `~480000 kB` (512 MB)
+   - Note: Claims of factory 1GB RAM are unverified marketing myths; retail sticks sold as "1GB" almost universally report ~480000 kB.
 </Steps>
 
 ---
@@ -110,7 +110,7 @@ When adding or updating listings, use one of the following badges:
 In addition to the central Buying Guide, individual board guides also feature verified purchase links:
 - [UZ801 Buying Guide](/boards/uz801/buying/)
 - [HMUF02 Buying Guide](/boards/hmuf02/buying/)
-- [UFI003 Flagship Buying Guide](/boards/ufi003/buying/)
+- [UFI003 Buying Guide](/boards/ufi003/buying/)
 - [HM-MIFIB Buying Guide](/boards/hm-mifib/buying/)
 
 Feel free to update the tables on both the central buying guide and the dedicated board page!

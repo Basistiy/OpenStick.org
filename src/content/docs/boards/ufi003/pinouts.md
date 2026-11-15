@@ -1,6 +1,6 @@
 ---
 title: "UFI003 Pinouts: EDL 9008 Hardware Button, 1.8V UART & GPIO Map"
-description: "Hardware pinouts, onboard EDL 9008 recovery push button, 1.8V UART serial console, IPEX antenna socket, and GPIO map for the UFI003 (1GB RAM) OpenStick flagship."
+description: "Hardware pinouts, onboard EDL 9008 recovery push button, 1.8V UART serial console, IPEX antenna socket, and GPIO map for the UFI003 OpenStick board."
 ---
 
 A key quality-of-life feature of the **UFI003** is the inclusion of an **integrated physical push button** directly mounted on the PCB for entering EDL mode without requiring tweezers or wire jumpers.
@@ -19,7 +19,7 @@ A key quality-of-life feature of the **UFI003** is the inclusion of an **integra
    │                                                         │
    │        ┌─────────────────────────┐                      │
    │        │     MSM8916 SoC         │    [o] Hardware EDL  │
-   │        │     1GB RAM / 8GB eMMC  │        Push Button   │
+   │        │     512MB RAM / 4GB eMMC│        Push Button   │
    │        └─────────────────────────┘                      │
    │                                                         │
    │        ┌─────────────────────────┐                      │

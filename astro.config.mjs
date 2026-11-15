@@ -137,7 +137,7 @@ export default defineConfig({
           ],
         },
         {
-          label: 'UFI003 (1GB RAM Flagship)',
+          label: 'UFI003',
           items: [
             { label: 'Buying Guide & Identification', slug: 'boards/ufi003/buying' },
             { label: 'Pinouts & Test Points', slug: 'boards/ufi003/pinouts' },
