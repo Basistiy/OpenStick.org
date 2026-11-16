@@ -15,8 +15,8 @@ During the **2025–2026 AI boom hardware shortage**, standard single-board comp
 
 Makers and developers turned to the massive global supply of generic **\$5–\$10 4G LTE USB dongles** powered by the Qualcomm MSM8916:
 - **CPU**: Quad-core 64-bit ARM Cortex-A53 @ 1.2 GHz
-- **RAM**: 512 MB – 1 GB LPDDR3
-- **Storage**: 4 GB – 8 GB onboard high-speed eMMC (no SD card corruption!)
+- **RAM**: 512 MB LPDDR3
+- **Storage**: 4 GB onboard high-speed eMMC (no SD card corruption!)
 - **Connectivity**: Onboard 4G LTE Cat 4 modem + 2.4 GHz Wi-Fi + Bluetooth
 - **Form Factor**: Self-contained USB thumb drive with integrated power management
 

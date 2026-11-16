@@ -108,7 +108,7 @@ df -h /
 Because factory UFI003 boards feature 512MB of RAM, configuring swap space or zram is essential before running Docker or background services:
 
 ```bash
-# Create a 1GB swapfile
+# Create a swapfile for virtual memory
 sudo fallocate -l 1G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile

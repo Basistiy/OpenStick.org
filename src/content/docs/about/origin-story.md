@@ -17,8 +17,8 @@ However, beneath the low-cost plastic shell lay an unexpected piece of silicon: 
 
 Instead of a minimal microcontroller, these \$7 dongles were complete, highly capable computers:
 - **Four 64-bit ARM Cortex-A53 CPU cores** running at 1.2 GHz
-- **512 MB to 1 GB LPDDR3 RAM**
-- **4 GB to 8 GB high-speed onboard eMMC storage**
+- **512 MB LPDDR3 RAM**
+- **4 GB high-speed onboard eMMC storage**
 - **Onboard Qualcomm 2.4 GHz Wi-Fi & Bluetooth** (WCN3620/WCN3660)
 - **Qualcomm Snapdragon X5 LTE Cat 4 modem**
 - **Integrated PMIC (PM8916)** managing voltage rails, battery charging, and power states
@@ -64,8 +64,8 @@ Makers, IoT developers, and hobbyists needed affordable hardware, and they turne
 | **Typical Cost** | \$15 MSRP (Often \$50+ during shortages) | **\$5 – \$12** |
 | **Availability** | Backordered / Scalped | Millions in surplus stock worldwide |
 | **CPU Microarchitecture** | 4x ARM Cortex-A53 @ 1.0 GHz | **4x ARM Cortex-A53 @ 1.2 GHz** |
-| **RAM** | 512 MB LPDDR2 | 512 MB – 1 GB LPDDR3 |
-| **Storage Solution** | External microSD required (\$5–\$10 extra) | **4 GB – 8 GB onboard high-speed eMMC included** |
+| **RAM** | 512 MB LPDDR2 | **512 MB LPDDR3** |
+| **Storage Solution** | External microSD required (\$5–\$10 extra) | **4 GB onboard high-speed eMMC included** |
 | **Cellular Connectivity** | None (requires \$40+ USB modem or HAT) | **Built-in 4G LTE Cat 4 + Micro/Nano SIM slot** |
 | **Wi-Fi & Bluetooth** | 2.4 GHz 802.11b/g/n + BT 4.2 | 2.4 GHz 802.11b/g/n + BT 4.0 |
 | **Power & Enclosure** | Bare board, 5V micro-USB cable needed | **Full protective plastic case + USB-A plug** |

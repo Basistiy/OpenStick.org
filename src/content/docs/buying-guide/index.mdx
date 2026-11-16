@@ -150,10 +150,10 @@ Qualcomm Snapdragon 410 (MSM8916) was engineered in 2014–2015. It physically s
 
 The MSM8916 supports **neither 5G cellular networks nor 5GHz Wi-Fi bands**. Any listing advertising "5G", "5G High Speed", or "Dual-Band 5GHz" is either false advertising or contains a completely different non-Qualcomm chip.
 
-#### ❌ Trap 2: The "1GB RAM / 8GB ROM" Myth (The UFI003 Unicorn)
-While the community values the theoretical UFI003 1GB specification, **99.9% of sticks sold online today are 512MB RAM and 4GB eMMC**. 
+#### ❌ Trap 2: The Fake "1GB RAM / 8GB ROM" Myth
+There is **no verified factory-manufactured 1GB RAM MSM8916 stick in the wild**. All mass-produced retail dongles (UZ801, UFI001B, UFI003, HMUF02, SP970) are **512MB RAM and 4GB eMMC**. 
 
-Many sellers artificially modify factory Android properties (`ro.ram.size`, `ro.build.version`) to deceive diagnostic apps and display "1GB" or "2GB" in the browser settings. **Do not pay extra premiums for listings claiming 1GB or 2GB RAM** unless confirmed by the community with genuine Linux `/proc/meminfo` or `free -m` readings.
+Many sellers artificially modify factory Android properties (`ro.ram.size`, `ro.build.version`) to deceive diagnostic apps and display "1GB" or "2GB" in the browser settings. **Do not pay extra premiums for listings claiming 1GB or 2GB RAM**—they are standard 512MB devices (the only 1GB units in existence are custom DIY BGA chips swapped by hobbyists).
 
 #### ❌ Trap 3: The "4G-UFI-XXXX" SSID Trick
 Cloners know that enthusiasts search for "UFI" dongles. Modern non-Qualcomm clones (using ASR1802 or ZXIC) are now factory-configured to broadcast Wi-Fi SSIDs like `4G-UFI-88B1` and print "UFI" on the exterior casing. **The SSID name is no guarantee of Qualcomm hardware.**
