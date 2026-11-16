@@ -50,8 +50,8 @@ export const redirectLinks: Record<string, RedirectLink> = {
   },
   'hm-mifib-allegro': {
     slug: 'hm-mifib-allegro',
-    target: 'https://allegro.pl/oferta/przenosny-mobilny-router-wifi-4g-lte-wifi-sim-play-plus-t-mobile-orange-18917774623',
-    title: 'Przenośny Router Wi-Fi 4G LTE SIM (Allegro)',
+    target: 'https://allegro.pl/oferta/kieszonkowy-4g-wifi-mobilny-router-wi-fi-podrozny-hotspot-wifi-router-18100376161?utm_medium=afiliacja&utm_source=ctr_2&utm_campaign=fa0b0be0-b5e4-4e68-90d8-05c146d25a14&utm_content=1aea65e2640b#',
+    title: 'Kieszonkowy 4G WiFi Mobilny Router (Allegro)',
     device: 'HM-MIFIB',
     platform: 'Allegro',
     silkscreen: 'HM-MIFIB_V18',
