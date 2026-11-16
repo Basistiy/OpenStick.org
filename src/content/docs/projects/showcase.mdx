@@ -53,7 +53,7 @@ Discover what makers and engineers around the world have built with their \$5–
 
   <Card title="📻 RTL-SDR ADS-B Aircraft Tracker" icon="signal">
     Use USB Host mode to connect an RTL-SDR tuner, tracking overhead flights with `dump1090` and feeding data over cellular to FlightRadar24.
-    <br/>👉 *Community contribution welcome!*
+    <br/>👉 **[View Build Guide](#5-rtl-sdr-ads-b-flight-tracking--radio-astronomy)**
   </Card>
 
   <Card title="🌐 OPNsense 4G Cellular Backup WAN" icon="seti:docker">
@@ -133,6 +133,20 @@ Created by **[Tall Paul Tech](https://www.youtube.com/@TallPaulTech)**, this bui
   title="Portable Linux cheaper than a Raspberry Pi (UZ801 4G Gateway for OPNsense)"
   uploadDate="2026-11-10T16:47:08Z"
 />
+
+---
+
+### 5. RTL-SDR, ADS-B Flight Tracking & Radio Astronomy
+
+Created by **[@bkb3](https://github.com/bkb3)**, this project demonstrates how to turn an MSM8916 dongle into a lightweight, low-power ADS-B aircraft receiver using RTL-SDR, with potential for radio astronomy (such as 21cm Hydrogen line observation).
+
+- **Hardware**: Qualcomm MSM8916 LTE USB Dongle running OpenStick Debian
+- **Radio**: RTL-SDR USB Dongle (e.g., RTL-SDR Blog V3/V4 or Nooelec NESDR)
+- **Antenna**: 1090 MHz ADS-B Antenna (PCB patch antenna)
+- **Power & Connectivity**: Powered USB OTG Y-splitter cable (data + external 5V power injection) and a reliable 5V phone charger
+- **Software**: `readsb` (ADS-B decoder), `tar1090` (live web map), and `graphs1090` (performance stats)
+
+👉 **[View Full Setup Guide on GitHub](https://github.com/bkb3/ADS-B-on-OpenStick-MSM8916/)**
 
 ---
 
