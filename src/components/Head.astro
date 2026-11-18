@@ -155,3 +155,61 @@ const structuredData = {
 <meta property="og:image:alt" content={title} />
 <meta name="twitter:image" content="https://openstick.org/og-image.png" />
 <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<script is:inline>
+  (function () {
+    function detectOS() {
+      const nav = navigator;
+      if (nav.userAgentData && nav.userAgentData.platform) {
+        const p = nav.userAgentData.platform.toLowerCase();
+        if (p.includes('win')) return 'Windows';
+        if (p.includes('mac')) return 'macOS';
+        if (p.includes('linux')) return 'Linux';
+        if (p.includes('android')) return 'Android';
+        if (p.includes('chrome')) return 'ChromeOS';
+      }
+
+      const ua = (nav.userAgent || '').toLowerCase();
+      const platform = (nav.platform || '').toLowerCase();
+
+      if (ua.includes('win') || platform.includes('win')) return 'Windows';
+      if (ua.includes('mac') || platform.includes('mac')) {
+        return (ua.includes('iphone') || ua.includes('ipad') || (ua.includes('mac') && nav.maxTouchPoints > 1))
+          ? 'iOS'
+          : 'macOS';
+      }
+      if (ua.includes('android')) return 'Android';
+      if (ua.includes('cros')) return 'ChromeOS';
+      if (ua.includes('linux') || platform.includes('linux')) return 'Linux';
+
+      return 'Unknown';
+    }
+
+    function handleDownloadClick(e) {
+      const link = e.target && e.target.closest ? e.target.closest('a') : null;
+      if (!link || !link.href) return;
+
+      const href = link.href.toLowerCase();
+      if (
+        href.includes('openstick-installer.zip') ||
+        href.includes('/openstick-installer/releases/latest/download/') ||
+        href.includes('/openstick-installer/releases/download/')
+      ) {
+        const fileName = link.href.split('/').pop().split('?')[0] || 'openstick-installer.zip';
+        try {
+          if (window.umami && typeof window.umami.track === 'function') {
+            window.umami.track('download-click', {
+              file: fileName,
+              os: detectOS(),
+              page: window.location.pathname,
+            });
+          }
+        } catch (err) {
+          // Fail gracefully without interrupting the user's download
+        }
+      }
+    }
+
+    document.addEventListener('click', handleDownloadClick, { capture: true });
+    document.addEventListener('auxclick', handleDownloadClick, { capture: true });
+  })();
+</script>
