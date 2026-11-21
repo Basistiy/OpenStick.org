@@ -48,6 +48,14 @@ export const redirectLinks: Record<string, RedirectLink> = {
     platform: 'Allegro',
     silkscreen: 'UZ801_V3.0',
   },
+  'hm-mifib-aliexpress-1': {
+    slug: 'hm-mifib-aliexpress-1',
+    target: 'https://www.aliexpress.com/item/1005012976155217.html',
+    title: 'HM-MIFIB 4G WiFi Router with Display (AliExpress - Store 1)',
+    device: 'HM-MIFIB',
+    platform: 'AliExpress',
+    silkscreen: 'M9S (~317MB RAM)',
+  },
   'hm-mifib-allegro': {
     slug: 'hm-mifib-allegro',
     target: 'https://allegro.pl/oferta/kieszonkowy-4g-wifi-mobilny-router-wi-fi-podrozny-hotspot-wifi-router-18100376161?utm_medium=afiliacja&utm_source=ctr_2&utm_campaign=fa0b0be0-b5e4-4e68-90d8-05c146d25a14&utm_content=1aea65e2640b#',
