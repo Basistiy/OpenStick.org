@@ -55,7 +55,9 @@ The battery connector features 3 gold leaf-spring contacts:
 
 ## 2. Color TFT LCD Display Connections
 
-The onboard 1.44-inch color LCD display is driven by an **ST7735S** or **ILI9163** controller connected over the Snapdragon 410's high-speed SPI bus (BLSP):
+The onboard 1.44-inch color LCD display is driven by an **ST7735S**, **ILI9163**, or **NV3023A** controller connected over the Snapdragon 410's SPI bus (BLSP).
+
+### Standard Revision (V10 / V12 / V18):
 
 | Display Line | Connected SoC Pin | Description |
 | :--- | :--- | :--- |
@@ -65,6 +67,22 @@ The onboard 1.44-inch color LCD display is driven by an **ST7735S** or **ILI9163
 | **D/C (A0)** | GPIO 115 | Data / Command register select |
 | **RESET** | GPIO 114 | Hardware display reset line |
 | **BACKLIGHT** | PMIC LDO / GPIO 113 | Display LED backlight brightness (PWM) |
+
+### Alternative Revision (HM-MIFIB v50 / JZ08C_V50 / H807pro):
+
+On newer `HM-MIFIB v50` and `JZ08C` boards, the display is routed to **BLSP1 QUP4** (`spi@78b8000`):
+
+| Signal | Connected SoC Pin | Description |
+| :--- | :--- | :--- |
+| **SPI MOSI / SDA** | **GPIO 12** | Bidirectional serial data line |
+| **SPI MISO** | **GPIO 13** | Listed in stock DT (typically unread on 3-wire panels) |
+| **SPI CS** | **GPIO 14** | Chip Select (Active Low) |
+| **SPI CLK** | **GPIO 15** | Serial Clock (SPI mode 0) |
+| **D/C (A0)** | **GPIO 116** | High = Data, Low = Command |
+| **RESET** | **GPIO 118** | Hardware Reset (Active Low) |
+| **BACKLIGHT** | **PM8916 MPP4** | Managed via PMIC current sink (`lcd-bl`) |
+
+Stock Android firmware detects the panel at boot: **ST7735S** (`wx144`) or **NV3023A** (`jz05`). [See the full JZ08C Guide](/boards/jz08c/) for devicetree details.
 
 ---
 

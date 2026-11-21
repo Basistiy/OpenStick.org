@@ -43,7 +43,7 @@ Opening the plastic housing reveals the motherboard silkscreen:
 
 - **`UFI001B_MB_V01`**: The earliest reference revision.
 - **`UFI001B_MB_V02`**: Enhanced ground shielding and improved thermal dissipation.
-- **`UFI001C`**: Compact revision with updated power inductors and slightly altered RF routing.
+- **`UFI001C`** / **`UFI001C_MB_V01`**: Compact revision with updated power inductors and slightly altered RF routing. Often mounted inside an inner bracket marked `KPS-JZ01-45-MA-V` and referenced in community posts as `JZ01_V1` or `UF1001C`.
 
 The central chip must be labeled **`MSM8916`** with the Qualcomm logo.
 

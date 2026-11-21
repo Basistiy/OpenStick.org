@@ -73,3 +73,25 @@ The HMUF02 uses a very small onboard ceramic chip antenna for 4G LTE. In indoor 
 
 ### Fix / Workaround:
 Solder a 5cm IPEX/u.FL coaxial pigtail to the antenna feed pad near the edge of the board (see [HMUF02 Pinouts](/boards/hmuf02/pinouts/)) and attach an external 3dBi or 5dBi rubber ducky antenna. Community tests report an immediate **15–20 dBm improvement in RSRP signal quality**.
+
+---
+
+## 5. Physical SIM Slot Behind Internal Switch (`esim1_en` GPIO 119)
+
+### The Issue:
+On certain HMUF02 hardware batches running standard OpenStick Debian kernels, the modem continuously reports `sim-missing` via `mmcli -m 0`, even when an activated physical Micro-SIM card is inserted into the slot. This occurs because the hardware routes the physical SIM lines through an onboard electronic switch controlled by signal `esim1_en` (GPIO 119), which Debian leaves in an un-asserted state by default.
+
+### Fix / Workaround:
+Export GPIO 119, drive it high to close the physical SIM circuit, and restart `ModemManager`:
+
+```bash
+# Enable the SIM circuit switch via GPIO 119
+echo 119 > /sys/class/gpio/export 2>/dev/null || true
+echo out > /sys/class/gpio/gpio119/direction
+echo 1 > /sys/class/gpio/gpio119/value
+
+# Restart ModemManager to re-probe the SIM card
+sudo systemctl restart ModemManager
+```
+
+To persist this fix across reboots, add the commands to `/etc/rc.local` or create a simple oneshot systemd service running before `ModemManager.service`.

@@ -169,6 +169,14 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Emerging & Community Boards',
+          items: [
+            { label: 'JZ0145 (XiaoXun)', slug: 'boards/jz0145' },
+            { label: 'UFI103S', slug: 'boards/ufi103s' },
+            { label: 'JZ08C (H807pro MiFi)', slug: 'boards/jz08c' },
+          ],
+        },
+        {
           label: 'Community Projects',
           items: [
             { label: 'Projects Showcase', slug: 'projects/showcase' },
