@@ -63,4 +63,4 @@ npm run build
 ## Join the Community Chat
 
 Have questions, want to discuss a new board discovery, or want feedback before submitting documentation?
-Join the official OpenStick Telegram group: **[t.me/openstick_org](https://t.me/openstick_org)**.
+Join the community chat across **[Discord (discord.gg/92gfPYV7B)](https://discord.gg/92gfPYV7B)** or the **[Telegram Group (t.me/openstick_org)](https://t.me/openstick_org)** (both channels are linked in real-time).

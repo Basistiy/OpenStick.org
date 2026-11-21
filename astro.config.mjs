@@ -59,6 +59,11 @@ export default defineConfig({
           label: 'Telegram',
           href: 'https://t.me/openstick_org',
         },
+        {
+          icon: 'discord',
+          label: 'Discord',
+          href: 'https://discord.gg/92gfPYV7B',
+        },
       ],
       editLink: {
         baseUrl: 'https://github.com/Basistiy/OpenStick.org/edit/main/',

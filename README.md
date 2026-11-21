@@ -3,6 +3,7 @@
 [![Deploy to GitHub Pages](https://github.com/Basistiy/OpenStick.org/actions/workflows/deploy.yml/badge.svg)](https://github.com/Basistiy/OpenStick.org/actions/workflows/deploy.yml)
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 [![Telegram](https://img.shields.io/badge/Telegram-Chat-blue.svg?logo=telegram)](https://t.me/openstick_org)
+[![Discord](https://img.shields.io/badge/Discord-Community-5865F2.svg?logo=discord&logoColor=white)](https://discord.gg/92gfPYV7B)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 The official community documentation, modding, and project hub for **Qualcomm Snapdragon 410 (MSM8916) 4G LTE USB modems & wingles**, hosted at [openstick.org](https://openstick.org).
@@ -26,8 +27,9 @@ Makers and developers turned to the massive global supply of generic **\$5–\$1
 
 ## 💬 Community
 
-Join the live Telegram discussion group to ask questions, verify board clones from PCB photos, and share your setups:
-👉 **[t.me/openstick_org](https://t.me/openstick_org)**
+Join our community across Telegram or Discord (both are bridged in real time) to ask questions, verify board clones from PCB photos, and share your setups:
+- 👉 **Discord Server:** [discord.gg/92gfPYV7B](https://discord.gg/92gfPYV7B)
+- 👉 **Telegram Chat:** [t.me/openstick_org](https://t.me/openstick_org)
 
 ---
 
