@@ -97,3 +97,11 @@ The OpenStick automated 1-Click installer is actively working to incorporate nat
 * **Exterior**: Packaging and plastic casing appear nearly identical to the UFI003.
 * **Firmware ID**: The stock web admin page reports `"UFI103"` instead of `"UFI003"`.
 * **Partition Layout**: Uses slightly different partition offsets from reference UFI001/UFI003 images, which is why flashing an unmodified UZ801/UFI003 image may cause SIM detection or boot issues.
+
+---
+
+## Community-Verified Store Links
+
+| Platform | Listing Link | Confirmed Silkscreen | Verified By | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **AliExpress** | [UFI103S 4G LTE USB Modem Dongle](/go/ufi103s-aliexpress-1) | `UFI103S_V03` ("Red Box Item") | 황지훈 | <Badge text="Confirmed" variant="success" /> |
