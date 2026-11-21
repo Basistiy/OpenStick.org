@@ -54,7 +54,7 @@ export const redirectLinks: Record<string, RedirectLink> = {
     title: 'HM-MIFIB 4G WiFi Router with Display (AliExpress - Store 1)',
     device: 'HM-MIFIB',
     platform: 'AliExpress',
-    silkscreen: 'M9S (~317MB RAM)',
+    silkscreen: 'Not Checked (M9S option)',
   },
   'hm-mifib-allegro': {
     slug: 'hm-mifib-allegro',
